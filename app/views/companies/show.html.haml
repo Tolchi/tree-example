@@ -1,0 +1,25 @@
+- model_class = @company.class
+%h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = @company.name
+%p
+  %strong= model_class.human_attribute_name(:direccion) + ':'
+  %br
+  = @company.direccion
+%p
+  %strong= model_class.human_attribute_name(:tel) + ':'
+  %br
+  = @company.tel
+%p
+  %strong= model_class.human_attribute_name(:category_id) + ':'
+  %br
+  - cat_id = @company.category_id
+  = link_to Category.find(cat_id).name, :action => "show", :controller => "categories", :id => cat_id
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), companies_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(@company), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(@company), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'

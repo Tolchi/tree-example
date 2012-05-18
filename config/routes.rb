@@ -1,5 +1,12 @@
 TreeExample::Application.routes.draw do
-  resources :categories
+  resources :companies
+
+  resources :categories do
+    collection do
+      get :manage
+      post :rebuild
+    end
+  end
 
   authenticated :user do
     root :to => 'home#index'

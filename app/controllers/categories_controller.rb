@@ -1,14 +1,15 @@
 class CategoriesController < ApplicationController
+  include TheSortableTreeController::Rebuild
   # GET /categories
   # GET /categories.json
   def index
-    #@categories = Category.all
-    @categories = Category.paginate(:page => params[:page], :per_page => 15)
+    @categories = Category.all
+    #@categories = Category.paginate(:page => params[:page], :per_page => 15)
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @categories }
-    end
+    #respond_to do |format|
+    #  format.html # index.html.erb
+    #  format.json { render json: @categories }
+    #end
   end
 
   # GET /categories/1
@@ -80,6 +81,10 @@ class CategoriesController < ApplicationController
       format.html { redirect_to categories_url }
       format.json { head :no_content }
     end
+  end
+
+  def manage
+    @categories = Category.nested_set.all
   end
   
 end
