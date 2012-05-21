@@ -2,7 +2,9 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    @q = Company.search(params[:q])
+    @companies = @q.result(:distint => true)
+    #@companies = Company.all
 
     respond_to do |format|
       format.html # index.html.erb

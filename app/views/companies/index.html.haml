@@ -1,5 +1,10 @@
 - model_class = Company.new.class
 %h1=t '.title', :default => model_class.model_name.human.pluralize
+= search_form_for @q, :builder => SimpleForm::FormBuilder, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :name_cont, :label => '회사이름 또는 상호'
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    = link_to t('.cacel', :default => t("helpers.links.cancel")), companies_path, :class => 'btn'
 %table.table.table-striped
   %thead
     %tr

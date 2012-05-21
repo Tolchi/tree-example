@@ -20,6 +20,15 @@
         %li
           = link_to node.name, :controller => "categories", :action => "show", :id => node.id
           = child
+%p
+  - @companies = Company.find_all_by_category_id(@category.id)
+  - unless @companies.size == 0
+    %p
+      %strong 회사 또는 상호
+    %ul
+    - @companies.each do |c|
+      %li
+        = link_to c.name, :controller => "companies", :action => "show", :id => c.id
 
 .form-actions
   = link_to t('.back', :default => t("helpers.links.back")), categories_path, :class => 'btn'

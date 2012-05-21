@@ -26,7 +26,9 @@
       .container
         .content
           .row
-            .span12
+            .span2
+              = render 'layouts/categories'
+            .span10
               = render 'layouts/messages'
               = yield
           %footer
