@@ -6,10 +6,10 @@ class CategoriesController < ApplicationController
     @categories = Category.all
     #@categories = Category.paginate(:page => params[:page], :per_page => 15)
 
-    #respond_to do |format|
-    #  format.html # index.html.erb
-    #  format.json { render json: @categories }
-    #end
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @categories }
+    end
   end
 
   # GET /categories/1

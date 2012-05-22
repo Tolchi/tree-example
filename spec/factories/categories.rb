@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: categories
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  parent_id  :integer
+#  lft        :integer
+#  rgt        :integer
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#
+
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do

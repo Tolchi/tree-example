@@ -30,7 +30,9 @@
       %li
         = link_to c.name, :controller => "companies", :action => "show", :id => c.id
 
-.form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), categories_path, :class => 'btn'
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_category_path(@category), :class => 'btn'
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), category_path(@category), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
+- if not current_user.nil? and current_user.has_role? :admin
+  .form-actions
+    = link_to t('.back', :default => t("helpers.links.back")), categories_path, :class => 'btn'
+    - if not current_user.nil? and current_user.has_role? :admin
+      = link_to t('.edit', :default => t("helpers.links.edit")), edit_category_path(@category), :class => 'btn'
+    = link_to t('.destroy', :default => t("helpers.links.destroy")), category_path(@category), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
