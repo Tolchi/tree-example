@@ -30,7 +30,7 @@
       %li
         = link_to c.name, :controller => "companies", :action => "show", :id => c.id
 
-- if not current_user.nil? and current_user.has_role? :admin
+- if user_signed_in? and current_user.has_role? :admin
   .form-actions
     = link_to t('.back', :default => t("helpers.links.back")), categories_path, :class => 'btn'
     - if not current_user.nil? and current_user.has_role? :admin

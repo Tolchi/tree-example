@@ -19,7 +19,7 @@
   - cat_id = @company.category_id
   = link_to Category.find(cat_id).name, :action => "show", :controller => "categories", :id => cat_id
 
-- if not current_user.nil? and current_user.has_role? :admin
+- if user_signed_in? and current_user.has_role? :admin
   .form-actions
     = link_to t('.back', :default => t("helpers.links.back")), companies_path, :class => 'btn'
     = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(@company), :class => 'btn'

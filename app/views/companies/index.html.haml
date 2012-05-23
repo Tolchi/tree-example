@@ -5,17 +5,17 @@
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cacel', :default => t("helpers.links.cancel")), companies_path, :class => 'btn'
-- is_admin = (not current_user.nil? and current_user.has_role? :admin)
+- is_admin = (user_signed_in? and current_user.has_role? :admin)
 - if is_admin
   = link_to t('.new', :default => t("helpers.links.new")), new_company_path, :class => 'btn btn-primary'
 = will_paginate @companies
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:name)
-      %th= model_class.human_attribute_name(:direccion)
+      %th= sort_link @q,:name 
+      %th= sort_link @q, :direccion
       %th= model_class.human_attribute_name(:tel)
-      %th= Category
+      %th= sort_link @q, :category_id
       - if is_admin
         %th=t '.actions', :default => t("helpers.actions")
   %tbody

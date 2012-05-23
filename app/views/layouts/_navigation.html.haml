@@ -19,4 +19,5 @@
       %li
         = link_to('Sign up', new_user_registration_path)
     %li= link_to '회사', companies_path
-    %li= link_to '카테고리', categories_path
+    - if user_signed_in? and current_user.has_role? :admin
+      %li= link_to '카테고리', categories_path
