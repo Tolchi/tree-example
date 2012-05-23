@@ -4,7 +4,8 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @q = Company.search(params[:q])
-    @companies = @q.result(:distint => true)
+    @q.sorts = 'name asc' if @q.sorts.empty?
+    @companies = @q.result.paginate(:page => params[:page], :per_page => 20)
     #@companies = Company.all
 
     respond_to do |format|

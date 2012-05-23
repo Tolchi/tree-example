@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
-  validates_presence_of :name
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :email, presence: true
   validates_uniqueness_of :name, :email, :case_sensitive => false
 	rolify
 end

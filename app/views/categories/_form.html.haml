@@ -1,7 +1,7 @@
 = simple_form_for @category, :html => { :class => 'form-horizontal' } do |f|
   = f.input :name
   = f.input :parent_id do
-    = f.select :parent_id, nested_set_options(Category, @category) {|i, level| "#{'-' * level} #{i.name}" }, :include_blank => true
+    = f.select :parent_id, sorted_nested_set_options(Category, lambda(&:name)) {|i, level| "#{'-' * level} #{i.name}" }, :include_blank => true
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), categories_path, :class => 'btn'

@@ -17,4 +17,5 @@ class Category < ActiveRecord::Base
   include TheSortableTree::Scopes
   has_many :companies
   resourcify
+  validates :name, presence: true, uniqueness: true
 end

@@ -29,3 +29,4 @@ gem "squeel"
 gem "cancan"
 gem "rolify"
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git', :group => :development
+gem 'font-awesome-rails'

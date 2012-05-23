@@ -15,4 +15,6 @@ class Company < ActiveRecord::Base
   attr_accessible :category_id, :direccion, :name, :tel
   belongs_to :category
   resourcify
+  validates_presence_of :name, :direccion, :category_id
+  validates_uniqueness_of :name
 end

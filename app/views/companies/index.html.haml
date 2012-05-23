@@ -5,21 +5,22 @@
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cacel', :default => t("helpers.links.cancel")), companies_path, :class => 'btn'
+- is_admin = (not current_user.nil? and current_user.has_role? :admin)
+- if is_admin
+  = link_to t('.new', :default => t("helpers.links.new")), new_company_path, :class => 'btn btn-primary'
+= will_paginate @companies
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
       %th= model_class.human_attribute_name(:name)
       %th= model_class.human_attribute_name(:direccion)
       %th= model_class.human_attribute_name(:tel)
       %th= Category
-      - is_admin = (not current_user.nil? and current_user.has_role? :admin)
       - if is_admin
         %th=t '.actions', :default => t("helpers.actions")
   %tbody
     - @companies.each do |company|
       %tr
-        %td= company.id
         %td= link_to company.name, company_path(company)
         %td= company.direccion
         %td= company.tel
@@ -30,5 +31,3 @@
             = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(company), :class => 'btn btn-mini'
             = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(company), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
 
-- if is_admin
-  = link_to t('.new', :default => t("helpers.links.new")), new_company_path, :class => 'btn btn-primary'
