@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   include TheSortableTreeController::Rebuild
+  load_and_authorize_resource
   # GET /categories
   # GET /categories.json
   def index
