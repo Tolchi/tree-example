@@ -3,9 +3,11 @@
   %span.icon-bar
   %span.icon-bar
 
-= link_to "Tree Example", root_path, :class => 'brand'
+= link_to "Argentina 한인 네트워크", root_path, :class => 'brand'
 .nav-collapse
   %ul.nav
+    %li{:class => "active"}
+      = link_to '홈', root_path
     - if user_signed_in?
       %li
         = link_to('Logout', destroy_user_session_path, :method=>'delete')

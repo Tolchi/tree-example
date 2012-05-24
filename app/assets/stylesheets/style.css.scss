@@ -1,0 +1,271 @@
+﻿		* { margin: 0; padding: 0; }
+		
+		/* -------------- classes for different background styles --------------- */
+	
+		.bg1 { background-color: #57373b; } /* 레드 */
+		.bg2 { background-color: #37573d; } /* 그린 */
+		.bg3 { background-color: #375157; } /* 블루 */
+		.bg4 { background-color: #393757; } /* 바이올렛 */
+		.bg5 { background-color: #513757; } /* 퍼플 */
+		.bg6 { background-color: #574037; } /* 브라운 */
+		.bg7 { background-color: #575537; } /* 설사 */
+		.bg8 { background-color: #8e1d00; } /* 비빋레드 */
+		.bg9 { background-color: #a46200; } /* 비빋오렌지 */
+		.bg10 { background-color: #000; } /* 블랙 */
+		body {
+      color: #828282;
+      background-color: #fff;
+} /* 기본 배경 블랙 */
+		
+		/* ---------------------------------------------------------------------- */
+		
+		.clear, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten{ cursor: pointer; } /* 마우스 올렸을때 포인터로 나오게 만들기 */
+		
+ 
+		ul#icons li {
+	list-style: none;
+	border-radius: 5px;
+}
+		
+		ul#icons li.ten { width: 30px; height: 30px; background-color: #000; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 블랙 */
+		ul#icons li.nine { width: 30px; height: 30px; background-color: #a46200; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 비빋오렌지 */
+		ul#icons li.eight { width: 30px; height: 30px; background-color: #8e1d00; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 비빋레드 */
+		ul#icons li.seven { width: 30px; height: 30px; background-color: #575537; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 설사 */
+		ul#icons li.six { width: 30px; height: 30px; background-color: #574037; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 브라운 */
+		ul#icons li.five { width: 30px; height: 30px; background-color: #513757; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 퍼플 */
+		ul#icons li.four { width: 30px; height: 30px; background-color: #393757; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 바이올렛 */
+		ul#icons li.three { width: 30px; height: 30px; background-color: #375157; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 블루 */
+		ul#icons li.two { width: 30px; height: 30px; background-color:#37573d; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 그린 */
+		ul#icons li.one { width: 30px; height: 30px; background-color:#57373b; margin-left:10px;  border: solid 1px #000; float:left;} /*버튼 레드 */
+	
+	 
+	
+.whiteletters {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #FFF;
+	text-align: center;
+}
+.category_separator {
+	background-image: url(../../haninnet%20white/img/category%20space.png);
+	background-repeat: no-repeat;
+}
+.gray14lightbullet {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #7F7F7F;
+	background-image: url(../../haninnet%20white/img/bullet.png);
+	background-repeat: no-repeat;
+	background-position: left 5px;
+	text-indent: 13px;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #7F7F7F;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	padding-bottom: 2px;
+	margin-left: -20px;
+	float: left;
+	height: 20px;
+	width: 150px;
+	margin-right: 20px;
+}
+.gray14light {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #7F7F7F;
+}
+.gray10light {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #7F7F7F;
+}
+
+.gray14bold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #7F7F7F;
+}
+.gray11bold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #7F7F7F;
+}
+#background {
+	background-image: url('bg_gray.png');
+	float: left;
+	height: 350px;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.thumbnail60px {
+	float: left;
+	height: 60px;
+	width: 60px;
+}
+.topcategory {
+	float: left;
+	width: 150px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+.breadbox {
+	float: left;
+	width: 100%;
+	margin-bottom: 20px;
+	margin-left: 10px;
+}
+.thumbnail25px {
+	height: 25px;
+	width: 25px;
+}
+.thumbnail25pxbox {
+	float: left;
+	height: 35px;
+	width: 140px;
+}
+.category_title {
+	float: left;
+	height: 20px;
+	width: 95%;
+	margin-bottom: 30px;
+	margin-left: 20px;
+	padding-left: 10px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #0099ff;
+}
+a {
+  color: #000;
+}
+a:hover {
+  color: #ff7930;
+}
+p {
+  padding: 1px;
+  margin: 0px;
+}
+ul, ol {
+  margin: 0;
+}
+ul {
+  display: inline;
+}
+.navbar-inner {
+  background-color: #00a0e3;
+}
+.modal-footer {
+  background-color: #000;
+}
+.thumbnails > li {
+  display: inline;
+}
+.thumbnail {
+  margin-top: 10px;
+}
+.container .row .span12 .span3 .thumbnail li {
+  display: inline;
+  bottom: 0px;
+  width: 100%;
+}
+.thumbnail > img {
+  margin-left: auto;
+}
+.footer {
+  clear: both;
+  height: 150px;
+  margin-top: -150px;
+  padding-top: 20px;
+  position: relative;
+  text-align: center;
+}
+#wrap {
+  margin-top: 100px;
+}
+#main {
+  overflow: auto;
+  padding-bottom: 150px;
+}
+@media (min-width: 768px) and (max-width: 979px) {
+  .span3news {
+    width: 154px;
+    margin-left: 0px;
+  }
+  .span2-5 {
+    width: 135px;
+  }
+}
+@media (min-width: 1200px) {
+  .span3news {
+    width: 258px;
+    margin-left: 0px;
+  }
+  .span2-5 {
+    .width: 220px;
+  }
+  .span2list {
+    width: 168px;
+    border-right-width: 2px;
+    border-right-style: solid;
+    border-right-color: #09c;
+  }
+}
+@media (max-width: 979px) {
+  .nav-collapse .nav > li > a,
+  .nav-collapse .dropdown-menu a{
+    color: #000;
+  }
+  .nav-collapse .nav > li > a:hover,
+  .nav-collapse .dropdown-menu a:hover {
+    background-color: #888;
+  }
+}
+.blue {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #FFF;
+  background-color: #00a0e3;
+  text-align: left;
+  vertical-align: middle;
+  height: 20px;
+  width: 100px;
+  padding-left: 8px;
+  float: left;
+}
+.orange {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #FFF;
+  background-color: #ff6410;
+  text-align: left;
+  vertical-align: middle;
+  height: 20px;
+  width: 100px;
+  padding-left: 8px;
+  float: left;
+}
+.breadlinkimg {
+  background-image: url(../img/category%20space.png);
+  float: left;
+  height: 20px;
+  width: 20px;
+}
+.span3news {
+  width: 208px;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-left-color: #00a0e3;
+  padding-left: 10px;
+  margin-left: 0px;
+}
+.span2-5 {
+  width: 180px;
+}
+.span2list {
+  width: 138px;
+  border-right-width: 2px;
+  border-right-style: solid;
+  border-right-color: #09c;
+}
