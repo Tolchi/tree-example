@@ -4,18 +4,18 @@
     %meta{:charset => "utf-8"}
     %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1"}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1, maximum-scale=1"}
-    %title= content_for?(:title) ? yield(:title) : "Tree Example"
+    %title= content_for?(:title) ? yield(:title) : "아르헨티나 한인 네트워크"
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
-    = csrf_meta_tags
-    = javascript_include_tag 'jquery.ui.nestedSortable'
-    = javascript_include_tag 'sortable/base'
-    = javascript_include_tag 'comments/base'
     = stylesheet_link_tag    'tree',          :media => :all
     = stylesheet_link_tag    'sortable',      :media => :all
     = stylesheet_link_tag    'comments_tree', :media => :all
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = javascript_include_tag 'jquery.ui.nestedSortable'
+    = javascript_include_tag 'sortable/base'
+    = javascript_include_tag 'comments/base'
+    = csrf_meta_tags
     = yield(:head)
   %body
     %header.navbar.navbar-fixed-top
@@ -24,14 +24,14 @@
           = render 'layouts/navigation'
     #main{:role => "main"}
       .container
-        .content
-          .row
-            .span12
-              #background
-          .row
-            .span2
-              = render 'layouts/categories'
-            .span10
-              = render 'layouts/messages'
-              = yield
-          %footer
+        .row
+          = render 'layouts/messages'
+        = yield
+    %footer
+      %p
+        %span.whiteletters Follow us on:
+        = image_tag("rss.png")
+        = image_tag("facebook.png")
+        = image_tag("twitter.png")
+      %p  
+      %p.whiteletters Copyright &copy; 2012 Argentina Hanin Network &reg;

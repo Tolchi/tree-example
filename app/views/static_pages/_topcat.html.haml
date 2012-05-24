@@ -1,0 +1,20 @@
+.row
+  %ul.thumbnails
+    - @top_categories.each do |topcat|
+      %li.span3
+        .thumbnail
+          .thumbnail60px
+            = image_tag("blank.png")
+          .topcategory
+            %p
+              %strong
+                = link_to topcat.name, category_path(topcat)
+            %p
+              %ul.subcategories
+                - topcat.children.first(3).each do |sub|
+                  %li 
+                    = link_to sub.name, category_path(sub)
+                - if topcat.has_descendants?
+                  %li 
+                    = link_to '...', category_path(topcat)
+          .clearboth
