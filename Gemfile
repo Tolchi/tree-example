@@ -32,3 +32,4 @@ gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git', :group => 
 gem 'font-awesome-rails'
 gem 'unicorn'
 gem 'capistrano'
+gem 'pg'

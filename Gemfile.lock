@@ -137,6 +137,7 @@ GEM
       net-ssh (>= 1.99.1)
     nokogiri (1.5.2)
     orm_adapter (0.0.7)
+    pg (0.13.2)
     polyamorous (0.5.0)
       activerecord (~> 3.0)
     polyglot (0.3.3)
@@ -257,6 +258,7 @@ DEPENDENCIES
   jquery-rails
   launchy (>= 2.1.0)
   nested_set
+  pg
   rails (= 3.2.3)
   ransack
   rolify
