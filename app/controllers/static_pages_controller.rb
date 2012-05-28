@@ -3,6 +3,13 @@ class StaticPagesController < ApplicationController
     @top_categories = Category.roots
   end
 
+  def categories
+    @categories = Category.all
+    if params[:id]
+      @category = Category.find(params[:id])
+    end
+  end
+
   def help
   end
 

@@ -1,0 +1,15 @@
+.row
+  .span12
+    .breadbox
+      %ul.breadcrumb
+        %li.blue
+          = link_to '홈', root_path
+        %span.divider 
+          .breadlinkimg
+        %li.orange
+          = @category.name
+  .span2
+    .span.cat_list
+      = render 'static_pages/cat_list'
+  .span10
+    = render 'static_pages/sing_cat'

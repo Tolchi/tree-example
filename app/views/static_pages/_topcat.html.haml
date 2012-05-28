@@ -8,13 +8,13 @@
           .topcategory
             %p
               %strong
-                = link_to topcat.name, category_path(topcat)
+                = link_to topcat.name, static_pages_categories_path(:id => topcat.id)
             %p
               %ul.subcategories
                 - topcat.children.first(3).each do |sub|
                   %li 
-                    = link_to sub.name, category_path(sub)
+                    = link_to sub.name, static_pages_categories_path(:id => sub.id)
                 - if topcat.has_descendants?
                   %li 
-                    = link_to '...', category_path(topcat)
+                    = link_to '...', static_pages_categories_path(:id => topcat.id)
           .clearboth

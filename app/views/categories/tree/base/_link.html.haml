@@ -1,1 +1,2 @@
-= link_to node.send(opts[:title]), url_for(opts[:namespace] + [node]), :title => node.send(opts[:title])
+/= link_to node.send(opts[:title]), url_for(opts[:namespace] + [node]), :title => node.send(opts[:title])
+= link_to node.send(opts[:title]), url_for(:controller => "static_pages", :action => "categories",:id => node.id), :title => node.send(opts[:title])
