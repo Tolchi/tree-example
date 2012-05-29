@@ -7,9 +7,9 @@
     %title= content_for?(:title) ? yield(:title) : "아르헨티나 한인 네트워크"
     %meta{:content => "", :name => "description"}
     %meta{:content => "", :name => "author"}
-    = stylesheet_link_tag    'tree',          :media => :all
-    = stylesheet_link_tag    'sortable',      :media => :all
-    = stylesheet_link_tag    'comments_tree', :media => :all
+    /= stylesheet_link_tag    'tree',          :media => :all
+    /= stylesheet_link_tag    'sortable',      :media => :all
+    /= stylesheet_link_tag    'comments_tree', :media => :all
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"
     = javascript_include_tag 'jquery.ui.nestedSortable'

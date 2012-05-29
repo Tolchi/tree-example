@@ -76,3 +76,5 @@ db/*.sqlite3
 
 # vim backup files
 *~
+/bin/
+/config/unicorn-local.rb
