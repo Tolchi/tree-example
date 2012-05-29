@@ -9,7 +9,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@50.116.19.170/#{application}.git"
+set :repository, "git@50.116.19.170:#{application}.git"
 set :branch, "master"
 
 default_run_options[:pty] = true
