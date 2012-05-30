@@ -25,16 +25,6 @@
           = render 'layouts/navigation'
     #main{:role => "main"}
       .container
-        .row
-          = render 'layouts/messages'
-          .span12
-            #background
         = yield
     %footer
-      %p
-        %span.whiteletters Follow us on:
-        = image_tag("rss.png")
-        = image_tag("facebook.png")
-        = image_tag("twitter.png")
-      %p  
       %p.whiteletters Copyright &copy; 2012 Argentina Hanin Network &reg;

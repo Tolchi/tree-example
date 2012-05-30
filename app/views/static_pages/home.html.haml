@@ -1,1 +1,15 @@
+.row
+  = render 'layouts/messages'
+  .span12
+    .hero-unit
+      .hero-logo
+        %h1#logo
+          = link_to "아르헨티나 한인 네트워크", root_path, :class => "logo"
+      .hero-content
+        %p
+          아르헨티나 한인 네트워크는 재아 한인들의 
+          %em 업소록
+          과 아르헨티나 한인들을 위한 여러 정보를 제공할 것입니다. 
+        %p
+          = link_to "자세한 내용", about_path, :class => "btn btn-inverse btn-large"
 = render 'static_pages/topcat'

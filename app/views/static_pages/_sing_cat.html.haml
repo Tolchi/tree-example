@@ -16,7 +16,7 @@
               .gray14lightbullet
                 = link_to c.name, static_pages_categories_path(:id => c.id)
                 %span.descendants
-                  = c.descendants_count
+                  = c.descendants_count + Company.find_all_by_category_id(c.id).count
 %p
 - coms = Company.find_all_by_category_id(@category.id)
 - unless coms.blank?
