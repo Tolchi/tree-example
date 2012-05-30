@@ -9,12 +9,11 @@
             %p
               %strong
                 = link_to topcat.name, cats_path(:id => topcat.id)
-            %p
-              %ul.subcategories
-                - topcat.children.first(2).each do |sub|
-                  %li 
-                    = link_to sub.name, cats_path(:id => sub.id)
-                - if topcat.has_descendants?
-                  %li 
-                    = link_to '...', cats_path(:id => topcat.id)
+            %ul.subcategories
+              - topcat.children.first(2).each do |sub|
+                %li 
+                  = link_to sub.name, cats_path(:id => sub.id)
+              - if topcat.has_descendants?
+                %li 
+                  = link_to '...', cats_path(:id => topcat.id)
           .clearboth
