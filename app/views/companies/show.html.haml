@@ -13,6 +13,24 @@
   %strong= model_class.human_attribute_name(:tel) + ':'
   %br
   = @company.tel
+- unless @company.cel.nil?
+  %p
+    %strong 핸드폰:
+    %br
+    = @company.cel
+- unless @company.otro_contacto.nil?
+  %p
+    %strong 기타연락처:
+    %br
+    = @company.otro_contacto
+- unless @company.misc.nil?
+  %p
+    - if @company.category_id == 44
+      %strong 운송지역:
+    - else
+      %strong 비고:
+    %br
+    = @company.misc
 %p
   %strong= model_class.human_attribute_name(:category_id) + ':'
   %br
