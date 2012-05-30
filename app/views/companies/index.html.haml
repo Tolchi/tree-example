@@ -15,7 +15,9 @@
       %th= sort_link @q,:name 
       %th= sort_link @q, :direccion
       %th= model_class.human_attribute_name(:tel)
-      %th= sort_link @q, :category_id
+      %th 핸드폰
+      %th 기타연락처
+      %th= model_class.human_attribute_name(:category_id)
       - if is_admin
         %th=t '.actions', :default => t("helpers.actions")
   %tbody
@@ -24,6 +26,8 @@
         %td= link_to company.name, company_path(company)
         %td= company.direccion
         %td= company.tel
+        %td= company.cel
+        %td= company.otro_contacto
         - cat_id = company.category_id
         %td= link_to Category.find(cat_id).name, :controller => "categories", :action => "show", :id => cat_id
         - if is_admin
