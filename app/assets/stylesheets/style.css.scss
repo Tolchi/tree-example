@@ -284,18 +284,19 @@ footer {
 #logo a {
   display: block;
   text-indent: -9829px;
-  background: image-url("hanin_logo.png");
-  width: 791px;
-  height: 318px;
+  background: image-url("logo_330px.png");
+  width: 330px;
+  height: 168px;
+  background-repeat: no-repeat;
 }
 .thumbnails li {
   margin-bottom: 0px;
 }
 .navbar .brand {
   text-indent: -9273px;
-  background: image-url("hanin_logo-30px.png");
+  background: image-url("logo_H30px.png");
   background-repeat: no-repeat;
-  background-position: 30px 0px;
+  background-position: 30px 5px;
   width: 80px;
   padding-left: 30px;
 }
