@@ -1,45 +1,27 @@
-﻿		* { margin: 0; padding: 0; }
-		
-		/* -------------- classes for different background styles --------------- */
-	
-		.bg1 { background-color: #57373b; } /* 레드 */
-		.bg2 { background-color: #37573d; } /* 그린 */
-		.bg3 { background-color: #375157; } /* 블루 */
-		.bg4 { background-color: #393757; } /* 바이올렛 */
-		.bg5 { background-color: #513757; } /* 퍼플 */
-		.bg6 { background-color: #574037; } /* 브라운 */
-		.bg7 { background-color: #575537; } /* 설사 */
-		.bg8 { background-color: #8e1d00; } /* 비빋레드 */
-		.bg9 { background-color: #a46200; } /* 비빋오렌지 */
-		.bg10 { background-color: #000; } /* 블랙 */
-		body {
-      color: #828282;
-      background-color: #fff;
-} /* 기본 배경 블랙 */
-		
-		/* ---------------------------------------------------------------------- */
-		
-		.clear, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .ten{ cursor: pointer; } /* 마우스 올렸을때 포인터로 나오게 만들기 */
-		
- 
-		ul#icons li {
-	list-style: none;
-	border-radius: 5px;
+﻿@font-face {
+  font-family: 'NanumGothic';
+  src: url(asset-path('NanumGothic.eot?',font)) format('eot'), 
+       url(asset-path('NanumGothic.woff',font)) format('woff'), 
+       url(asset-path('NanumGothic.ttf',font))  format('truetype'),
+       url(asset-path('NanumGothic.svg#NanumGothic',font)) format('svg');
 }
-		
-		ul#icons li.ten { width: 30px; height: 30px; background-color: #000; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 블랙 */
-		ul#icons li.nine { width: 30px; height: 30px; background-color: #a46200; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 비빋오렌지 */
-		ul#icons li.eight { width: 30px; height: 30px; background-color: #8e1d00; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 비빋레드 */
-		ul#icons li.seven { width: 30px; height: 30px; background-color: #575537; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 설사 */
-		ul#icons li.six { width: 30px; height: 30px; background-color: #574037; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 브라운 */
-		ul#icons li.five { width: 30px; height: 30px; background-color: #513757; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 퍼플 */
-		ul#icons li.four { width: 30px; height: 30px; background-color: #393757; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 바이올렛 */
-		ul#icons li.three { width: 30px; height: 30px; background-color: #375157; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 블루 */
-		ul#icons li.two { width: 30px; height: 30px; background-color:#37573d; margin-left:10px; border: solid 1px #000; float:left;} /* 버튼 그린 */
-		ul#icons li.one { width: 30px; height: 30px; background-color:#57373b; margin-left:10px;  border: solid 1px #000; float:left;} /*버튼 레드 */
-	
-	 
-	
+@font-face {
+  font-family: 'NanumGothicCoding';
+  src: url(asset-path('NanumGothic_Coding.eot?',font)) format('eot'), 
+       url(asset-path('NanumGothic_Coding.woff',font)) format('woff'), 
+       url(asset-path('NanumGothic_Coding.ttf',font))  format('truetype'),
+       url(asset-path('NanumGothic_Coding.svg#NanumGothic_Coding',font)) format('svg');
+}
+@font-face {
+  font-family: 'NanumMyeongjo';
+  src: url(asset-path('NanumMyeongjo.eot?',font)) format('eot'), 
+       url(asset-path('NanumMyeongjo.woff',font)) format('woff'), 
+       url(asset-path('NanumMyeongjo.ttf',font))  format('truetype'),
+       url(asset-path('NanumMyeongjo.svg#NanumMyeongjo',font)) format('svg');
+}
+
+
+* { margin: 0; padding: 0; }
 .whiteletters {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
@@ -163,6 +145,7 @@ ul {
   display: inline;
 }
 .thumbnail {
+  padding: 0px;
   margin-top: 10px;
   border: hidden;
 }
@@ -280,11 +263,11 @@ footer {
   list-style: none;
   display: inline;
   a {
-    font-size: 0.6em;
+    font-size: 0.85em;
   }
 }
 .topcategory p strong a {
-  font-size: 1.1em;
+  font-size: 1.02em;
 }
 .vacio {
   width: 100%;
@@ -304,4 +287,15 @@ footer {
   background: image-url("hanin_logo.png");
   width: 791px;
   height: 318px;
+}
+.thumbnails li {
+  margin-bottom: 0px;
+}
+.navbar .brand {
+  text-indent: -9273px;
+  background: image-url("hanin_logo-30px.png");
+  background-repeat: no-repeat;
+  background-position: 30px 0px;
+  width: 80px;
+  padding-left: 30px;
 }

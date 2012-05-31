@@ -11,5 +11,7 @@
           %em 업소록
           과 아르헨티나 한인들을 위한 여러 정보를 제공할 것입니다. 
         %p
-          = link_to "자세한 내용", about_path, :class => "btn btn-inverse btn-large"
+          %a.btn.btn-inverse.btn-large{:href => about_path}
+            %i.icon-info-sign
+            자세한 내용 &raquo;
 = render 'static_pages/topcat'
