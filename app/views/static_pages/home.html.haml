@@ -17,7 +17,22 @@
                 %i.icon-info-sign
                 자세한 내용 &raquo;
         .span5
-          .hero-carrousel
-            .thumbnail
-              %i{:class=>"icon-refresh px240"}
+          .hero-carousel
+            #slide.carousel
+              .carousel-inner
+                .item.active
+                  %i{:class=> "icon-plane icon240"}
+                .item
+                  %i{:class=>"icon-shopping-cart icon240"}
+                .item
+                  %i{:class=>"icon-info-sign icon240"}
+                .item
+                  %i{:class=>"icon-picture icon240"}
+                .item
+                  %i{:class=>"icon-plus-sign icon240"}
+              %a.carousel-control.left{:href => '#slide', "data-slide" => "prev"}
+                %i.icon-arrow-left
+              %a.carousel-control.right{:href => '#slide', "data-slide" => "next"}
+                %i.icon-arrow-right
 = render 'static_pages/topcat'
+

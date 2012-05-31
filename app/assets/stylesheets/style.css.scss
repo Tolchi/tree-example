@@ -300,3 +300,36 @@ footer {
   width: 80px;
   padding-left: 30px;
 }
+.icon60 {
+  font-size: 50px;
+  color: #fff;
+  background-color: #3992c1;
+}
+.icon240 {
+  font-size: 240px;
+}
+.hero-carousel {
+  float: right;
+  width: 260px;
+  height: 250px;
+  margin-right: 20px;
+  text-align: center;
+  text-shadow: 2px 2px 3px #333;
+}
+#slide {
+  float: right;
+}
+.carousel-inner {
+  overflow: hidden;
+  width: 100%;
+}
+.carousel-control {
+  top: 235px;
+  border-width: 2px;
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  line-height: 24px;
+  left: 40px;
+}
+

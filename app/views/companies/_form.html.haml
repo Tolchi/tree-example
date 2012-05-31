@@ -2,6 +2,9 @@
   = f.input :name
   = f.input :direccion
   = f.input :tel
+  = f.input :cel
+  = f.input :otro_contacto
+  = f.input :homepageURL
   = f.association :category, :collection => Category.all(:order => 'name'), :prompt => "카테고리 선택하세요"
   .form-actions
     = f.button :submit, :class => 'btn-primary'
