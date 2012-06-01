@@ -1,32 +1,48 @@
-.row
-  .span10
-    .category_title
-      %span.gray14bold
-        = @category.name
-      %span.gray14light 카테고리
-- unless @category.leaf?
+- cat = @category || Category.new
+- if cat.name.nil?
+  .alert-error
+    %button.close{"data-dismiss" => "alert"} x
+    %strong 에러!!!
+  = link_to 'Back', :back, :class => 'btn btn-small btn-warning'
+- else
   .row
     .span10
-      .row
-        .span12
-          하위 카테고리
-        .span1.vacio
-          - @category.children.each do |c|
-            .span3
-              .gray14lightbullet
-                = link_to c.name, static_pages_categories_path(:id => c.id)
-                %span.descendants
-                  = c.descendants_count + Company.find_all_by_category_id(c.id).count
-%p
-- coms = Company.find_all_by_category_id(@category.id)
-- unless coms.blank?
-  .row
-    .span10
-      .row
-        .span12
-          회사
-        .span1.vacio
-          - coms.each do |com|
-            .span3
-              .gray14lightbullet
-                = link_to com.name, company_path(com)
+      .category_title
+        %span.gray14bold
+          = @category.name
+        %span.gray14light 카테고리
+  - unless @category.leaf?
+    .row
+      .span10
+        .row
+          .span10
+            하위 카테고리
+          .span1.vacio
+            - @category.children.each do |c|
+              .span3
+                .gray14lightbullet
+                  = link_to c.name, cats_path(:id => c.id)
+                  %span.descendants
+                    = c.descendants_count + Company.find_all_by_category_id(c.id).count
+  - if @category.child?
+    .row
+      .span10
+        상위 카테고리
+      .span1.vacio
+        .span3
+          - parent = @category.parent
+          .gray14lightbullet
+            = link_to parent.name, cats_path(:id => parent.id)
+  %p
+  - coms = Company.find_all_by_category_id(@category.id)
+  - unless coms.blank?
+    .row
+      .span10
+        .row
+          .span12
+            회사
+          .span1.vacio
+            - coms.each do |com|
+              .span3
+                .gray14lightbullet
+                  = link_to com.name, com_path(:id => com.id)

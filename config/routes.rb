@@ -6,9 +6,11 @@ TreeExample::Application.routes.draw do
   get "static_pages/contact"
   get "static_pages/categories"
   get "static_pages/companies"
+  get "static_pages/company"
 
   match "cats" => "static_pages#categories"
   match "coms" => "static_pages#companies"
+  match "com" => "static_pages#company"
   match "help" => "static_pages#help"
   match "contact" => "static_pages#contact"
   match "about" => "static_pages#about"
