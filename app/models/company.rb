@@ -16,7 +16,7 @@
 #
 
 class Company < ActiveRecord::Base
-  attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contact, :misc, :homepageURL
+  attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contacto, :misc, :homepageURL
   belongs_to :category
   resourcify
   validates_presence_of :name, :direccion, :category_id
