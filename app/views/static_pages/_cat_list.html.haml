@@ -1,3 +1,2 @@
-%h3 톱 카테고리 
-- roots = Category.roots
-= sortable_tree roots, :path => 'static_pages/tree/base', :title => :name, :js => true
+%h3 카테고리 
+= sortable_tree @categories, :path => 'static_pages/tree/base', :title => :name, :js => true

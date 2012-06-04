@@ -21,12 +21,10 @@
 }
 
 
-* { margin: 0; padding: 0; }
-footer p {
-	font-size: 14px;
-	color: #fff;
-	text-align: center;
-}
+/* { 
+  margin: 0; 
+  padding: 0; 
+}*/
 .category_separator {
 	background-image: image-url("category%20space.png");
 	background-repeat: no-repeat;
@@ -151,12 +149,16 @@ footer {
   position: relative;
   text-align: center;
   background-color: #00a0e3;
+  p {
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+  }
 }
 #wrap {
   margin-top: 100px;
 }
 #main {
-  overflow: hidden;
   padding-bottom: 50px;
 }
 @media (min-width: 768px) and (max-width: 979px) {
@@ -333,8 +335,12 @@ footer {
     font-size: 16px;
     li {
       fonts-size: 0.9em;
-      line-height: 140%;
+      line-height: 180%;
       list-style-position: outside;
     }
   }
 }
+.pagination {
+  padding-bottom: 20px;
+}
+

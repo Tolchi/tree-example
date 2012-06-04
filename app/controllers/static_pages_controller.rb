@@ -9,8 +9,10 @@ class StaticPagesController < ApplicationController
     @categories = Category.all
     if params[:id]
       @category = Category.find(params[:id])
+      @coms = Company.where('category_id = ?', params[:id]).paginate(:page => params[:page], :per_page => 15)
       ariane.add @category.name, cats_path(:id => @category.id)
     end
+
   end
 
   def help

@@ -1,16 +1,9 @@
-- cat = @category || Category.new
 .row
-  .span12
+  .span12.cat-list
     .breadcrumb
       = ariane.render
-  .span2
+  .span3
     .span.cat_list
       = render 'static_pages/cat_list'
-  - if cat.root?
-    .span10
-      = render 'static_pages/sing_cat'
-  - else
-    .span2
-      = render 'static_pages/sub_cat'
-    .span8
-      = render 'static_pages/sing_cat'
+  .span9
+    = render 'static_pages/sing_cat'
