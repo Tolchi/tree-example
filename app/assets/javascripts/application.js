@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery-ui
+//= require jquery.ui.nestedSortable
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require modernizr
+//= require sortable/base
+//= require comments/base
 //= require_tree .

@@ -1,9 +1,19 @@
 - cat = @category || Category.new
 - if cat.name.nil?
-  .alert-error
-    %button.close{"data-dismiss" => "alert"} x
-    %strong 에러!!!
-  = link_to 'Back', :back, :class => 'btn btn-small btn-warning'
+  - categories = Category.roots
+  .row
+    .span10
+      .category_title
+        %span.gray14bold 톱 카테고리
+  .row
+    .span10
+      .span1.vacio
+        - categories.each do |c|
+          .span3
+            .gray14lightbullet
+              = link_to c.name, cats_path(:id => c.id)
+              %span.descendants
+                = c.descendants.count +  Company.find_all_by_category_id(c.id).count
 - else
   .row
     .span10

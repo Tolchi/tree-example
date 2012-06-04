@@ -17,22 +17,22 @@
       %strong 전화:
       %br
       = @company.tel
-    - unless @company.cel.nil?
+    - unless @company.cel.blank?
       %p
         %strong 핸드폰:
         %br
         = @company.cel
-    - unless @company.otro_contacto.nil?
+    - unless @company.otro_contacto.blank?
       %p
         %strong 기타연락처:
         %br
         = @company.otro_contacto
-    - unless @company.homepageURL.nil?
+    - unless @company.homepageURL.blank?
       %p
         %strong 홈페이지 주소
         %br
-        = @company.homepageURL
-    - unless @company.misc.nil?
+        = link_to @company.homepageURL, @company.homepageURL
+    - unless @company.misc.blank?
       %p
         - if @company.category_id == 44
           %strong 운송지역:
@@ -46,4 +46,4 @@
       - cat_id = @company.category_id
       = link_to Category.find(cat_id).name, cats_path(:id => cat_id)
 
-    = link_to 'Back', :back, :class => 'btn btn-success btn-small'
+    = link_to 'Back', :back, :class => 'btn btn-primary btn-mini'

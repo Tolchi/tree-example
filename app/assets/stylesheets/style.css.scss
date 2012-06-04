@@ -22,8 +22,7 @@
 
 
 * { margin: 0; padding: 0; }
-.whiteletters {
-	font-family: Arial, Helvetica, sans-serif;
+footer p {
 	font-size: 14px;
 	color: #fff;
 	text-align: center;
@@ -33,7 +32,6 @@
 	background-repeat: no-repeat;
 }
 .gray14lightbullet {
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #7F7F7F;
 	background-image: image-url("bullet.png");
@@ -53,34 +51,23 @@
 	margin-right: 20px;
 }
 .gray14light {
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #7F7F7F;
 }
 .gray10light {
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	color: #7F7F7F;
 }
 
 .gray14bold {
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	font-weight: bold;
 	color: #7F7F7F;
 }
 .gray11bold {
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	font-weight: bold;
 	color: #7F7F7F;
-}
-#background {
-	background-image: image-url("bg_gray.png");
-	float: left;
-	height: 350px;
-	width: 100%;
-	margin-bottom: 10px;
 }
 .thumbnail60px {
 	float: left;
@@ -170,7 +157,7 @@ footer {
 }
 #main {
   overflow: hidden;
-  padding-bottom: 150px;
+  padding-bottom: 50px;
 }
 @media (min-width: 768px) and (max-width: 979px) {
   .span3news {
@@ -207,7 +194,6 @@ footer {
   }
 }
 .blue {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #FFF;
   background-color: #00a0e3;
@@ -219,7 +205,6 @@ footer {
   float: left;
 }
 .orange {
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: #FFF;
   background-color: #ff6410;
@@ -337,3 +322,19 @@ footer {
 .thumbnail60px a:hover {
   text-decoration: none;
 } 
+.tree{
+  margin: 0;
+  padding: 0;
+  ol {
+    list-style: none;
+  }
+  ol.nested_set {
+    list-style: none;
+    font-size: 16px;
+    li {
+      fonts-size: 0.9em;
+      line-height: 140%;
+      list-style-position: outside;
+    }
+  }
+}
