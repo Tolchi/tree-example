@@ -30,7 +30,6 @@
 	background-repeat: no-repeat;
 }
 .gray14lightbullet {
-	font-size: 14px;
 	color: #7F7F7F;
 	background-image: image-url("bullet.png");
 	background-repeat: no-repeat;
@@ -45,25 +44,22 @@
 	margin-left: -20px;
 	float: left;
 	height: 20px;
-	width: 150px;
 	margin-right: 20px;
 }
 .gray14light {
-	font-size: 14px;
 	color: #7F7F7F;
 }
 .gray10light {
-	font-size: 10px;
+	font-size: 0.72em;
 	color: #7F7F7F;
 }
 
 .gray14bold {
-	font-size: 14px;
 	font-weight: bold;
 	color: #7F7F7F;
 }
 .gray11bold {
-	font-size: 11px;
+	font-size: 0.82em;
 	font-weight: bold;
 	color: #7F7F7F;
 }
@@ -150,7 +146,7 @@ footer {
   text-align: center;
   background-color: #00a0e3;
   p {
-    font-size: 14px;
+    font-size: 1.077em;
     color: #fff;
     text-align: center;
   }
@@ -331,8 +327,13 @@ footer {
     font-size: 16px;
     li {
       fonts-size: 0.9em;
-      line-height: 180%;
+      line-height: 150%;
       list-style-position: outside;
     }
+  }
+}
+.tree {
+  .btn-group {
+    display: inline-block;
   }
 }
