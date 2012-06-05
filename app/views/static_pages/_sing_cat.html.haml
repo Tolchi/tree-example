@@ -2,12 +2,9 @@
 - if cat.name.blank?
   - categories = Category.roots
   .row
-    .span10
-      .category_title
-        %span.gray14bold 톱 카테고리
+    .span9.category_title.gray14bold 톱 카테고리
   .row
-    .span10
-      .span1.vacio
+    .span9
       - categories.each do |c|
         .span3
           .gray14lightbullet
@@ -16,43 +13,42 @@
               = c.descendants.count +  Company.find_all_by_category_id(c.id).count
 - else
   .row
-    .span10
-      .category_title
-        %span.gray14bold
-          = @category.name
-        %span.gray14light 카테고리
+    .span9.category_title.gray14bold
+      = @category.name
+      %span.gray14light 카테고리
   - unless @category.leaf?
     .row
-      .span10
-        .row
-          .span10
-            하위 카테고리
-          .span1.vacio
-          - @category.children.each do |c|
-            .span3
-              .gray14lightbullet
-                = link_to c.name, cats_path(:id => c.id)
-                %span.descendants
-                  = c.descendants_count + Company.find_all_by_category_id(c.id).count
+      .span9.category_title.gray14bold
+        하위 카테고리
+    .row
+      .span9
+        - @category.children.each do |c|
+          .span3
+            .gray14lightbullet
+              = link_to c.name, cats_path(:id => c.id)
+              %span.descendants
+                = c.descendants_count + Company.find_all_by_category_id(c.id).count
   - if @category.child?
     .row
-      .span10
+      .span9.category_title.gray14bold
         상위 카테고리
-      .span1.vacio
-      .span3
-        - parent = @category.parent
-        .gray14lightbullet
-          = link_to parent.name, cats_path(:id => parent.id)
+    .row
+      .span9
+        .span3
+          - parent = @category.parent
+          .gray14lightbullet
+            = link_to parent.name, cats_path(:id => parent.id)
   %p
   - unless @coms.blank?
     .row
-      .span10
+      .span9
         .row
-          .span12
+          .span9.category_title.gray14bold
             회사
-          .span1.vacio
-          = will_paginate @coms
-          - @coms.each do |com|
-            .span3.paginated
-              .gray14lightbullet
-                = link_to com.name, com_path(:id => com.id)
+        .row
+          .span9
+            = will_paginate @coms
+            - @coms.each do |com|
+              .span3.paginated
+                .gray14lightbullet
+                  = link_to com.name, com_path(:id => com.id)

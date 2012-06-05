@@ -1,7 +1,10 @@
 %li
-  .btn-group
-    %button.btn 
-      = raw render(:partial => "#{opts[:path]}/link", :locals => {:opts => opts, :root => root, :node => node})
-    %button.btn.dropdown-toggle{"data-toggle" => "dropdown"}
-      %span.caret
-    = render(:partial => "#{opts[:path]}/children", :locals => {:opts => opts, :parent => node, :children => children}) unless children.blank?
+  - if node.level == 0
+    .btn-group
+      %button.btn 
+        = raw render(:partial => "#{opts[:path]}/link", :locals => {:opts => opts, :root => root, :node => node})
+      %button.btn.dropdown-toggle{"data-toggle" => "dropdown"}
+        %span.caret
+      = render(:partial => "#{opts[:path]}/children", :locals => {:opts => opts, :parent => node, :children => children}) unless children.blank? or node.level >= 1
+  - else
+    = raw render(:partial => "#{opts[:path]}/link", :locals => {:opts => opts, :root => root, :node => node})
