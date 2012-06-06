@@ -5,6 +5,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'font-awesome-sass-rails'
 end
 gem 'jquery-rails'
 gem "haml", ">= 3.1.5"
@@ -29,10 +30,10 @@ gem "squeel"
 gem "cancan"
 gem "rolify"
 gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git', :group => :development
-gem 'font-awesome-rails'
 gem 'unicorn'
 gem 'capistrano'
 gem 'pg'
 gem 'activerecord-postgresql-adapter'
 gem 'ariane'
 gem 'modernizr-rails'
+gem 'gon', '3.0.4'

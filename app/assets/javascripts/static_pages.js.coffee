@@ -14,3 +14,4 @@ $(document).ready ->
         $(this).blur ->
           $(this).val $(this).attr("placeholder")  if $(this).val() is ""
 
+  $("#category_name").autocomplete source: gon.availableCategories
