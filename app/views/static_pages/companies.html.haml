@@ -1,34 +1,38 @@
 .row
+  = render 'layouts/messages'
   .span12
     .breadcrumb
       = ariane.render
-  .span12
-    %h1 업소록
+  -if @companies.blank?
+    .span3 
+      = link_to "Back", :back, :class => "btn btn-small btn-info"
+  -else
+    .span12
+      %h1 업소록
+      = search_form_for @q, :builder => SimpleForm::FormBuilder, :html => { :class => 'form-horizontal' } do |f|
+        = f.input :name_cont, :label => '회사이름 또는 상호'
+        .form-actions
+          = f.button :submit, :class => 'btn-primary'
+          = link_to t('.cacel', :default => t("helpers.links.cancel")), companies_path, :class => 'btn'
 
-    = search_form_for @q, :builder => SimpleForm::FormBuilder, :html => { :class => 'form-horizontal' } do |f|
-      = f.input :name_cont, :label => '회사이름 또는 상호'
-      .form-actions
-        = f.button :submit, :class => 'btn-primary'
-        = link_to t('.cacel', :default => t("helpers.links.cancel")), companies_path, :class => 'btn'
 
-
-    = will_paginate @companies
-    %table.table.table-striped
-      %thead
-        %tr
-          %th= sort_link @q,:name
-          %th 주소
-          %th 전화
-          %th 핸드폰
-          %th 기타연락처
-          %th 카테고리
-      %tbody
-        - @companies.each do |company|
+      = will_paginate @companies
+      %table.table.table-striped
+        %thead
           %tr
-            %td= link_to company.name, com_path(:id => company.id)
-            %td= company.direccion
-            %td= company.tel
-            %td= company.cel
-            %td= company.otro_contacto
-            - cat_id = company.category_id
-            %td= link_to Category.find(cat_id).name, cats_path(:id => cat_id) 
+            %th= sort_link @q,:name
+            %th 주소
+            %th 전화
+            %th 핸드폰
+            %th 기타연락처
+            %th 카테고리
+        %tbody
+          - @companies.each do |company|
+            %tr
+              %td= link_to company.name, com_path(:id => company.id)
+              %td= company.direccion
+              %td= company.tel
+              %td= company.cel
+              %td= company.otro_contacto
+              - cat_id = company.category_id
+              %td= link_to Category.find(cat_id).name, cats_path(:id => cat_id) 

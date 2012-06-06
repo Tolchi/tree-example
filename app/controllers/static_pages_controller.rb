@@ -21,8 +21,10 @@ class StaticPagesController < ApplicationController
     end
     if @category
       @coms = Company.where('category_id = ?', @category.id).paginate(:page => params[:page], :per_page => 16)
+      ariane.add @category.name, cats_path(:id => @category.id)
+    else
+      flash.now[:error] = "Category not found."
     end
-    ariane.add @category.name, cats_path(:id => @category.id)
   end
 
   def help
@@ -53,6 +55,9 @@ class StaticPagesController < ApplicationController
     @q = Company.search(params[:q])
     @q.sorts = 'name asc' if @q.sorts.empty?
     @companies = @q.result.paginate(:page => params[:page], :per_page => 20)
+    if @companies.count == 0 
+      flash.now[:error] = "Companies not found"
+    end
   end
 
 end
