@@ -8,7 +8,11 @@
   %ul.nav
     %li{:class => "active"}
       = link_to '홈', root_path
+    %li= link_to '회사소개', about_path
     %li= link_to '업소록', coms_path
+    %li= link_to '자유게시판', forum_path
+    %li= link_to '벼룩시장', market_path
+    %li= link_to 'Contact us', contact_path
     - if user_signed_in? and current_user.has_role? :admin
       %li= link_to '카테고리', categories_path
     - if user_signed_in?

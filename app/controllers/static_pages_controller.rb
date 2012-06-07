@@ -35,8 +35,12 @@ class StaticPagesController < ApplicationController
     ariane.add 'About', about_path
   end
 
-  def contact
-    ariane.add 'Contact', contact_path
+  def forum
+
+  end
+
+  def market
+
   end
 
   def companies

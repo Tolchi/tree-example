@@ -3,17 +3,21 @@ TreeExample::Application.routes.draw do
   get "static_pages/home"
   get "static_pages/help"
   get "static_pages/about"
-  get "static_pages/contact"
   get "static_pages/categories"
   get "static_pages/companies"
   get "static_pages/company"
+  get "static_pages/forum"
+  get "static_pages/market"
 
   match "cats" => "static_pages#categories"
   match "coms" => "static_pages#companies"
   match "com" => "static_pages#company"
+  match "market" => "static_pages#market"
+  match "forum" => "static_pages#forum"
   match "help" => "static_pages#help"
-  match "contact" => "static_pages#contact"
   match "about" => "static_pages#about"
+  match "contact" => "contact#new", :as => "contact", :via => :get
+  match "contact" => "contact#create", :as => "contact", :via => :post
 
   resources :companies
 
