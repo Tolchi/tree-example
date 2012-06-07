@@ -16,7 +16,7 @@
           = link_to t('.cacel', :default => t("helpers.links.cancel")), companies_path, :class => 'btn'
 
 
-      = will_paginate @companies
+      = will_paginate @companies, :renderer => BootstrapPagination::Rails
       %table.table.table-striped
         %thead
           %tr

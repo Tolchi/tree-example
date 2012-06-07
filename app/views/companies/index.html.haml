@@ -8,7 +8,7 @@
 - is_admin = (user_signed_in? and current_user.has_role? :admin)
 - if is_admin
   = link_to t('.new', :default => t("helpers.links.new")), new_company_path, :class => 'btn btn-primary'
-= will_paginate @companies
+= will_paginate @companies, :renderer => BootstrapPagination::Rails
 %table.table.table-striped
   %thead
     %tr

@@ -47,7 +47,7 @@
             회사
         .row
           .span9
-            = will_paginate @coms
+            = will_paginate @coms, :renderer => BootstrapPagination::Rails
             - @coms.each do |com|
               .span3.paginated
                 .gray14lightbullet
