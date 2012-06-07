@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready ->
-  $(".carousel").carousel()
+  $("#slide").carousel interval: 4000
 
   unless Modernizr.input.placeholder
     $("input").each ->
