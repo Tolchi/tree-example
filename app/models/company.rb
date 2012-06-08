@@ -12,13 +12,13 @@
 #  cel           :string(255)
 #  otro_contacto :string(255)
 #  misc          :string(255)
-#  homepageURL   :string(255)
+#  homepage      :string(255)
 #
 
 class Company < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :tags
-  attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contacto, :misc, :homepageURL, :tag_list
+  attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contacto, :misc, :homepage, :tag_list
   belongs_to :category
   resourcify
   validates_presence_of :name, :direccion, :category_id

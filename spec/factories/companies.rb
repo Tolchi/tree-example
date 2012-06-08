@@ -12,7 +12,7 @@
 #  cel           :string(255)
 #  otro_contacto :string(255)
 #  misc          :string(255)
-#  homepageURL   :string(255)
+#  homepage      :string(255)
 #
 
 # Read about factories at https://github.com/thoughtbot/factory_girl

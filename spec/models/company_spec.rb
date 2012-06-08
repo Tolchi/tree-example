@@ -12,7 +12,7 @@
 #  cel           :string(255)
 #  otro_contacto :string(255)
 #  misc          :string(255)
-#  homepageURL   :string(255)
+#  homepage      :string(255)
 #
 
 require 'spec_helper'

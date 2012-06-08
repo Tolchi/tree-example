@@ -23,11 +23,11 @@
     %strong 기타연락처:
     %br
     = @company.otro_contacto
-- unless @company.homepageURL.blank?
+- unless @company.homepage.blank?
   %p
     %strong 홈페이지 주소:
     %br
-    = link_to @company.homepageURL, @company.homepageURL
+    = link_to @company.homepage, @company.homepage
 - unless @company.misc.blank?
   %p
     - if @company.category_id == 44
