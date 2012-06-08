@@ -5,18 +5,17 @@
 
 = link_to "Argentina 한인 네트워크", root_path, :class => 'brand'
 .nav-collapse
-  %ul.nav
+  %ul.nav.pull-right
     %li{:class => "active"}
       = link_to '홈', root_path
-    %li= link_to '회사소개', about_path
     %li= link_to '업소록', coms_path
     %li= link_to '자유게시판', forum_path
     %li= link_to '벼룩시장', market_path
-    %li= link_to 'Contact us', contact_path
     - if user_signed_in? and current_user.has_role? :admin
       %li= link_to '카테고리', categories_path
     - if user_signed_in?
       %li= link_to('Logout', destroy_user_session_path, :method=>'delete')
-  - if @q
-    = search_form_for @q, :url => coms_path, :html => { :class => 'form-search form-horizontal navbar-search pull-right', :id => "navbar-search" } do |f|
-      = f.text_field :name_cont, :placeholder => '회사이름 이나 상호', :class => 'search-query', :id => "nav_search"
+    - if @q
+      %li
+        = search_form_for @q, :url => coms_path, :html => { :class => 'form-search form-horizontal navbar-search pull-right', :id => "navbar-search" } do |f|
+          = f.text_field :name_cont, :placeholder => '회사이름 이나 상호', :class => 'search-query', :id => "nav_search",:size => 12

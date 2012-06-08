@@ -140,16 +140,28 @@ ul {
   margin-left: auto;
 }
 footer {
-  clear: both;
-  height: 50px;
-  padding-top: 20px;
-  position: relative;
-  text-align: center;
+  height: 40px;
+  padding-top: 15px;
   background-color: #00a0e3;
-  p {
-    font-size: 1.077em;
+  font-size: 0.85em;
+  small {
     color: #fff;
-    text-align: center;
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 10px
+    }
+  }
+  a {
+    font-weight: bold;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
   }
 }
 #wrap {

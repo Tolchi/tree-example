@@ -16,11 +16,11 @@
 #
 
 class Company < ActiveRecord::Base
-  attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contacto, :misc, :homepageURL
+  acts_as_taggable
+  acts_as_taggable_on :tags
+  attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contacto, :misc, :homepageURL, :tag_list
   belongs_to :category
   resourcify
   validates_presence_of :name, :direccion, :category_id
   validates_uniqueness_of :name
-  acts_as_taggable
-  acts_as_taggable_on :tags
 end
