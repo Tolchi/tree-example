@@ -1,5 +1,5 @@
 
 .row
-  .span12
-    = form_tag cats_path, :method => 'get', :class => 'form-horizontal', :autocomplete => 'on'  do
+  .span4
+    = form_tag cats_path, :method => 'get', :class => 'form-search well', :autocomplete => 'on'  do
       = text_field_tag :name, params[:name], :autocomplete => "on", :placeholder => '찾고 싶은 카테고리', :class => 'search-query', :id => "category_name"

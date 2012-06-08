@@ -1,54 +1,62 @@
-- cat = @category || Category.new
-- if cat.name.blank?
-  - categories = Category.roots
-  .row
-    .span9.category_title.gray14bold 톱 카테고리
-  .row
-    .span9
-      - categories.each do |c|
-        .span3
-          .gray14lightbullet
-            = link_to c.name, cats_path(:id => c.id)
-            %span.descendants
-              = c.descendants.count +  Company.find_all_by_category_id(c.id).count
-- else
-  .row
-    .span9.category_title.gray14bold
-      = @category.name
-      %span.gray14light 카테고리
-  - unless @category.leaf?
-    .row
-      .span9.category_title.gray14bold
-        하위 카테고리
-    .row
-      .span9
-        - @category.children.each do |c|
-          .span3
-            .gray14lightbullet
-              = link_to c.name, cats_path(:id => c.id)
-              %span.descendants
-                = c.descendants_count + Company.find_all_by_category_id(c.id).count
-  - if @category.child?
-    .row
-      .span9.category_title.gray14bold
-        상위 카테고리
-    .row
-      .span9
-        .span3
-          - parent = @category.parent
-          .gray14lightbullet
-            = link_to parent.name, cats_path(:id => parent.id)
-  %p
-  - unless @coms.blank?
-    .row
-      .span9
-        .row
-          .span9.category_title.gray14bold
-            회사
-        .row
-          .span9
-            = will_paginate @coms, :renderer => BootstrapPagination::Rails
-            - @coms.each do |com|
-              .span3.paginated
+.span10
+  - cat = @category || Category.new
+  - if cat.name.blank?
+    - categories = Category.roots
+    %section#categories
+      .row
+        .span10.category_title.gray14bold.lead 톱 카테고리
+      .row
+        .span9.offset1
+          .row
+            - categories.each do |c|
+              .span3
                 .gray14lightbullet
-                  = link_to com.name, com_path(:id => com.id)
+                  = link_to c.name, cats_path(:id => c.id)
+                  %span.descendants
+                    = c.descendants.count +  Company.find_all_by_category_id(c.id).count
+  - else
+    %section#categories
+      .row
+        .span10.category_title.gray14bold.lead
+          = @category.name
+          %span.gray14light 카테고리
+      - unless @category.leaf?
+        .row
+          .span10.category_title.gray14bold.lead
+            하위 카테고리
+        .row
+          .span9.offset1
+            .row
+              - @category.children.each do |c|
+                .span3
+                  .gray14lightbullet
+                    = link_to c.name, cats_path(:id => c.id)
+                    %span.descendants
+                      = c.descendants_count + Company.find_all_by_category_id(c.id).count
+      - if @category.child?
+        .row
+          .span10.category_title.gray14bold.lead
+            상위 카테고리
+        .row
+          .span9.offset1
+            .row 
+              .span3
+                - parent = @category.parent
+                .gray14lightbullet
+                  = link_to parent.name, cats_path(:id => parent.id)
+    %p
+    - unless @coms.blank?
+      %section#companies
+        .row
+          .span10
+            .row
+              .span10.category_title.gray14bold.lead
+                회사
+            .row
+              .span9.offset1
+                .row
+                  = will_paginate @coms, :renderer => BootstrapPagination::Rails
+                  - @coms.each do |com|
+                    .span3.paginated
+                      .gray14lightbullet
+                        = link_to com.name, com_path(:id => com.id)

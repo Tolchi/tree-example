@@ -15,14 +15,14 @@ class StaticPagesController < ApplicationController
     @categories = Category.all
     @categories.sort! { |a, b| a.name <=> b.name }
     if params[:id]
-      @category = Category.find(params[:id])
+      @category = Category.find_by_id(params[:id])
     elsif params[:name]
       @category = Category.find_by_name(params[:name])
     end
     if @category
-      @coms = Company.where('category_id = ?', @category.id).paginate(:page => params[:page], :per_page => 16)
+      @coms = Company.where('category_id = ?', @category.id).paginate(:page => params[:page], :per_page => 24)
       ariane.add @category.name, cats_path(:id => @category.id)
-    else
+    elsif params[:name] or params[:id]
       flash.now[:error] = "Category not found."
     end
   end
