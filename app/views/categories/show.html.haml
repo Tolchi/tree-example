@@ -7,9 +7,13 @@
   = @category.name
 - unless @category.parent_id.nil?
   %p
-    %strong= model_class.human_attribute_name(:parent_id) + ':'
+    %strong 상위 카테고리
     %br
-    = link_to Category.find(@category.parent_id).name, :controller => "categories", :action => "show", :id => @category.parent_id
+    = link_to Category.find_by_id(@category.parent_id).name, :controller => "categories", :action => "show", :id => @category.parent_id
+- unless @category.icon.blank?
+  %p
+    %strong 아이콘
+    %i{:class => "#{@category.icon} icon24"}
 %p
   - if @category.has_descendants?
     %p

@@ -298,6 +298,9 @@ footer {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
 }
+.icon24 {
+  font-size: 24px;
+}
 .icon240 {
   font-size: 240px;
 }
@@ -357,4 +360,35 @@ footer {
 }
 .thumbnail60px a i.icon60 {
   padding-top: 6px;
+}
+.about_background {
+  background-position:-50px -75px;
+  background-image: url(asset-path("about_background.png", image));
+  background-repeat: no-repeat;
+}
+.text1 {
+  margin-top: 10px;
+  border-left: 3px dotted #f1f1f1;
+  padding-left: 30px;
+  p {
+    margin-top:20px;
+    text-align: left;
+    font-size:14px;
+    font-family: Arial, Helvetica, Sans-serif;
+    color: black;
+  }
+}
+
+
+.text2 p {
+  margin-top:230px;
+  margin-left:-25px;
+  text-align: left;
+  font-size:14px;
+  font-family: Arial, Helvetica, Sans-serif;
+  color: black;
+}
+
+.textima {
+  margin-top:50px;
 }
