@@ -48,4 +48,11 @@ namespace :deploy do
     end
   end
   before "deploy", "deploy:check_revision"
+
+  desc "Loading data into database."
+  task :load_data, roles: :db do
+    puts "Loading data into database using data.yml."
+    run "cd #{current_path}; rake RAILS_ENV=production db:data:load"
+  end
+  after "deploy:migrate", "deploy:load_data"
 end
