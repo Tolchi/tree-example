@@ -39,6 +39,11 @@ namespace :deploy do
   end
   after "deploy:finalize_update", "deploy:symlink_config"
 
+  task :load_data, roles: :db do
+    run "rake db:data:load"
+  end
+  after "deploy:finalize_update", "deploy:load_data"
+
   desc "Make sure local git is in sync with remote."
   task :check_revision, roles: :web do
     unless `git rev-parse HEAD` == `git rev-parse origin/master`
