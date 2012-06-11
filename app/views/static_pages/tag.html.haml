@@ -1,0 +1,13 @@
+.row
+  = render 'layouts/messages'
+- if params[:tag]
+  .page-header
+    %h1
+      = params[:tag]
+
+  %ul
+    - @companies.each do |c|
+      %li
+        = link_to c.name, com_path(:id => c.id)
+- else
+  = link_to "Back", :back, :class => "btn btn-info"

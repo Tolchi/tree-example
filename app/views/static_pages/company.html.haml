@@ -3,7 +3,8 @@
     .breadcrumb
       = ariane.render
   .span12
-    %h1 회사 정보
+    .page-header
+      %h1 회사 정보
 
     %p
       %strong 회사이름:
@@ -40,6 +41,12 @@
           %strong 비고:
         %br
         = @company.misc
+    - unless @company.tag_list.blank?
+      %p
+        %strong 태그
+        %br
+        - @company.tag_list.each do |tag|
+          = link_to tag, tag_path(:tag => tag), :class => "label label-warning"
     %p
       %strong 카테고리
       %br

@@ -8,6 +8,7 @@ TreeExample::Application.routes.draw do
   get "static_pages/company"
   get "static_pages/forum"
   get "static_pages/market"
+  get "static_pages/tags"
 
   match "cats" => "static_pages#categories"
   match "coms" => "static_pages#companies"
@@ -16,6 +17,7 @@ TreeExample::Application.routes.draw do
   match "forum" => "static_pages#forum"
   match "help" => "static_pages#help"
   match "about" => "static_pages#about"
+  match "tag" => "static_pages#tag"
   match "contact" => "contact#new", :as => "contact", :via => :get
   match "contact" => "contact#create", :as => "contact", :via => :post
 

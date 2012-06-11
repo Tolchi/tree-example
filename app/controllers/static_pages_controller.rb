@@ -20,10 +20,18 @@ class StaticPagesController < ApplicationController
       @category = Category.find_by_name(params[:name])
     end
     if @category
-      @coms = Company.where('category_id = ?', @category.id).paginate(:page => params[:page], :per_page => 24)
+      @coms = Company.where('category_id = ?', @category.id).order("name ASC").paginate(:page => params[:page], :per_page => 24)
       ariane.add @category.name, cats_path(:id => @category.id)
     elsif params[:name] or params[:id]
       flash.now[:error] = "Category not found."
+    end
+  end
+
+  def tag
+    if params[:tag]
+      @companies = Company.tagged_with(params[:tag])
+    else
+      flash.now[:error] = "tag not present"
     end
   end
 

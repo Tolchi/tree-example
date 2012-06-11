@@ -5,6 +5,7 @@
   = f.input :cel
   = f.input :otro_contacto, :label => "기타 연락처"
   = f.input :homepage, :label => "홈페이지 주소"
+  = f.input :tag_list, :label => "특징", :hint => "separated by comma"
   = f.association :category, :collection => Category.all(:order => 'name'), :prompt => "카테고리 선택하세요"
   .form-actions
     = f.button :submit, :class => 'btn-primary'
