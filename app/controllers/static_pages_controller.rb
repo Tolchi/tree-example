@@ -21,6 +21,7 @@ class StaticPagesController < ApplicationController
     end
     if @category
       @coms = Company.where('category_id = ?', @category.id).order("name ASC").paginate(:page => params[:page], :per_page => 24)
+      @children = @category.children and @children.sort! { |a,b| a.name <=> b.name } unless @category.leaf?
       ariane.add @category.name, cats_path(:id => @category.id)
     elsif params[:name] or params[:id]
       flash.now[:error] = "Category not found."

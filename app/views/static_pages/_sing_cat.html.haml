@@ -20,14 +20,14 @@
         .span10.category_title.gray14bold.lead
           = @category.name
           %span.gray14light 카테고리
-      - unless @category.leaf?
+      - if @children
         .row
           .span10.category_title.gray14bold.lead
             하위 카테고리
         .row
           .span9.offset1
             .row
-              - @category.children.each do |c|
+              - @children.each do |c|
                 .span3
                   .gray14lightbullet
                     = link_to c.name, cats_path(:id => c.id)
