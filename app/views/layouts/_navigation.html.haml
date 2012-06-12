@@ -18,4 +18,4 @@
     - if @q
       %li
         = search_form_for @q, :url => coms_path, :html => { :class => 'form-search form-horizontal navbar-search pull-right', :id => "navbar-search" } do |f|
-          = f.text_field :name_cont, :placeholder => '회사이름 이나 상호', :class => 'search-query', :id => "nav_search",:size => 12
+          = f.text_field :name_cont, :placeholder => '회사이름 이나 상호', :class => 'search-query', :id => "nav_search",:size => 12, :rel => "popover", "data-content" => "회사명이나 상호의 일부분만 치셔도 됩니다. Enter 키를 누르시는 것 잊지 마세요.", "data-original-title" => "회사이름으로 찾기"
