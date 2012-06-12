@@ -14,6 +14,7 @@ $(document).ready ->
         $(this).blur ->
           $(this).val $(this).attr("placeholder")  if $(this).val() is ""
 
+  $("#nav_search").popover  placement: "bottom"
   $("#category_name").typeahead source: gon.availableCategories
   $("#category_name").popover placement: "right"
-  $("#nav_search").popover  placement: "bottom"
+  $("a[rel=tooltip]").tooltip
