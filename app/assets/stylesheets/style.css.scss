@@ -272,7 +272,7 @@ footer {
   display: block;
   text-indent: -9829px;
   background: image-url("logo_330px.png");
-  width: 330px;
+  width: 100%;
   height: 168px;
   background-repeat: no-repeat;
 }
@@ -318,11 +318,11 @@ footer {
 }
 .carousel-control {
   top: 235px;
-  border-width: 2px;
+  border-width: 3px;
   width: 24px;
   height: 24px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 17px;
+  line-height: 26px;
 }
 .thumbnail60px a:hover {
   text-decoration: none;
