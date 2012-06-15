@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120608174928) do
+ActiveRecord::Schema.define(:version => 20120615124712) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(:version => 20120608174928) do
     t.string   "otro_contacto"
     t.string   "misc"
     t.string   "homepage"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
   end
 
   create_table "roles", :force => true do |t|

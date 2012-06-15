@@ -29,6 +29,11 @@ class StaticPagesController < ApplicationController
     end
     if @category
       @coms = Company.where('category_id = ?', @category.id).order("name ASC").paginate(:page => params[:page], :per_page => 24)
+      unless @coms.blank?
+        @json = Company.find_all_by_category_id(@category.id).to_gmaps4rails do |company, marker|
+          marker.json({:id => company.id})
+        end
+      end
       @children = @category.children and @children.sort! { |a,b| a.name <=> b.name } unless @category.leaf?
     elsif params[:name] or params[:id]
       flash.now[:error] = "Category not found."
@@ -69,6 +74,7 @@ class StaticPagesController < ApplicationController
 
   def company
     @company = Company.find(params[:id])
+    @json = @company.to_gmaps4rails
     ariane.add @company.name, com_path(:id => @company.id)
   end
 

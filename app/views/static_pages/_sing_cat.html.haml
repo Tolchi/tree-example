@@ -60,3 +60,6 @@
                     .span3.paginated
                       .gray14lightbullet
                         = link_to com.name, com_path(:id => com.id)
+            .row
+              .span9.offset1
+                = gmaps("map_options" => { "detect_location" => true, "zoom" => 12}, "markers" => {"data" => @json})

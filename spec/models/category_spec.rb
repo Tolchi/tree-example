@@ -2,13 +2,13 @@
 #
 # Table name: categories
 #
-#  id         :integer         not null, primary key
+#  id         :integer          not null, primary key
 #  name       :string(255)
 #  parent_id  :integer
 #  lft        :integer
 #  rgt        :integer
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #  icon       :string(255)
 #
 

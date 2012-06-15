@@ -25,6 +25,7 @@
       .container
         = yield
     = render 'layouts/footer'
+    = yield :scripts
     :javascript
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-32262908-1']);
