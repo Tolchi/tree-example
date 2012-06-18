@@ -1,3 +1,8 @@
+- c = @category || Category.new
+- if c.name.nil?
+  - provide(:title, '톱 카테고리')
+- else
+  - provide(:title, "카테고리 - #{@category.name}")
 .row
   = render 'layouts/messages'
   .span12

@@ -35,10 +35,10 @@ class StaticPagesController < ApplicationController
         end
       end
       @children = @category.children and @children.sort! { |a,b| a.name <=> b.name } unless @category.leaf?
+      ariane.add @category.name, cats_path(:id => @category.id)
     elsif params[:name] or params[:id]
       flash.now[:error] = "Category not found."
     end
-    ariane.add @category.name, cats_path(:id => @category.id)
   end
 
   def tag
