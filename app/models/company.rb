@@ -31,4 +31,12 @@ class Company < ActiveRecord::Base
   def gmaps4rails_address
     "#{self.direccion}, Capital Federal, Argentina"
   end
+
+  def gmaps4rails_title
+    "#{self.name}, #{self.direccion}"
+  end
+
+  def gmaps4rails_infowindow
+    "#{self.name}, #{self.direccion}, #{self.tel}, #{self.cel}"
+  end
 end

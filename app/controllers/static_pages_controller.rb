@@ -28,9 +28,10 @@ class StaticPagesController < ApplicationController
       @category = Category.find_by_name(params[:name])
     end
     if @category
-      @coms = Company.where('category_id = ?', @category.id).order("name ASC").paginate(:page => params[:page], :per_page => 24)
-      unless @coms.blank?
-        @json = Company.find_all_by_category_id(@category.id).to_gmaps4rails do |company, marker|
+      companies = Company.where('category_id = ?', @category.id).order("name ASC")
+      @coms = companies.paginate(:page => params[:page], :per_page => 15)
+      unless companies.blank?
+        @json = companies.to_gmaps4rails do |company, marker|
           marker.json({:id => company.id})
         end
       end
