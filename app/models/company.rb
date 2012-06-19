@@ -22,21 +22,31 @@ class Company < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :tags
   acts_as_gmappable
-  attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contacto, :misc, :homepage, :tag_list
+  attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contacto, :misc, :homepage, :tag_list, :piso, :depto, :ciudad, :provincia
   belongs_to :category
   resourcify
   validates_presence_of :name, :direccion, :category_id
   validates_uniqueness_of :name
 
+  def direccion_completa
+    unless self.direccion.blank?
+      d = self.direccion
+      d = d + " Piso: " + self.piso unless self.piso.blank?
+      d = d + " Depto: " + self.depto unless self.depto.blank?
+      d = d + ", " + self.ciudad + ", " + self.provincia unless self.ciudad.eql? "Capital Federal"
+      d
+    end
+  end
+
   def gmaps4rails_address
-    "#{self.direccion}, Capital Federal, Argentina"
+    "#{self.direccion}, #{self.ciudad}, #{self.provincia}, Argentina"
   end
 
   def gmaps4rails_title
-    "#{self.name}, #{self.direccion}"
+    "#{self.name}, #{self.direccion_completa}"
   end
 
   def gmaps4rails_infowindow
-    "#{self.name}, #{self.direccion}, #{self.tel}, #{self.cel}"
+    "#{self.name}, #{self.direccion_completa}, #{self.tel}, #{self.cel}"
   end
 end

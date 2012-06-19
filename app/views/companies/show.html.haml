@@ -2,13 +2,13 @@
 %h1=t '.title', :default => model_class.model_name.human
 
 %p
-  %strong= model_class.human_attribute_name(:name) + ':'
+  %strong '회사 이름:'
   %br
   = @company.name
 %p
-  %strong= model_class.human_attribute_name(:direccion) + ':'
+  %strong  '주소:'
   %br
-  = @company.direccion
+  = @company.direccion_completa
 %p
   %strong= model_class.human_attribute_name(:tel) + ':'
   %br

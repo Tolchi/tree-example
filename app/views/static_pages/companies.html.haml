@@ -32,7 +32,7 @@
           - @companies.each do |company|
             %tr
               %td= link_to company.name, com_path(:id => company.id)
-              %td= company.direccion
+              %td= company.direccion_completa
               %td= company.tel
               %td= company.cel
               %td= company.otro_contacto

@@ -14,7 +14,7 @@
     %p
       %strong 주소:
       %br
-      = @company.direccion
+      = @company.direccion_completa
     %p
       %strong 전화:
       %br
@@ -52,7 +52,7 @@
       %strong 카테고리
       %br
       - cat_id = @company.category_id
-      = link_to Category.find(cat_id).name, cats_path(:id => cat_id)
+      = link_to Category.find(cat_id).name, cats_path(:id => cat_id), :class => "btn btn-small btn-success"
 
     = link_to 'Back', :back, :class => 'btn btn-primary btn-mini'
   - if @company.gmaps?
