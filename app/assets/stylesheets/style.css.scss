@@ -363,29 +363,40 @@ footer {
   background-image: url(asset-path("about_background.png", image));
   background-repeat: no-repeat;
 }
-.text1 {
-  margin-top: 10px;
-  border-left: 3px dotted #f1f1f1;
-  padding-left: 30px;
-  p {
-    margin-top:20px;
-    text-align: left;
-    font-size:14px;
-    font-family: Arial, Helvetica, Sans-serif;
-    color: black;
-  }
+.row.border {
+  border-left: 1px dotted #333;   
+  border-right: 1px dotted #333;  
+  padding-right: 25px;   
 }
-
-
-.text2 p {
-  margin-top:230px;
-  margin-left:-25px;
+@mixin text {
+  margin-top:20px;
+  margin-left: 25px;
   text-align: left;
-  font-size:14px;
+  font-size: 0.8em;
   font-family: Arial, Helvetica, Sans-serif;
   color: black;
+  text-align: justify;
 }
 
-.textima {
-  margin-top:50px;
+.text1 p {
+  @include text;
+}
+
+
+.text2 {
+  margin-left: 25px;
+  p {
+    @include text;
+  }
+  h2 {
+    text-align: right;
+  }
+  h3 {
+    text-align: right;
+  }
+}
+#about_logo {
+  margin-left: 30px;
+  width: 200px;
+  height: 102px;
 }
