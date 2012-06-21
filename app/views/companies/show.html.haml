@@ -36,6 +36,12 @@
       %strong 비고:
     %br
     = @company.misc
+- unless @company.tag_list.blank?
+  %p
+    %strong 태그
+    %br
+    - @company.tag_list.each do |tag|
+      = link_to tag, tag_path(:tag => tag), :class => "label label-warning"
 %p
   %strong= model_class.human_attribute_name(:category_id) + ':'
   %br
@@ -47,3 +53,4 @@
     = link_to t('.back', :default => t("helpers.links.back")), companies_path, :class => 'btn'
     = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(@company), :class => 'btn'
   = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(@company), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
+

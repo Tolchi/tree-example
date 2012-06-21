@@ -45,6 +45,7 @@ class StaticPagesController < ApplicationController
   def tag
     if params[:tag]
       @companies = Company.tagged_with(params[:tag])
+      @companies.sort! { |a,b| a.name <=> b.name }
     else
       flash.now[:error] = "tag not present"
     end
@@ -76,6 +77,7 @@ class StaticPagesController < ApplicationController
   def company
     @company = Company.find(params[:id])
     @json = @company.to_gmaps4rails
+    @tags = @company.tag_list
     ariane.add @company.name, com_path(:id => @company.id)
   end
 

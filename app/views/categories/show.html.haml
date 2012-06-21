@@ -25,14 +25,30 @@
           = link_to node.name, :controller => "categories", :action => "show", :id => node.id
           = child
 %p
-  - @companies = Company.find_all_by_category_id(@category.id)
   - unless @companies.size == 0
-    %p
-      %strong 회사 또는 상호
-    %ul
-    - @companies.each do |c|
-      %li
-        = link_to c.name, :controller => "companies", :action => "show", :id => c.id
+    %table.table.table-striped
+      %thead
+        %tr
+          %th 회사이름
+          %th 주소
+          %th Tel
+          %th 핸드폰
+          %th 기타연락처
+          - if user_signed_in? and current_user.has_role? :admin
+            %th=t '.actions', :default => t("helpers.actions")
+      %tbody
+        - @companies.each do |company|
+          %tr
+            %td= link_to company.name, company_path(company)
+            %td= company.direccion
+            %td= company.tel
+            %td= company.cel
+            %td= company.otro_contacto
+            - if user_signed_in? and current_user.has_role? :admin
+              %td
+                = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(company), :class => 'btn btn-mini'
+                = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(company), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
+
 
 - if user_signed_in? and current_user.has_role? :admin
   .form-actions

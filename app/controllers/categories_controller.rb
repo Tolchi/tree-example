@@ -17,6 +17,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
+    @companies = Company.find_all_by_category_id(@category.id)
+    @companies.sort! {|a,b| a.name <=> b.name}
 
     respond_to do |format|
       format.html # show.html.erb

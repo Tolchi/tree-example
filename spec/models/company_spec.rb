@@ -16,6 +16,10 @@
 #  latitude      :float
 #  longitude     :float
 #  gmaps         :boolean
+#  piso          :string(255)
+#  depto         :string(255)
+#  ciudad        :string(255)
+#  provincia     :string(255)
 #
 
 require 'spec_helper'
