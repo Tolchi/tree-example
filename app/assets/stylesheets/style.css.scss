@@ -78,6 +78,9 @@
 	float: left;
 	height: 60px;
 	width: 60px;
+  -moz-border-raduis: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
 }
 .topcategory {
 	float: left;
@@ -369,6 +372,9 @@ footer {
 }
 .thumbnail60px a i.icon60 {
   padding-top: 6px;
+  -moz-border-raduis: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
 }
 .about_background {
   background-position:-50px -75px;
