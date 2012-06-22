@@ -1,6 +1,8 @@
 .row
   = render 'layouts/messages'
   .span12
+    .visible-phone
+      = image_tag("logo_330px.png")
     .hero-unit.hidden-phone
       %a.close{"data-dismiss"=>"alert", :href => "#"} x
       .row
