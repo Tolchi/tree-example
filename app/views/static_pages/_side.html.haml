@@ -1,0 +1,11 @@
+- require 'feedzirra'
+- feed = Feedzirra::Feed.fetch_and_parse("http://www.yonhapnews.co.kr/RSS/sokbo.xml")
+- @entries_yh = feed.entries.first(3)
+- feed = Feedzirra::Feed.fetch_and_parse("http://www.telam.com.ar/xml/rss/")
+- @entries_tl = feed.entries.first(3)
+.well#news
+  %h1.page-header 뉴스
+  - @entries_yh.each do |e|
+    = render 'static_pages/newsfeed', :e => e
+  - @entries_tl.each do |e|
+    = render 'static_pages/newsfeed', :e => e

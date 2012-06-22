@@ -37,5 +37,11 @@
                     %i.icon-arrow-left
                   %a.carousel-control.right{:href => '#slide', "data-slide" => "next"}
                     %i.icon-arrow-right
-= render 'static_pages/category_search'
-= render 'static_pages/topcat'
+.row
+  .span12
+    .row
+      .span9
+        = render 'static_pages/category_search'
+        = render 'static_pages/topcat'
+      .span3
+        = render 'static_pages/side'

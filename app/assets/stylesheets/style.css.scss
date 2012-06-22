@@ -1,4 +1,16 @@
-﻿@font-face {
+﻿/* mixins, variables, etc. */
+
+@mixin text {
+  margin-top:20px;
+  margin-left: 25px;
+  text-align: left;
+  font-size: 0.8em;
+  font-family: Arial, Helvetica, Sans-serif;
+  color: black;
+  text-align: justify;
+}
+
+@font-face {
   font-family: 'NanumGothic';
   src: url(asset-path('NanumGothic.eot?',font)) format('eot'), 
        url(asset-path('NanumGothic.woff',font)) format('woff'), 
@@ -368,15 +380,6 @@ footer {
   border-right: 1px dotted #333;  
   padding-right: 25px;   
 }
-@mixin text {
-  margin-top:20px;
-  margin-left: 25px;
-  text-align: left;
-  font-size: 0.8em;
-  font-family: Arial, Helvetica, Sans-serif;
-  color: black;
-  text-align: justify;
-}
 
 .text1 p {
   @include text;
@@ -399,4 +402,21 @@ footer {
   margin-left: 30px;
   width: 200px;
   height: 102px;
+}
+
+form.well {
+  margin-bottom: 0px;
+}
+
+#news {
+  .news_item {
+    list-style: none;
+    padding-left: 20px;
+    .news_title {
+      font-size: 0.9em;
+    }
+    .news_summary {
+      font-size: 0.8em;
+    }
+  }
 }
