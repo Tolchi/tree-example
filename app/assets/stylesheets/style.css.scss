@@ -415,6 +415,7 @@ form.well {
 }
 
 #news {
+  border: 1px solid lighten(black, 70%);
   .news_item {
     list-style: none;
     padding-left: 20px;
