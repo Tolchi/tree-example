@@ -17,3 +17,6 @@ $(document).ready ->
   $("#category_name").typeahead source: gon.availableCategories
   $("a[rel=tooltip]").tooltip
   $(".collapse").collapse
+  $("#newstab a").click (e) ->
+    e.preventDefault()
+    $(this).pill "show"

@@ -1,15 +1,26 @@
 - require 'feedzirra'
 - feed = Feedzirra::Feed.fetch_and_parse("http://www.yonhapnews.co.kr/RSS/sokbo.xml")
-- @entries_yh = feed.entries.first(3)
+- @entries_yh = feed.entries.first(5)
 - feed = Feedzirra::Feed.fetch_and_parse("http://www.telam.com.ar/xml/rss/")
-- @entries_tl = feed.entries.first(3)
+- @entries_tl = feed.entries.first(4)
 .well#news
   .page-header
     %h1 
       뉴스
       %small 속보
-  .accordion#accordion2
-    - @entries_yh.each do |e|
-      = render 'static_pages/newsfeed', :e => e
-    - @entries_tl.each do |e|
-      = render 'static_pages/newsfeed', :e => e
+  %ul#newstab.nav.nav-pills
+    %li.active
+      %a{:href => "#yonhap", "data-toggle" => "pill"}
+        한국
+    %li
+      %a{:href => "#telam", "data-toggle" => "pill"}
+        Argentina
+  .pill-content
+    .pill-pane.fade.active.in#yonhap
+      .accordion#accordion-yh
+        - @entries_yh.each do |e|
+          = render 'static_pages/newsfeed-yh', :e => e
+    .pill-pane.fade#telam
+      .accordion#accordion-tl
+        - @entries_tl.each do |e|
+          = render 'static_pages/newsfeed-tl', :e => e
