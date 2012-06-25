@@ -1,3 +1,8 @@
-%ul.news_item
-  %li.news_title
-    = link_to e.title, e.url
+.accordion-group
+  .accordion-heading
+    %button.accordion-toggle{"data-toggle" => "collapse", "data-parent" => "#accordion2", "data-target" => "##{e.hash}"}
+      = e.title
+  .accordion-body.collapse{:id => "#{e.hash}"}
+    .accordion-inner
+      = strip_tags(e.summary.strip)
+      = link_to "더보기", e.url,:class => "btn btn-mini btn-info", :target => "_new"

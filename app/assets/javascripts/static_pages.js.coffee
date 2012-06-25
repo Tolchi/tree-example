@@ -2,8 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready ->
-  $("#slide").carousel interval: 4000
-
   unless Modernizr.input.placeholder
     $("input").each ->
       if $(this).val() is "" and $(this).attr("placeholder") isnt ""
@@ -14,6 +12,8 @@ $(document).ready ->
         $(this).blur ->
           $(this).val $(this).attr("placeholder")  if $(this).val() is ""
 
+  $("#slide").carousel interval: 4000
   $("input[rel=popover]").popover placement: "bottom"
   $("#category_name").typeahead source: gon.availableCategories
   $("a[rel=tooltip]").tooltip
+  $(".collapse").collapse
