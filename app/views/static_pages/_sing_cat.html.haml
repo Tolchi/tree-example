@@ -4,7 +4,7 @@
     - categories = Category.roots
     %section#categories
       .row
-        .span10.category_title.gray14bold.lead 톱 카테고리
+        .span10.category_title.lead 톱 카테고리
       .row
         .span9.offset1
           .row
@@ -17,12 +17,12 @@
   - else
     %section#categories
       .row
-        .span10.category_title.gray14bold.lead
+        .span10.category_title.lead
+          카테고리:
           = @category.name
-          %span.gray14light 카테고리
       - if @children
         .row
-          .span10.category_title.gray14bold.lead
+          .span10.category_title.lead
             하위 카테고리
         .row
           .span9.offset1
@@ -35,7 +35,7 @@
                       = c.descendants_count + Company.find_all_by_category_id(c.id).count
       - if @category.child?
         .row
-          .span10.category_title.gray14bold.lead
+          .span10.category_title.lead
             상위 카테고리
         .row
           .span9.offset1
@@ -50,16 +50,16 @@
         .row
           .span10
             .row
-              .span10.category_title.gray14bold.lead
+              .span10.category_title.lead
                 회사
-            .row
+            .row.companies-list
               .span9.offset1
                 .row
-                  = will_paginate @coms, :renderer => BootstrapPagination::Rails
                   - @coms.each do |com|
                     .span3.paginated
                       .gray14lightbullet
                         = link_to com.name, com_path(:id => com.id)
+                  = will_paginate @coms, :renderer => BootstrapPagination::Rails, :class => "pagination pagination-centered"
             - unless @json == "[]"
               .row
                 .span9.offset1
