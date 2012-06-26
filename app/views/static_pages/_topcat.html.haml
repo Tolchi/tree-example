@@ -4,7 +4,7 @@
       %li.span3
         .thumbnail
           .thumbnail60px
-            %a{:href => cats_path(:id => topcat.id), :rel => "tooltip", "data-original-title" => "#{@topcat_subcat[topcat.name]}"}
+            %a{:href => cats_path(:id => topcat.id)}
               %i{:class => "#{topcat.icon} icon60"}
           .topcategory
             %p

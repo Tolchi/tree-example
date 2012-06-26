@@ -9,32 +9,36 @@
       = link_to "Back", :back, :class => "btn btn-small btn-info"
   -else
     .span12
-      .page-header
-        %h1 업소록
-      = search_form_for @q, :url => coms_path, :builder => SimpleForm::FormBuilder do |f|
-        .form-actions
-          = f.input :name_cont, :label => '회사이름 또는 상호'
-          = f.button :submit, '찾기', :class => 'btn btn-small btn-primary'
-          = link_to '취소', coms_path, :class => 'btn btn-small btn-inverse'
-
-
-      %table.table.table-striped.table-condensed
-        %thead
-          %tr
-            %th= sort_link @q,:name
-            %th 주소
-            %th 전화
-            %th 핸드폰
-            %th 기타연락처
-            %th 카테고리
-        %tbody
-          - @companies.each do |company|
+      .row
+        .page-header
+          %h1 업소록
+      .row
+        .span4
+          .row
+            = search_form_for @q, :url => coms_path, :builder => SimpleForm::FormBuilder do |f|
+              .form-actions
+                = f.input :name_cont, :label => '회사이름 또는 상호'
+                = f.button :submit, '찾기', :class => 'btn-small btn-primary'
+                = link_to '취소', coms_path, :class => 'btn btn-small btn-inverse'
+    .span12
+      .row
+        %table.table.table-condensed
+          %thead
             %tr
-              %td= link_to company.name, com_path(:id => company.id)
-              %td= company.direccion_completa
-              %td= company.tel
-              %td= company.cel
-              %td= company.otro_contacto
-              - cat_id = company.category_id
-              %td= link_to Category.find(cat_id).name, cats_path(:id => cat_id) 
-      = will_paginate @companies, :renderer => BootstrapPagination::Rails, :class => "pagination pagination-centered"
+              %th= sort_link @q,:name
+              %th 주소
+              %th 전화
+              %th 핸드폰
+              %th 기타연락처
+              %th 카테고리
+          %tbody
+            - @companies.each do |company|
+              %tr
+                %td= link_to company.name, com_path(:id => company.id)
+                %td= company.direccion_completa
+                %td= company.tel
+                %td= company.cel
+                %td= company.otro_contacto
+                - cat_id = company.category_id
+                %td= link_to Category.find(cat_id).name, cats_path(:id => cat_id) 
+        = will_paginate @companies, :renderer => BootstrapPagination::Rails, :class => "pagination pagination-centered"
