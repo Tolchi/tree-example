@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_filter :query
+  before_filter :query, :set_ariane
 
   def home
     @topcat_subcat = Hash.new
@@ -36,6 +36,12 @@ class StaticPagesController < ApplicationController
         end
       end
       @children = @category.children and @children.sort! { |a,b| a.name <=> b.name } unless @category.leaf?
+      ariane.add 'Categories', cats_path
+      if @category.child?
+        @category.ancestors.each do |ac|
+          ariane.add ac.name, cats_path(:id => ac.id)
+        end
+      end
       ariane.add @category.name, cats_path(:id => @category.id)
     elsif params[:name] or params[:id]
       flash.now[:error] = "Category not found."
@@ -78,6 +84,7 @@ class StaticPagesController < ApplicationController
     @company = Company.find(params[:id])
     @json = @company.to_gmaps4rails
     @tags = @company.tag_list
+    ariane.add 'Companies', coms_path
     ariane.add @company.name, com_path(:id => @company.id)
   end
 
@@ -90,4 +97,8 @@ class StaticPagesController < ApplicationController
     end
   end
 
+  protected
+  def set_ariane
+    super
+  end
 end

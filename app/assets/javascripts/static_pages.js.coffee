@@ -19,5 +19,6 @@ $(document).ready ->
   $("#newstab a").click (e) ->
     e.preventDefault()
     $(this).pill "show"
+  $('#cat_tree').modal
   $("#nav_search").popover placement: "bottom"
   $("#category_name").popover placement: "top"

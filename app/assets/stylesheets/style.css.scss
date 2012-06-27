@@ -109,6 +109,10 @@ ul.thumbnails {
             -o-transform: scale(1.5);
             transform: scale(1.5);
             background-color: invert(#3992c1);
+            -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
+            z-index: 5;
           }
         }
       } 
@@ -125,7 +129,7 @@ ul.thumbnails {
         -moz-transition: font-size linear 0.3s, background-color 0.3s ease 0.12s;
         -o-transition: font-size linear 0.3s, background-color 0.3s ease 0.12s;
         &:hover{
-          font-size: 1.5em;
+          font-size: 1.38em;
           background-color: rgba(57,146,193,0.9);
           color: white;
         }
@@ -447,4 +451,16 @@ form.well {
 }
 .row.companies-list {
   margin-bottom: 50px;
+}
+.arbol.btn-group{
+  display: inline-block;
+  ol.nested_set{
+    list-style: none;
+    li {
+      line-height: 150%;
+      list-style-position: outside;
+      margin-top: 10px;
+      font-size: 1.08em;
+    }
+  }
 }
