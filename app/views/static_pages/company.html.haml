@@ -1,71 +1,72 @@
 - provide(:title, "회사정보 - #{@company.name}")
-.span12
-  .row
+.row
+  .span12
     .breadcrumb
       = ariane.render
-.span12
-  .row
-    .span1
-      %a{:class => "btn btn-small btn-info", "data-toggle"=> "modal", :href => "#cat_tree"}
-        Cates.
-      .modal.hide#cat_tree
-        .modal-header
-          %button{:type=>"button", :class=>"close", "data-dismiss"=>"modal"}
-            x
+.row
+  .span12
+    .row
+      .span1
+        %a{:style => "margin-top: 50px;width:95%;",:class => "btn btn-small btn-info", "data-toggle"=> "modal", :href => "#cat_tree"}
           카테고리
-        .modal-body
-          = sortable_tree @categories, :path => 'categories/tree/base', :title => :name
-        .modal-footer
-          %a{:href=>"#", :class=>"btn btn-primary", "data-dismiss"=>"modal"}
-            닫기
-    .span3
-      .page-header
-        %h1 
-          = @company.name
-      %p
-        %strong 주소:
-        %br
-        = @company.direccion_completa
-      %p
-        %strong 전화:
-        %br
-        = @company.tel
-      - unless @company.cel.blank?
+        .modal.hide#cat_tree
+          .modal-header
+            %button{:type=>"button", :class=>"close", "data-dismiss"=>"modal"}
+              x
+            카테고리
+          .modal-body
+            = sortable_tree @categories, :path => 'categories/tree/base', :title => :name
+          .modal-footer
+            %a{:href=>"#", :class=>"btn btn-primary", "data-dismiss"=>"modal"}
+              닫기
+      .span3
+        .page-header
+          %h1 
+            = @company.name
         %p
-          %strong 핸드폰:
+          %strong 주소:
           %br
-          = @company.cel
-      - unless @company.otro_contacto.blank?
+          = @company.direccion_completa
         %p
-          %strong 기타연락처:
+          %strong 전화:
           %br
-          = @company.otro_contacto
-      - unless @company.homepage.blank?
+          = @company.tel
+        - unless @company.cel.blank?
+          %p
+            %strong 핸드폰:
+            %br
+            = @company.cel
+        - unless @company.otro_contacto.blank?
+          %p
+            %strong 기타연락처:
+            %br
+            = @company.otro_contacto
+        - unless @company.homepage.blank?
+          %p
+            %strong 홈페이지 주소
+            %br
+            = link_to @company.homepage, @company.homepage
+        - unless @company.misc.blank?
+          %p
+            - if @company.category_id == 44
+              %strong 운송지역:
+            - else
+              %strong 비고:
+            %br
+            = @company.misc
+        - unless @tags.blank?
+          %p
+            %strong 태그
+            %br
+            - @tags.each do |tag|
+              = link_to tag, tag_path(:tag => tag), :class => "label label-warning"
         %p
-          %strong 홈페이지 주소
+          %strong 카테고리
           %br
-          = link_to @company.homepage, @company.homepage
-      - unless @company.misc.blank?
-        %p
-          - if @company.category_id == 44
-            %strong 운송지역:
-          - else
-            %strong 비고:
-          %br
-          = @company.misc
-      - unless @tags.blank?
-        %p
-          %strong 태그
-          %br
-          - @tags.each do |tag|
-            = link_to tag, tag_path(:tag => tag), :class => "label label-warning"
-      %p
-        %strong 카테고리
-        %br
-        - cat_id = @company.category_id
-        = link_to Category.find(cat_id).name, cats_path(:id => cat_id), :class => "btn btn-small btn-success"
+          - cat_id = @company.category_id
+          = link_to Category.find(cat_id).name, cats_path(:id => cat_id), :class => "btn btn-small btn-success"
 
-      = link_to 'Back', :back, :class => 'btn btn-primary btn-mini'
-    - if @company.gmaps?
-      .span8
-        = gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 16, "auto_zoom" => false}, "markers" => {"data" => @json})
+        = link_to 'Back', :back, :class => 'btn btn-primary btn-mini'
+      - if @company.gmaps?
+        .span8
+          = gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 16, "auto_zoom" => false}, "markers" => {"data" => @json})
