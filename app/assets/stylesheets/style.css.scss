@@ -200,9 +200,6 @@ ul {
 .navbar-inner {
   background-color: #00a0e3;
 }
-.modal-footer {
-  background-color: #000;
-}
 .thumbnails > li {
   display: inline;
 }
@@ -224,6 +221,30 @@ footer {
   padding-top: 8px;
   background-color: #00a0e3;
   font-size: 0.85em;
+  #footer-logos {
+    float: left;
+    text-align: center;
+    li {
+      display: inline;
+      a img {
+        height: 23px;
+        width: 23px;
+        border: none;                
+        opacity: .25;                
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=25)"; /* IE 8 hack */
+        filter: alpha(opacity = 25); /* IE 5-7 hack */
+        -webkit-transition: opacity .2s ease-in-out;
+        -moz-transition: opacity .2s ease-in-out;
+        -o-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        &:hover {
+          opacity: .6;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE 8 hack */
+          filter: alpha(opacity = 60); /* IE 5-7 hack */
+        }
+      }
+    }
+  }
   small {
     color: #fff;
     float: left;
