@@ -32,11 +32,6 @@
        url(asset-path('NanumMyeongjo.svg#NanumMyeongjo',font)) format('svg');
 }
 
-
-/* { 
-  margin: 0; 
-  padding: 0; 
-}*/
 .category_separator {
 	background-image: image-url("category%20space.png");
 	background-repeat: no-repeat;
@@ -154,12 +149,6 @@ ul.thumbnails {
       }
     }
   }
-}
-.breadbox {
-	float: left;
-	width: 100%;
-	margin-bottom: 20px;
-	margin-left: 10px;
 }
 .thumbnail25px {
 	height: 25px;
@@ -301,34 +290,6 @@ footer {
   .nav-collapse .dropdown-menu a:hover {
     background-color: #888;
   }
-}
-.blue {
-  font-size: 14px;
-  color: #FFF;
-  background-color: #00a0e3;
-  text-align: left;
-  vertical-align: middle;
-  height: 20px;
-  width: 100px;
-  padding-left: 8px;
-  float: left;
-}
-.orange {
-  font-size: 14px;
-  color: #FFF;
-  background-color: #ff6410;
-  text-align: left;
-  vertical-align: middle;
-  height: 20px;
-  width: 100px;
-  padding-left: 8px;
-  float: left;
-}
-.breadlinkimg {
-  background-image: image-url("category%20space.png");
-  float: left;
-  height: 20px;
-  width: 20px;
 }
 .span3news {
   width: 208px;
@@ -485,4 +446,7 @@ form.well {
       font-size: 1.08em;
     }
   }
+}
+.breadcrumb {
+  font-size: .9em;
 }

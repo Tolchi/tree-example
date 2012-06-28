@@ -27,6 +27,7 @@ class StaticPagesController < ApplicationController
     elsif params[:name]
       @category = Category.find_by_name(params[:name])
     end
+    ariane.add 'Categories', cats_path
     if @category
       companies = Company.where('category_id = ?', @category.id).order("name ASC")
       @coms = companies.paginate(:page => params[:page], :per_page => 15)
@@ -36,7 +37,6 @@ class StaticPagesController < ApplicationController
         end
       end
       @children = @category.children and @children.sort! { |a,b| a.name <=> b.name } unless @category.leaf?
-      ariane.add 'Categories', cats_path
       if @category.child?
         @category.ancestors.each do |ac|
           ariane.add ac.name, cats_path(:id => ac.id)
