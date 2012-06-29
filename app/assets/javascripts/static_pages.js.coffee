@@ -12,7 +12,6 @@ $(document).ready ->
         $(this).blur ->
           $(this).val $(this).attr("placeholder")  if $(this).val() is ""
 
-  $("#slide").carousel interval: 4000
   $("#category_name").typeahead source: gon.availableCategories
   $("a[rel=tooltip]").tooltip
   $(".collapse").collapse
@@ -22,3 +21,5 @@ $(document).ready ->
   $('#cat_tree').modal
   $("#nav_search").popover placement: "bottom"
   $("#category_name").popover placement: "top"
+
+

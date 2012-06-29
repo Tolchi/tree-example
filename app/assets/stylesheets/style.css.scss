@@ -87,7 +87,7 @@ ul.thumbnails {
           opacity: .6;
           font-size: 50px;
           color: #fff;
-          background-color: #3992c1;
+          background-color: #282828;
           border-radius: 33px;
           -moz-border-radius: 33px;
           -webkit-border-radius: 33px;
@@ -203,9 +203,10 @@ ul {
   margin-left: auto;
 }
 footer {
+  color: white;
   height: 28px;
   padding-top: 8px;
-  background-color: #00a0e3;
+  background-color: #282828;
   font-size: 0.85em;
   #footer-logos {
     float: left;
@@ -244,9 +245,10 @@ footer {
     }
   }
   a {
+    color: white;
     font-weight: bold;
     &:hover {
-      color: white;
+      color: #ff7930;
       text-decoration: none;
     }
   }
@@ -443,4 +445,16 @@ form.well {
 }
 .breadcrumb {
   font-size: .9em;
+}
+.slider-wrapper {
+  width: 100%;
+  margin: 20px auto;
+  .nivoSlider {
+    box-shadow : 6px 6px 8px rgba(50, 50, 50, 0.84);
+    -webkit-box-shadow : 6px 6px 8px rgba(50, 50, 50, 0.84);
+    -moz-box-shadow : 6px 6px 8px rgba(50, 50, 50, 0.84);
+  }
+}
+.theme-default #slider {
+  margin: 20px auto 0 auto;
 }

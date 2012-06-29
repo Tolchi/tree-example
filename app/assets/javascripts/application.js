@@ -18,4 +18,5 @@
 //= require modernizr
 //= require sortable/base
 //= require comments/base
+//= require jquery.nivo.slider.pack
 //= require_tree .

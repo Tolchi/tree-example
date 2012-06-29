@@ -1,44 +1,12 @@
 .row
   = render 'layouts/messages'
   .span12
-    #logo-phone.visible-phone
-      = image_tag("logo_330px.png")
-    .hero-unit.hidden-phone
-      %a.close{"data-dismiss"=>"alert", :href => "#"} x
-      .row
-        .span10
-          .row
-            .span5
-              .hero-logo
-                %h1#logo
-                  = link_to "아르헨티나 한인 네트워크", root_path, :class => "logo"
-              .hero-content
-                %p
-                  아르헨티나 한인 네트워크는 재아 한인들의 
-                  %em 업소록
-                  과 아르헨티나 한인들을 위한 여러 정보를 제공할 것입니다. 
-                %p
-                  %a.btn.btn-success.btn-large{:href => about_path}
-                    %i.icon-info-sign
-                    자세한 내용 &raquo;
-            .span5
-              .hero-carousel
-                #slide.carousel.slide
-                  .carousel-inner
-                    .item.active
-                      %i{:class=>"icon-briefcase icon240"}
-                    .item
-                      %i{:class=>"icon-money icon240"}
-                    .item
-                      %i{:class=>"icon-picture icon240"}
-                    .item
-                      %i{:class=>"icon-camera icon240"}
-                    .item
-                      %i{:class=>"icon-credit-card icon240"}
-                  %a.carousel-control.left{:href => '#slide', "data-slide" => "prev"}
-                    %i.icon-arrow-left
-                  %a.carousel-control.right{:href => '#slide', "data-slide" => "next"}
-                    %i.icon-arrow-right
+    .row
+      .slider-wrapper.theme-default
+        #slider.nivoSlider
+          %img{:src =>"/assets/foto1.png", "data-thumb"=>"/assets/foto1.png", :alt=>"Foto1"}
+          %img{:src =>"/assets/foto2.png", "data-thumb"=>"/assets/foto2.png", :alt=>"Foto2"}
+          %img{:src =>"/assets/foto3.png", "data-thumb"=>"/assets/foto3.png", :alt=>"foto3"}
 .row
   .span12
     .row
@@ -47,3 +15,18 @@
         = render 'static_pages/topcat'
       .span3
         = render 'static_pages/side'
+:javascript
+  $(window).load(function() {
+      $('#slider').nivoSlider({
+                            effect:'random',
+                            slices:15,
+                            animSpeed:800,
+                            pauseTime:3000,
+                            directionNav:true, //Next & Prev
+                            directionNavHide:true, //Only show on hover
+                            controlNav:true, //1,2,3...
+                            pauseOnHover:false, //Stop animation while hovering
+                            captionOpacity:.7 //Universal caption opacity
+
+      });
+  });
