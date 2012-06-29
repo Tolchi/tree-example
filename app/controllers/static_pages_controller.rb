@@ -20,7 +20,6 @@ class StaticPagesController < ApplicationController
   end
 
   def categories
-    @categories = Category.all
     @categories.sort! { |a, b| a.name <=> b.name }
     if params[:id]
       @category = Category.find_by_id(params[:id])

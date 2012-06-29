@@ -6,20 +6,7 @@
 .row
   .span12
     .row
-      .span1
-        %a{:style => "margin-top: 50px;width:95%;",:class => "btn btn-small btn-info", "data-toggle"=> "modal", :href => "#cat_tree"}
-          카테고리
-        .modal.hide#cat_tree
-          .modal-header
-            %button{:type=>"button", :class=>"close", "data-dismiss"=>"modal"}
-              x
-            카테고리
-          .modal-body
-            = sortable_tree @categories, :path => 'categories/tree/base', :title => :name
-          .modal-footer
-            %a{:href=>"#", :class=>"btn btn-primary", "data-dismiss"=>"modal"}
-              닫기
-      .span3
+      .span3.offset1
         .page-header
           %h1 
             = @company.name
