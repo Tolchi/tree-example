@@ -16,18 +16,12 @@ $ ->
   $("#category_name").typeahead source: gon.availableCategories
 
 $ ->
-  $("a[rel=tooltip]").tooltip
-
-$ ->
   $(".collapse").collapse
 
 $ ->
   $("#newstab a").click (e) ->
     e.preventDefault()
     $(this).pill "show"
-
-$ ->
-  $('#cat_tree').modal
 
 $ ->
   $("#nav_search").popover placement: "bottom"
