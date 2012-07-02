@@ -9,7 +9,7 @@
           .topcategory
             %p
               %strong
-                = link_to topcat.name, cats_path(:id => topcat.id), :rel => "tooltip", "data-original-title" => "#{@topcat_subcat[topcat.name]}"
+                = link_to topcat.name, cats_path(:id => topcat.id), "data-original-title" => "#{@topcat_subcat[topcat.name]}", :rel => "tooltip"
             %ul.subcategories
               - topcat.children.first(2).each do |sub|
                 %li 
