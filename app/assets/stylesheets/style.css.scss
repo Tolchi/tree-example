@@ -322,12 +322,16 @@ footer {
   font-size: 0.8em;
 }
 #logo a {
+  position:absolute;
+  top: 90px;
+  left: 110px;
   display: block;
   text-indent: -9829px;
   background: image-url("logo_330px.png");
-  width: 100%;
+  width: 330px;
   height: 168px;
   background-repeat: no-repeat;
+  z-index: 10;
 }
 .navbar .brand {
   text-indent: -9273px;
