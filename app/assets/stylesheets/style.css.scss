@@ -105,9 +105,7 @@ ul.thumbnails {
             -o-transform: scale(1.5);
             transform: scale(1.5);
             background-color: invert(#3992c1);
-            -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-            -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
+            @include box-shadow(rgba(0,0,0,0.5) 4px 4px 10px);
             z-index: 5;
           }
         }

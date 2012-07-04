@@ -19,8 +19,8 @@
     .pill-pane.fade.active.in#yonhap
       .accordion#accordion-yh
         - @entries_yh.each do |e|
-          = render 'static_pages/newsfeed-yh', :e => e
+          = render 'static_pages/newsfeed', :e => e, :news => "yh"
     .pill-pane.fade#telam
       .accordion#accordion-tl
         - @entries_tl.each do |e|
-          = render 'static_pages/newsfeed-tl', :e => e
+          = render 'static_pages/newsfeed', :e => e, :news => "tl"
