@@ -1,23 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_filter :query, :set_ariane
-
-  def home
-    @topcat_subcat = Hash.new
-    @top_categories = Category.roots
-    @top_categories.sort! { |a, b| a.name <=> b.name}
-    @top_categories.each do |tc|
-      a = Array.new
-      tc.children.each do |ch|
-        a.push ch.name
-      end
-      @topcat_subcat[tc.name] = a.join(',')
-    end
-    cats = Category.all
-    gon.availableCategories = Array.new
-    cats.each do |c|
-      gon.availableCategories.push c.name
-    end
-  end
+  before_filter :set_ariane
 
   def categories
     @categories.sort! { |a, b| a.name <=> b.name }
@@ -87,16 +69,8 @@ class StaticPagesController < ApplicationController
     ariane.add @company.name, com_path(:id => @company.id)
   end
 
-  def query
-    @q = Company.search(params[:q])
-    @q.sorts = 'name asc' if @q.sorts.empty?
-    @companies = @q.result.paginate(:page => params[:page], :per_page => 20)
-    if @companies.count == 0 
-      flash.now[:error] = "Companies not found"
-    end
-  end
-
   protected
+
   def set_ariane
     super
   end

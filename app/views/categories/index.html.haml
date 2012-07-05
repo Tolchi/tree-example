@@ -1,5 +1,15 @@
-- model_class = Category.new.class
-%h1=t '.title', :default => model_class.model_name.human.pluralize
-- if user_signed_in? and current_user.has_role? :admin
-  = link_to t('.new', :default => t("helpers.links.new")), new_category_path, :class => 'btn btn-primary'
-= sortable_tree @categories, :path => 'categories/tree/base', :title => :name
+- provide(:title, '톱 카테고리')
+.row
+  = render 'categories/catside'
+  .span10
+    .row
+      .span10
+        - cat_root = Category.roots
+        %section#categories
+          .row
+            .span10.category_title.lead 톱 카테고리
+          .row
+            .span9.offset1
+              .row
+                - cat_root.each do |c|
+                  = render 'categories/descendants', :c => c

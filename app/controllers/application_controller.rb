@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :fetch_categories
-  before_filter :set_ariane
+  before_filter :fetch_categories, :set_ariane, :query
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
@@ -12,6 +11,15 @@ class ApplicationController < ActionController::Base
     @categories = Category.all
   end
   
+  def query
+    @q = Company.search(params[:q])
+    @q.sorts = 'name asc' if @q.sorts.empty?
+    @companies = @q.result.paginate(:page => params[:page], :per_page => 20)
+    if @companies.count == 0 
+      flash.now[:error] = "Companies not found"
+    end
+  end
+
   def set_ariane
     ariane.add 'Home', root_path
   end

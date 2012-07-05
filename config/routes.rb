@@ -1,18 +1,11 @@
 TreeExample::Application.routes.draw do
-  get "static_pages/categories"
-  get "static_pages/home"
+  get 'categories/:id/page/:page', to: 'categories#show'
   get "static_pages/help"
   get "static_pages/about"
-  get "static_pages/categories"
-  get "static_pages/companies"
-  get "static_pages/company"
   get "static_pages/forum"
   get "static_pages/market"
   get "static_pages/tags"
 
-  match "cats" => "static_pages#categories"
-  match "coms" => "static_pages#companies"
-  match "com" => "static_pages#company"
   match "market" => "static_pages#market"
   match "forum" => "static_pages#forum"
   match "help" => "static_pages#help"
@@ -31,9 +24,9 @@ TreeExample::Application.routes.draw do
   end
 
   authenticated :user do
-    root :to => 'static_pages#home'
+    root :to => 'home#index'
   end
-  root :to => "static_pages#home"
+  root :to => "home#index"
   devise_for :users
   resources :users, :only => [:show, :index]
 end

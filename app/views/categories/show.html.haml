@@ -1,58 +1,48 @@
-- model_class = @category.class
-%h1=t '.title', :default => model_class.model_name.human
-
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @category.name
-- unless @category.parent_id.nil?
-  %p
-    %strong 상위 카테고리
-    %br
-    = link_to Category.find_by_id(@category.parent_id).name, :controller => "categories", :action => "show", :id => @category.parent_id
-- unless @category.icon.blank?
-  %p
-    %strong 아이콘
-    %i{:class => "#{@category.icon} icon24"}
-%p
-  - if @category.has_descendants?
+.row
+  = render 'categories/catside'
+  .span10
+    %section#categories
+      .row
+        .span10.category_title.lead
+          카테고리:
+          = @category.name
+      - if @children
+        .row
+          .span10.category_title.lead
+            하위 카티고리
+        .row
+          .span9.offset1
+            .row
+              - @children.each do |c|
+                = render 'categories/descendants', :c => c
+      - if @category.child?
+        .row
+          .span10.category_title.lead
+            상위 카테고리
+        .row
+          .span9.offset1
+            .row
+              .span3
+                - parent = @category.parent
+                .gray14lightbullet
+                  = link_to parent.name, parent
     %p
-      %strong
-        SubCategories
-      - arranged_nodes = Category.find(@category.id).children.arrange
-      = render_tree arranged_nodes do |node, child| 
-        %li
-          = link_to node.name, :controller => "categories", :action => "show", :id => node.id
-          = child
-%p
-  - unless @companies.size == 0
-    %table.table.table-striped
-      %thead
-        %tr
-          %th 회사이름
-          %th 주소
-          %th Tel
-          %th 핸드폰
-          %th 기타연락처
-          - if user_signed_in? and current_user.has_role? :admin
-            %th=t '.actions', :default => t("helpers.actions")
-      %tbody
-        - @companies.each do |company|
-          %tr
-            %td= link_to company.name, company_path(company)
-            %td= company.direccion
-            %td= company.tel
-            %td= company.cel
-            %td= company.otro_contacto
-            - if user_signed_in? and current_user.has_role? :admin
-              %td
-                = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(company), :class => 'btn btn-mini'
-                = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(company), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
-
-
-- if user_signed_in? and current_user.has_role? :admin
-  .form-actions
-    = link_to t('.back', :default => t("helpers.links.back")), categories_path, :class => 'btn'
-    - if not current_user.nil? and current_user.has_role? :admin
-      = link_to t('.edit', :default => t("helpers.links.edit")), edit_category_path(@category), :class => 'btn'
-    = link_to t('.destroy', :default => t("helpers.links.destroy")), category_path(@category), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
+    - unless @coms.blank?
+      %section#companies
+        .row
+          .span10
+            .row
+              .span10.category_title.lead
+                회사
+            .row.companies-list
+              .span9.offset1
+                .row
+                  - @coms.each do |com|
+                    .span3.paginated
+                      .gray14lightbullet
+                        = link_to com.name, com
+                  = will_paginate @coms, :renderer => BootstrapPagination::Rails, :class => "pagination pagination-centered clearboth"
+            - unless @json == "[]"
+              .row
+                .span9.offset1
+                  = gmaps("map_options" => { "mapTypeControl" => false, "maxZoom" => 15, "detect_location" => true, "zoom" => 12}, "markers" => {"data" => @json})

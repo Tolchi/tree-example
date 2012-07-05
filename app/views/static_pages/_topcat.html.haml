@@ -4,17 +4,17 @@
       %li.span3
         .thumbnail
           .thumbnail60px
-            %a{:href => cats_path(:id => topcat.id)}
+            = link_to topcat do
               %i{:class => "#{topcat.icon} icon60"}
           .topcategory
             %p
               %strong
-                = link_to topcat.name, cats_path(:id => topcat.id), "data-original-title" => "#{@topcat_subcat[topcat.name]}", :rel => "tooltip"
+                = link_to topcat.name, topcat, "data-original-title" => "#{@topcat_subcat[topcat.name]}", :rel => "tooltip"
             %ul.subcategories
               - topcat.children.first(2).each do |sub|
                 %li 
-                  = link_to sub.name, cats_path(:id => sub.id)
+                  = link_to sub.name, topcat
               - if topcat.has_descendants?
                 %li 
-                  = link_to "...", cats_path(:id => topcat.id)
+                  = link_to "...", topcat
           .clearboth

@@ -1,11 +1,22 @@
 class CategoriesController < ApplicationController
   include TheSortableTreeController::Rebuild
   load_and_authorize_resource
+  before_filter :set_ariane
+  caches_page :index, :show
+  cache_sweeper :category_sweeper
+
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
-    #@categories = Category.paginate(:page => params[:page], :per_page => 15)
+    @categories.sort! { |a, b| a.name <=> b.name }
+
+    if params[:name]
+      if c = Category.find_by_name(params[:name])
+        redirect_to c and return
+      else
+        flash.now[:error] = "Category not found."
+      end
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,9 +27,23 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])
-    @companies = Company.find_all_by_category_id(@category.id)
-    @companies.sort! {|a,b| a.name <=> b.name}
+    if params[:id]
+      @category = Category.find_by_id(params[:id])
+    elsif params[:name]
+      @category = Category.find_by_name(params[:name])
+    end
+    if @category
+      companies = Company.where('category_id = ?', @category.id).order("name ASC")
+      @coms = companies.paginate(:page => params[:page], :per_page => 15)
+      unless companies.blank?
+        @json = companies.to_gmaps4rails do |company, marker|
+          marker.json({:id => company.id})
+        end
+      end
+      @children = @category.children and @children.sort! { |a,b| a.name <=> b.name } unless @category.leaf?
+    else
+      flash.now[:error] = "Category not found."
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -65,6 +90,9 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
+        expire_page categories_path
+        expire_page category_path(@category)
+        expire_page "/"
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
         format.json { head :no_content }
       else
@@ -90,4 +118,9 @@ class CategoriesController < ApplicationController
     @categories = Category.nested_set.all
   end
   
+  protected
+  def set_ariane
+    super
+    ariane.add 'Categories', categories_path
+  end
 end

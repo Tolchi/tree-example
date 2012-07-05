@@ -1,12 +1,15 @@
 class CompaniesController < ApplicationController
+  before_filter :set_ariane
   load_and_authorize_resource
+  caches_page :index, :show
+  cache_sweeper :company_sweeper
+
   # GET /companies
   # GET /companies.json
   def index
     @q = Company.search(params[:q])
     @q.sorts = 'name asc' if @q.sorts.empty?
     @companies = @q.result.paginate(:page => params[:page], :per_page => 20)
-    #@companies = Company.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,6 +21,8 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @company = Company.find(params[:id])
+    @json = @company.to_gmaps4rails
+    @tags = @company.tag_list
 
     respond_to do |format|
       format.html # show.html.erb
@@ -83,5 +88,10 @@ class CompaniesController < ApplicationController
       format.html { redirect_to companies_url }
       format.json { head :no_content }
     end
+  end
+  protected
+  def set_ariane
+    super
+    ariane.add 'Companies', companies_path
   end
 end

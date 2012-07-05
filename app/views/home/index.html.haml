@@ -1,4 +1,33 @@
 .row
-  %h3 Home
-  - @users.each do |user|
-    %p User: #{link_to user.name, user}
+  #logo-phone.visible-phone
+    = image_tag("logo_330px.png")
+  #logo.hidden-phone
+    = link_to "아르헨티나 한인 네트워크", root_path
+  = render 'layouts/messages'
+  .span12
+    .row
+      = render 'home/nivo'
+.row
+  .span12
+    .row
+      .span9
+        = render 'static_pages/category_search'
+        = render 'static_pages/topcat'
+      .span3
+        = render 'static_pages/side'
+:javascript
+  $(window).load(function() {
+      $('#slider').nivoSlider({
+                            effect:'random',
+                            slices:15,
+                            animSpeed:800,
+                            pauseTime:3000,
+                            directionNav:true, //Next & Prev
+                            directionNavHide:true, //Only show on hover
+                            controlNav:true, //1,2,3...
+                            pauseOnHover:false, //Stop animation while hovering
+                            captionOpacity:.7 //Universal caption opacity
+
+      });
+      $("a[rel=tooltip]").tooltip();
+  });

@@ -1,26 +1,27 @@
-- require 'feedzirra'
-- feed = Feedzirra::Feed.fetch_and_parse("http://www.yonhapnews.co.kr/RSS/sokbo.xml")
-- @entries_yh = feed.entries.first(5)
-- feed = Feedzirra::Feed.fetch_and_parse("http://www.telam.com.ar/xml/rss/")
-- @entries_tl = feed.entries.first(4)
-.well#news
-  .page-header
-    %h1 
-      뉴스
-      %small 속보
-  %ul#newstab.nav.nav-pills
-    %li.active
-      %a{:href => "#yonhap", "data-toggle" => "pill"}
-        한국
-    %li
-      %a{:href => "#telam", "data-toggle" => "pill"}
-        Argentina
-  .pill-content.clearboth
-    .pill-pane.fade.active.in#yonhap
-      .accordion#accordion-yh
-        - @entries_yh.each do |e|
-          = render 'static_pages/newsfeed', :e => e, :news => "yh"
-    .pill-pane.fade#telam
-      .accordion#accordion-tl
-        - @entries_tl.each do |e|
-          = render 'static_pages/newsfeed', :e => e, :news => "tl"
+- cache do
+  - require 'feedzirra'
+  - feed = Feedzirra::Feed.fetch_and_parse("http://www.yonhapnews.co.kr/RSS/sokbo.xml")
+  - @entries_yh = feed.entries.first(5)
+  - feed = Feedzirra::Feed.fetch_and_parse("http://www.telam.com.ar/xml/rss/")
+  - @entries_tl = feed.entries.first(4)
+  .well#news
+    .page-header
+      %h1 
+        뉴스
+        %small 속보
+    %ul#newstab.nav.nav-pills
+      %li.active
+        %a{:href => "#yonhap", "data-toggle" => "pill"}
+          한국
+      %li
+        %a{:href => "#telam", "data-toggle" => "pill"}
+          Argentina
+    .pill-content.clearboth
+      .pill-pane.fade.active.in#yonhap
+        .accordion#accordion-yh
+          - @entries_yh.each do |e|
+            = render 'static_pages/newsfeed', :e => e, :news => "yh"
+      .pill-pane.fade#telam
+        .accordion#accordion-tl
+          - @entries_tl.each do |e|
+            = render 'static_pages/newsfeed', :e => e, :news => "tl"
