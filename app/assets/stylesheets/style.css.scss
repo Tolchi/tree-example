@@ -254,57 +254,6 @@ footer {
 #wrap {
   margin-top: 100px;
 }
-@media (min-width: 768px) and (max-width: 979px) {
-  .span3news {
-    width: 154px;
-    margin-left: 0px;
-  }
-  .span2-5 {
-    width: 135px;
-  }
-}
-@media (min-width: 1200px) {
-  .span3news {
-    width: 258px;
-    margin-left: 0px;
-  }
-  .span2-5 {
-    .width: 220px;
-  }
-  .span2list {
-    width: 168px;
-    border-right-width: 2px;
-    border-right-style: solid;
-    border-right-color: #09c;
-  }
-}
-@media (max-width: 979px) {
-  .nav-collapse .nav > li > a,
-  .nav-collapse .dropdown-menu a{
-    color: #000;
-  }
-  .nav-collapse .nav > li > a:hover,
-  .nav-collapse .dropdown-menu a:hover {
-    background-color: #888;
-  }
-}
-.span3news {
-  width: 208px;
-  border-left-width: 1px;
-  border-left-style: solid;
-  border-left-color: #00a0e3;
-  padding-left: 10px;
-  margin-left: 0px;
-}
-.span2-5 {
-  width: 180px;
-}
-.span2list {
-  width: 138px;
-  border-right-width: 2px;
-  border-right-style: solid;
-  border-right-color: #09c;
-}
 .clearboth {
   clear: both;
 }
