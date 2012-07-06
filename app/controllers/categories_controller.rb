@@ -3,7 +3,6 @@ class CategoriesController < ApplicationController
   load_and_authorize_resource
   before_filter :set_ariane
   caches_page :index, :show
-  cache_sweeper :category_sweeper
 
   # GET /categories
   # GET /categories.json
@@ -90,9 +89,6 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        expire_page categories_path
-        expire_page category_path(@category)
-        expire_page "/"
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
         format.json { head :no_content }
       else

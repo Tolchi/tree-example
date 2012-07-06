@@ -2,7 +2,6 @@ class CompaniesController < ApplicationController
   before_filter :set_ariane
   load_and_authorize_resource
   caches_page :index, :show
-  cache_sweeper :company_sweeper
 
   # GET /companies
   # GET /companies.json

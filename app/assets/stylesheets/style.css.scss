@@ -319,22 +319,25 @@ footer {
 .descendants {
   font-size: 0.8em;
 }
-#logo a {
-  position: relative;
-  top: 30px;
-  left: 65px;
-  display: block;
-  text-indent: -9829px;
-  background: image-url("logo_330px.png");
-  width: 330px;
-  height: 168px;
-  background-repeat: no-repeat;
-  z-index: 10;
-  margin-bottom: -178px;
+#logo  {
+  display: hidden;
+  a {
+    position: relative;
+    top: 30px;
+    left: 65px;
+    display: none;
+    text-indent: -9829px;
+    background: image-url("logo_330px.png");
+    width: 330px;
+    height: 168px;
+    background-repeat: no-repeat;
+    z-index: 10;
+    margin-bottom: -178px;
+  }
 }
 .navbar .brand {
   text-indent: -9273px;
-  background: image-url("logo_H30px.png");
+  background: image-url("logo_h30px.png");
   background-repeat: no-repeat;
   background-position: 30px 5px;
   width: 80px;

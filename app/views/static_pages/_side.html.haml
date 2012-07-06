@@ -1,4 +1,4 @@
-- cache do
+- cache "news_feed" do
   - require 'feedzirra'
   - feed = Feedzirra::Feed.fetch_and_parse("http://www.yonhapnews.co.kr/RSS/sokbo.xml")
   - @entries_yh = feed.entries.first(5)

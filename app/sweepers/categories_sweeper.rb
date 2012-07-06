@@ -4,6 +4,7 @@ class CategorySweeper < ActionController::Caching::Sweeper
   def sweep(category)
     expire_page categories_path
     expire_page category_path(category)
+    expire_page root_path
     FileUtils.rm_rf "#{page_cache_directory}/categories/page"
   end
 
