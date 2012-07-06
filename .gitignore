@@ -80,5 +80,7 @@ db/*.sqlite3
 
 #page caches
 /public/index.html
+/public/companies.html
+/public/categories.html
 /public/categories/*
 /public/companies/*
