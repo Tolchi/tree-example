@@ -1,20 +1,21 @@
-.row
-  %ul.thumbnails
-    - @top_categories.each do |topcat|
-      %li.span3
-        .thumbnail
-          .thumbnail60px
-            = link_to topcat do
-              %i{:class => "#{topcat.icon} icon60"}
-          .topcategory
-            %p
-              %strong
-                = link_to topcat.name, topcat, "data-original-title" => "#{@topcat_subcat[topcat.name]}", :rel => "tooltip"
-            %ul.subcategories
-              - topcat.children.first(2).each do |sub|
-                %li 
-                  = link_to sub.name, sub
-              - if topcat.has_descendants?
-                %li 
-                  = link_to "...", topcat
-          .clearboth
+- cache("top_categories") do
+  .row
+    %ul.thumbnails
+      - @top_categories.each do |topcat|
+        %li.span3
+          .thumbnail
+            .thumbnail60px
+              = link_to topcat do
+                %i{:class => "#{topcat.icon} icon60"}
+            .topcategory
+              %p
+                %strong
+                  = link_to topcat.name, topcat, "data-original-title" => "#{@topcat_subcat[topcat.name]}", :rel => "tooltip"
+              %ul.subcategories
+                - topcat.children.first(2).each do |sub|
+                  %li 
+                    = link_to sub.name, sub
+                - if topcat.has_descendants?
+                  %li 
+                    = link_to "...", topcat
+            .clearboth

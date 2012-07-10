@@ -43,3 +43,4 @@ gem 'will_paginate-bootstrap'
 gem 'irbtools', :require => false
 gem 'gmaps4rails'
 gem 'feedzirra', '>= 0.2.0.rc2'
+gem 'whenever', :require => false

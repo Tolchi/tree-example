@@ -1,8 +1,5 @@
 class HomeController < ApplicationController
-  caches_page :index
-  before_filter(only: [:index]) {@page_caching = true}
   def index
-    expire_fragment "news_feed"
     @topcat_subcat = Hash.new
     @top_categories = Category.roots
     @top_categories.sort! { |a, b| a.name <=> b.name}

@@ -2,10 +2,12 @@ class CompaniesController < ApplicationController
   before_filter :set_ariane
   load_and_authorize_resource
   caches_page :index, :show
+  cache_sweeper :company_sweeper
 
   # GET /companies
   # GET /companies.json
   def index
+    @page_caching = true
     @q = Company.search(params[:q])
     @q.sorts = 'name asc' if @q.sorts.empty?
     @companies = @q.result.paginate(:page => params[:page], :per_page => 20)
@@ -19,6 +21,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @page_caching = true
     @company = Company.find(params[:id])
     @json = @company.to_gmaps4rails
     @tags = @company.tag_list

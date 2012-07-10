@@ -11,7 +11,7 @@
             - categories.each do |c|
               .span3
                 .gray14lightbullet
-                  = link_to c.name, cats_path(:id => c.id)
+                  = link_to c.name, c
                   %span.descendants
                     = c.descendants.count +  Company.find_all_by_category_id(c.id).count
   - else
@@ -30,7 +30,7 @@
               - @children.each do |c|
                 .span3
                   .gray14lightbullet
-                    = link_to c.name, cats_path(:id => c.id)
+                    = link_to c.name, c
                     %span.descendants
                       = c.descendants_count + Company.find_all_by_category_id(c.id).count
       - if @category.child?
@@ -43,7 +43,7 @@
               .span3
                 - parent = @category.parent
                 .gray14lightbullet
-                  = link_to parent.name, cats_path(:id => parent.id)
+                  = link_to parent.name, parent
     %p
     - unless @coms.blank?
       %section#companies

@@ -3,10 +3,12 @@ class CategoriesController < ApplicationController
   load_and_authorize_resource
   before_filter :set_ariane
   caches_page :index, :show
+  cache_sweeper :category_sweeper
 
   # GET /categories
   # GET /categories.json
   def index
+    @page_caching = true
     @categories.sort! { |a, b| a.name <=> b.name }
 
     if params[:name]
@@ -26,6 +28,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @page_caching = true
     if params[:id]
       @category = Category.find_by_id(params[:id])
     elsif params[:name]

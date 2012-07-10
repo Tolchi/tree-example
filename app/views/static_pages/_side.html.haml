@@ -1,6 +1,4 @@
-- cache "news_feed" do
-  - FeedEntry.update_from_feed("http://www.telam.com.ar/xml/rss/", 'tl')
-  - FeedEntry.update_from_feed("http://www.yonhapnews.co.kr/RSS/sokbo.xml", 'yh')
+- cache("news_feed") do
   - @entries_yh = FeedEntry.yh.first(5)
   - @entries_tl = FeedEntry.tl.first(4)
   .well#news

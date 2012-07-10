@@ -4,7 +4,6 @@ class CompanySweeper < ActionController::Caching::Sweeper
   def sweep(company)
     expire_page companies_path
     expire_page company_path(company)
-    expire_page category_path(Category.find(company.category_id))
     FileUtils.rm_rf "#{page_cache_directory}/companies/page"
   end
 

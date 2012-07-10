@@ -65,6 +65,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.3)
       ffi (~> 1.0.6)
+    chronic (0.6.7)
     chunky_png (1.2.5)
     clipboard (1.0.1)
     coderay (1.0.7)
@@ -297,6 +298,9 @@ GEM
       raindrops (~> 0.7)
     warden (1.2.1)
       rack (>= 1.0)
+    whenever (0.7.3)
+      activesupport (>= 2.3.4)
+      chronic (~> 0.6.3)
     will_paginate (3.0.3)
     will_paginate-bootstrap (0.2.1)
       will_paginate (>= 3.0.3)
@@ -349,6 +353,7 @@ DEPENDENCIES
   therubyracer
   uglifier (>= 1.0.3)
   unicorn
+  whenever
   will_paginate (>= 3.0.3)
   will_paginate-bootstrap
   yaml_db
