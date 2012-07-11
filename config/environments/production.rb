@@ -4,6 +4,9 @@ TreeExample::Application.configure do
   # Code is not reloaded between requests
   config.cache_classes = true
 
+  # Global enable/disable all memcached usage
+  config.perform_caching = true
+
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -40,7 +43,7 @@ TreeExample::Application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
 
   # Use a different cache store in production
-  # config.cache_store = :mem_cache_store
+  config.cache_store = :dalli_store, 'localhost:11211'
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
