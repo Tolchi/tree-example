@@ -1,9 +1,7 @@
 - provide(:title, "업소록")
 .row
   = render 'layouts/messages'
-  .span12
-    .breadcrumb
-      = ariane.render
+  = render 'layouts/breadcrumbs'
   -if @companies.blank?
     .span3 
       = link_to "Back", :back, :class => "btn btn-small btn-info"

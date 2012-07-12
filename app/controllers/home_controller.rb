@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
   def index
+    expires_in 5.minutes
     @topcat_subcat = Hash.new
     @top_categories = Category.roots
+    @top_max = @top_categories.maximum(:updated_at)
     @top_categories.sort! { |a, b| a.name <=> b.name}
     @top_categories.each do |tc|
       a = Array.new
@@ -15,5 +17,7 @@ class HomeController < ApplicationController
     cats.each do |c|
       gon.availableCategories.push c.name
     end
+    @entries_yh = FeedEntry.yh.first(5)
+    @entries_tl = FeedEntry.tl.first(4)
   end
 end

@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
   protected
   
   def fetch_categories
-    @categories = Category.all
+    @categories = Category.scoped
+    @max = @categories.maximum(:updated_at)
   end
   
   def query

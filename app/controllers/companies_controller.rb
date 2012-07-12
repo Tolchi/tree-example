@@ -7,10 +7,11 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @page_caching = true
     @q = Company.search(params[:q])
     @q.sorts = 'name asc' if @q.sorts.empty?
     @companies = @q.result.paginate(:page => params[:page], :per_page => 20)
+    expires_in 10.minutes
+    fresh_when last_modified: @companies.maximum(:updated_at), public: true
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,10 +22,11 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
-    @page_caching = true
     @company = Company.find(params[:id])
     @json = @company.to_gmaps4rails
     @tags = @company.tag_list
+    expires_in 10.minutes
+    fresh_when @company, public: true
 
     respond_to do |format|
       format.html # show.html.erb

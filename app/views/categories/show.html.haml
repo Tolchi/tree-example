@@ -1,5 +1,7 @@
-- provide(:title, '#{@category.name}')
+- provide(:title, "카테고리 - #{@category.name}")
 .row
+  = render 'layouts/messages'
+  = render 'layouts/breadcrumbs'
   = render 'categories/catside'
   .span10.single-category
     %section#categories

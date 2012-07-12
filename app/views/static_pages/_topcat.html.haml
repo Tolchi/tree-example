@@ -1,4 +1,4 @@
-- cache("top_categories") do
+- cache("#{@top_max}-top_categories") do
   .row
     %ul.thumbnails
       - @top_categories.each do |topcat|

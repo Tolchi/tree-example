@@ -1,4 +1,4 @@
-- unless @page_caching
+- unless response.cache_control[:public]
   - flash.each do |name, msg|
     %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
       %a.close{"data-dismiss" => "alert"} ×

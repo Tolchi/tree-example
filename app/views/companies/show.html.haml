@@ -1,9 +1,7 @@
 - provide(:title, "회사정보 - #{@company.name}")
 .row
-  .span12
-    .breadcrumb
-      = ariane.render
-.row
+  = render 'layouts/messages'
+  = render 'layouts/breadcrumbs'
   .span12
     .row
       .span3.offset1

@@ -8,7 +8,8 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @page_caching = true
+    expires_in 10.minutes
+    fresh_when last_modified: @max, public: true
     @categories.sort! { |a, b| a.name <=> b.name }
 
     if params[:name]
@@ -28,12 +29,13 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @page_caching = true
     if params[:id]
       @category = Category.find_by_id(params[:id])
     elsif params[:name]
       @category = Category.find_by_name(params[:name])
     end
+    expires_in 10.minutes
+    fresh_when @category, public: true
     if @category
       companies = Company.where('category_id = ?', @category.id).order("name ASC")
       @coms = companies.paginate(:page => params[:page], :per_page => 15)
