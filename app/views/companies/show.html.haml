@@ -60,5 +60,4 @@
         = link_to 'Back', :back, :class => 'btn btn-primary btn-mini'
       - if @company.gmaps?
         .span8
-          = gmaps("map_options" => { "detect_location" => true, "center_on_user" => true, "zoom" => 16, "auto_zoom" => false}, "markers" => {"data" => @json})
-
+          = render ('companies/gmaps')
