@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   before_filter :set_ariane
   load_and_authorize_resource
-  caches_page :index, :show
+  caches_page :show
   cache_sweeper :company_sweeper
 
   # GET /companies
@@ -10,8 +10,6 @@ class CompaniesController < ApplicationController
     @q = Company.search(params[:q])
     @q.sorts = 'name asc' if @q.sorts.empty?
     @companies = @q.result.paginate(:page => params[:page], :per_page => 12)
-    expires_in 10.minutes
-    fresh_when last_modified: @companies.maximum(:updated_at), public: true
 
     respond_to do |format|
       format.html # index.html.erb
