@@ -45,6 +45,12 @@ class CategoriesController < ApplicationController
         end
       end
       @children = @category.children and @children.sort! { |a,b| a.name <=> b.name } unless @category.leaf?
+      if @category.child?
+        @category.ancestors.each do |ac|
+          ariane.add ac.name, category_path(ac)
+        end
+      end
+      ariane.add @category.name, @category
     else
       flash.now[:error] = "Category not found."
     end

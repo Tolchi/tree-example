@@ -27,6 +27,7 @@ class CompaniesController < ApplicationController
     @tags = @company.tag_list
     expires_in 10.minutes
     fresh_when @company, public: true
+    ariane.add @company.name, @company
 
     respond_to do |format|
       format.html # show.html.erb
