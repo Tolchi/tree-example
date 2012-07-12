@@ -10,11 +10,6 @@ class CompaniesController < ApplicationController
     @q = Company.search(params[:q])
     @q.sorts = 'name asc' if @q.sorts.empty?
     @companies = @q.result.paginate(:page => params[:page], :per_page => 12)
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @companies }
-    end
   end
 
   # GET /companies/1
@@ -26,11 +21,6 @@ class CompaniesController < ApplicationController
     expires_in 10.minutes
     fresh_when @company, public: true
     ariane.add @company.name, @company
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @company }
-    end
   end
 
   # GET /companies/new

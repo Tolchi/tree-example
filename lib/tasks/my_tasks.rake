@@ -1,6 +1,6 @@
 namespace :cache do
   desc "Deleting all caches"
-  task :delete_all_cache do
+  task :delete_all do
     puts 'Deleting index.html'
     sh %{rm -f public/index.html}
     puts'Deleting categories cache pages'

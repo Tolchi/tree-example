@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   include TheSortableTreeController::Rebuild
   load_and_authorize_resource
-  before_filter :set_ariane
+  before_filter :set_ariane, :category_sort
   caches_page :index, :show
   cache_sweeper :category_sweeper
 
@@ -10,11 +10,11 @@ class CategoriesController < ApplicationController
   def index
     expires_in 10.minutes
     fresh_when last_modified: @max, public: true
-    @categories.sort! { |a, b| a.name <=> b.name }
 
     if params[:name]
       if c = Category.find_by_name(params[:name])
-        redirect_to c and return
+        redirect_to c 
+        return
       else
         flash.now[:error] = "Category not found."
       end
@@ -29,11 +29,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    if params[:id]
-      @category = Category.find_by_id(params[:id])
-    elsif params[:name]
-      @category = Category.find_by_name(params[:name])
-    end
+    @category = Category.find(params[:id])
     expires_in 10.minutes
     fresh_when @category, public: true
     if @category
@@ -43,6 +39,7 @@ class CategoriesController < ApplicationController
         @json = companies.to_gmaps4rails do |company, marker|
           marker.json({:id => company.id})
         end
+        @coms_max = companies.maximum(:updated_at)
       end
       @children = @category.children and @children.sort! { |a,b| a.name <=> b.name } unless @category.leaf?
       if @category.child?
@@ -54,22 +51,12 @@ class CategoriesController < ApplicationController
     else
       flash.now[:error] = "Category not found."
     end
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @category }
-    end
   end
 
   # GET /categories/new
   # GET /categories/new.json
   def new
     @category = Category.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @category }
-    end
   end
 
   # GET /categories/1/edit
@@ -129,5 +116,9 @@ class CategoriesController < ApplicationController
   def set_ariane
     super
     ariane.add 'Categories', categories_path
+  end
+
+  def category_sort
+    @categories.sort! { |a, b| a.name <=> b.name }
   end
 end
