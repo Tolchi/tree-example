@@ -49,7 +49,7 @@
           %strong 카테고리
           %br
           - cat = Category.find(@company.category_id)
-          = link_to cat.name, cat
+          = link_to cat.name, cat, :class => "btn btn-mini btn-info"
         - if user_signed_in? and current_user.has_role? :admin
           .form-actions
             = link_to t('.back', :default => t("helpers.links.back")), companies_path, :class => 'btn'
