@@ -1,8 +1,0 @@
-- cache("com-search") do
-  .span4
-    .row
-      = search_form_for @q, :url => companies_path, :builder => SimpleForm::FormBuilder do |f|
-        .form-actions
-          = f.input :name_cont, :label => '회사이름 또는 상호'
-          = f.button :submit, '찾기', :class => 'btn-small btn-primary'
-          = link_to '취소', companies_path, :class => 'btn btn-small btn-inverse'
