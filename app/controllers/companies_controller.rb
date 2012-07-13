@@ -18,7 +18,7 @@ class CompaniesController < ApplicationController
     @company = Company.find(params[:id])
     @json = @company.to_gmaps4rails
     @tags = @company.tag_list
-    expires_in 10.minutes
+    expires_in 24.hours
     fresh_when @company, public: true
     ariane.add @company.name, @company
   end

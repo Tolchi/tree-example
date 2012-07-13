@@ -20,6 +20,7 @@ class FeedEntry < ActiveRecord::Base
   scope :tl , where("source = ?", 'tl').order("guid DESC")
 
   def self.update_from_feed
+    # Need to optimize this
     feed = Feedzirra::Feed.fetch_and_parse("http://www.yonhapnews.co.kr/RSS/sokbo.xml")
     yh = add_entries(feed.entries, 'yh')
     feed = Feedzirra::Feed.fetch_and_parse("http://www.telam.com.ar/xml/rss/")
@@ -33,7 +34,7 @@ class FeedEntry < ActiveRecord::Base
 
   def self.add_entries(entries, source)
     modificado = false
-    entries.each do |entry|
+    entries.each do |entry| # Here(maybe) produce app error: undefined method `each' for nil:NilClass (NoMethodError) unicorn error
       unless exists? :guid => entry.id
         create!(
           :name         => entry.title,

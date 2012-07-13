@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    expires_in 10.minutes
+    expires_in 24.hours
     fresh_when last_modified: @max, public: true
 
     if params[:name]
@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    expires_in 10.minutes
+    expires_in 24.hours
     fresh_when @category, public: true
     if @category
       companies = Company.where('category_id = ?', @category.id).order("name ASC")
