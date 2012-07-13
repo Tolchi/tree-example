@@ -263,19 +263,14 @@ footer {
   font-size: 0.8em;
 }
 #logo  {
-  display: hidden;
+    margin-bottom: .65em;
   a {
-    position: relative;
-    top: 30px;
-    left: 65px;
-    display: none;
-    text-indent: -9829px;
-    background: image-url("logo_330px.png");
-    width: 330px;
-    height: 168px;
-    background-repeat: no-repeat;
-    z-index: 10;
-    margin-bottom: -178px;
+    font-size:1.5em;
+    font-weight: bold;
+    text-decoration: none;
+    &:hover, &:focus {
+      color: white;
+    }
   }
 }
 .navbar .brand {
