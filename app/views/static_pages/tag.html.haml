@@ -10,6 +10,6 @@
   %ul
     - @companies.each do |c|
       %li
-        = link_to c.name, com_path(:id => c.id)
+        = link_to c.name, c
 - else
   = link_to "Back", :back, :class => "btn btn-info"

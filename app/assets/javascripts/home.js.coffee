@@ -1,3 +1,16 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+  $("#category_name").typeahead source: gon.availableCategories
+
+$ ->
+  $(".collapse").collapse
+
+$ ->
+  $("#newstab a").click (e) ->
+    e.preventDefault()
+    $(this).pill "show"
+
+$ ->
+  $("#nav_search").popover placement: "bottom"
+
+$ ->
+  $("#category_name").popover placement: "top"
