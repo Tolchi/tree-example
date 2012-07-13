@@ -20,10 +20,6 @@ class CategoriesController < ApplicationController
       end
     end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @categories }
-    end
   end
 
   # GET /categories/1
