@@ -34,6 +34,7 @@ class CategoriesController < ApplicationController
       unless companies.blank?
         @json = companies.to_gmaps4rails do |company, marker|
           marker.infowindow render_to_string(:partial => "companies/infowindow", :locals => { :object => company})
+          marker.title "#{company.name}"
           marker.json({:id => company.id})
         end
         @coms_max = companies.maximum(:updated_at)

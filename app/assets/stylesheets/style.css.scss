@@ -1,4 +1,5 @@
 ﻿/* mixins, variables, etc. */
+$link_color: #ff7930;
 
 @mixin text {
   margin-top:20px;
@@ -166,7 +167,7 @@ a {
   color: #000;
 }
 a:hover {
-  color: #ff7930;
+  color: $link_color;
 }
 p {
   padding: 1px;
@@ -240,7 +241,7 @@ footer {
     color: white;
     font-weight: bold;
     &:hover {
-      color: #ff7930;
+      color: $link_color;
       text-decoration: none;
     }
   }
@@ -413,12 +414,20 @@ form.well {
             color:#777;
         } 
         &:hover, &:focus {
-          color:#ff7930;            
+          color: $link_color;            
         }   
       }       
       .divider {
         display: none;
       }             
+    }
+  }
+}
+.map_container {
+  .span3 a {
+    &:hover, &:focus {
+      color: $link_color;
+      text-decoration: none;
     }
   }
 }
