@@ -9,5 +9,5 @@ end
 
 
 every :friday, :at => '6:00 am' do
-  rake "cache:delete_all_cache"
+  rake "cache:clean"
 end
