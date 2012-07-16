@@ -32,6 +32,9 @@ class Company < ActiveRecord::Base
   validates_presence_of :name, :direccion, :category_id
   validates_uniqueness_of :name
 
+  def company_logger
+    @company_logger ||= Logger.new("#{Rails.root}/log/com.log")
+  end
   def direccion_completa
     unless self.direccion.blank?
       d = self.direccion
@@ -51,6 +54,12 @@ class Company < ActiveRecord::Base
   end
 
   def gmaps4rails_infowindow
-    "#{self.name}, #{self.direccion_completa}, #{self.tel}, #{self.cel}"
+    info= "#{self.name}, #{self.direccion_completa}"
+    info = info + ", #{self.tel}" unless self.tel.blank?
+    info = info + ", #{self.cel}" unless self.cel.blank?
+    info = info + ", #{self.otro_contacto}" unless self.otro_contacto.blank?
+    info = info + ", #{self.homepage}" unless self.homepage.blank?
+    company_logger.info("infowindow = #{info}")
+    info
   end
 end

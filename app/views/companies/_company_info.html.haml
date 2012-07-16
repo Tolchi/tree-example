@@ -1,0 +1,52 @@
+.span3.offset1
+  .page-header
+    %h1 
+      = @company.name
+  %p
+    %strong 주소:
+    %br
+    = @company.direccion_completa
+  %p
+    %strong 전화:
+    %br
+    = @company.tel
+  - unless @company.cel.blank?
+    %p
+      %strong 핸드폰:
+      %br
+      = @company.cel
+  - unless @company.otro_contacto.blank?
+    %p
+      %strong 기타연락처:
+      %br
+      = @company.otro_contacto
+  - unless @company.homepage.blank?
+    %p
+      %strong 홈페이지 주소
+      %br
+      = link_to @company.homepage, @company.homepage
+  - unless @company.misc.blank?
+    %p
+      - if @company.category_id == 44
+        %strong 운송지역:
+      - else
+        %strong 비고:
+      %br
+      = @company.misc
+  - unless @tags.blank?
+    %p
+      %strong 태그
+      %br
+      - @tags.each do |tag|
+        = link_to tag, tag_path(:tag => tag), :class => "label label-warning"
+  %p
+    %strong 카테고리
+    %br
+    - cat = Category.find(@company.category_id)
+    = link_to cat.name, cat, :class => "btn btn-mini btn-info"
+    - if user_signed_in? and current_user.has_role? :admin
+      .form-actions
+        = link_to t('.back', :default => t("helpers.links.back")), companies_path, :class => 'btn'
+        = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(@company), :class => 'btn'
+        = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(@company), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
+  = link_to 'Back', :back, :class => 'btn btn-primary btn-mini'

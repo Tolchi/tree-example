@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    expires_in 5.minutes, public: true
+    expires_in 5.minutes
     @topcat_subcat = Hash.new
     @top_categories = Category.roots
     @top_max = @top_categories.maximum(:updated_at)

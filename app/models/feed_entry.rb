@@ -35,6 +35,7 @@ class FeedEntry < ActiveRecord::Base
   def self.add_entries(entries, source)
     modificado = false
     entries.each do |entry| # Here(maybe) produce app error: undefined method `each' for nil:NilClass (NoMethodError) unicorn error
+      upd = false
       unless exists? :guid => entry.id
         create!(
           :name         => entry.title,
@@ -45,7 +46,12 @@ class FeedEntry < ActiveRecord::Base
           :hashe        => entry.hash,
           :source       => source
         )
+        upd = true
+      end
+      if upd
         modificado = true
+      else
+        break
       end
     end
     modificado

@@ -33,6 +33,7 @@ class CategoriesController < ApplicationController
       @coms = companies.paginate(:page => params[:page], :per_page => 15)
       unless companies.blank?
         @json = companies.to_gmaps4rails do |company, marker|
+          marker.infowindow render_to_string(:partial => "companies/infowindow", :locals => { :object => company})
           marker.json({:id => company.id})
         end
         @coms_max = companies.maximum(:updated_at)

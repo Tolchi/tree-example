@@ -48,4 +48,4 @@
             - unless @json == "[]"
               .row
                 .span9.offset1
-                  = gmaps("map_options" => { "mapTypeControl" => false, "maxZoom" => 15, "detect_location" => true, "zoom" => 12}, "markers" => {"data" => @json})
+                  = gmaps("map_options" => { "mapTypeControl" => false, "maxZoom" => 15, "detect_location" => false, "zoom" => 12}, "markers" => {"data" => @json})

@@ -1,0 +1,46 @@
+.span3{:style => "background: yellow;"}
+  .page-header
+    %h1 
+      = object.name
+  %p
+    %strong 주소:
+    %br
+    = object.direccion_completa
+  %p
+    %strong 전화:
+    %br
+    = object.tel
+  - unless object.cel.blank?
+    %p
+      %strong 핸드폰:
+      %br
+      = object.cel
+  - unless object.otro_contacto.blank?
+    %p
+      %strong 기타연락처:
+      %br
+      = object.otro_contacto
+  - unless object.homepage.blank?
+    %p
+      %strong 홈페이지 주소
+      %br
+      = link_to object.homepage, object.homepage
+  - unless object.misc.blank?
+    %p
+      - if object.category_id == 44
+        %strong 운송지역:
+      - else
+        %strong 비고:
+      %br
+      = object.misc
+  - unless @tags.blank?
+    %p
+      %strong 태그
+      %br
+      - @tags.each do |tag|
+        = link_to tag, tag_path(:tag => tag), :class => "label label-warning"
+  %p
+    %strong 카테고리
+    %br
+    - cat = Category.find(object.category_id)
+    = link_to cat.name, cat, :class => "btn btn-mini btn-info"
