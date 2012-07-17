@@ -1,3 +1,5 @@
+$(document).ready ->
+  $("#pronostico").weatherfeed [ "KSXX0037", "ARBA0009" ]
 $ ->
   $("#category_name").typeahead source: gon.availableCategories
 

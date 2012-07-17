@@ -11,6 +11,9 @@
       %li
         %a{:href => "#telam", "data-toggle" => "pill"}
           Argentina
+      %li
+        %a{:href => "#weather", "data-toggle" => "pill"}
+          날씨
     .pill-content.clearboth
       .pill-pane.fade.active.in#yonhap
         .accordion#accordion-yh
@@ -20,3 +23,5 @@
         .accordion#accordion-tl
           - @entries_tl.each do |e|
             = render 'home/newsfeed', :e => e, :news => "tl"
+      .pill-pane.fade#weather
+        .accordion#pronostico

@@ -19,4 +19,5 @@
 //= require sortable/base
 //= require comments/base
 //= require jquery.nivo.slider.pack
+//= require jquery.zweatherfeed.min
 //= require_tree .

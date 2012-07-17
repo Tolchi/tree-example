@@ -58,3 +58,8 @@ body {
     margin-top: 5px;
   }
 }
+.nav-tabs > li > a,
+.nav-pills > li >a {
+  padding-right: .5em;
+  padding-left: .5em;
+}
