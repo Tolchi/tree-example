@@ -14,7 +14,12 @@
 //= require jquery-ui
 //= require jquery.ui.nestedSortable
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap-transition
+//= require bootstrap-tooltip
+//= require bootstrap-tab
+//= require bootstrap-typeahead
+//= require bootstrap-popover
+//= require bootstrap-collapse
 //= require modernizr
 //= require sortable/base
 //= require comments/base
