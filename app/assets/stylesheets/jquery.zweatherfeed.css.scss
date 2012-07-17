@@ -12,6 +12,9 @@
 .weatherItem {
 	padding: 0.8em;
 	text-align: right;
+  background-size:cover;
+  -moz-background-size:cover;
+  -webkit-background-size:cover;
 }
 .weatherCity { text-transform: uppercase; }
 .weatherTemp {
