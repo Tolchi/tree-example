@@ -20,6 +20,7 @@
 //= require bootstrap-typeahead
 //= require bootstrap-popover
 //= require bootstrap-collapse
+//= require bootstrap-dropdown
 //= require modernizr
 //= require sortable/base
 //= require comments/base
