@@ -44,7 +44,7 @@
                     .span3.paginated
                       .gray14lightbullet
                         = link_to_unless com.homepage.present?, com.name, com.homepage , :target => "_new" do
-                          = link_to com.name, com, :target => "_new"
+                          = link_to com.name, com
                   = will_paginate @coms, :renderer => BootstrapPagination::Rails, :class => "pagination pagination-centered clearboth"
             - unless @json == "[]"
               .row
