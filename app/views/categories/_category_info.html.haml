@@ -1,0 +1,25 @@
+- cache(@category) do
+  .row
+    .span10.category_title.lead
+      카테고리:
+      = @category.name
+  - if @children
+    .row
+      .span10.category_title.lead
+        하위 카테고리
+    .row
+      .span9.offset1
+        .row
+          - @children.each do |c|
+            = render 'categories/descendants', :c => c
+  - if @category.child?
+    .row
+      .span10.category_title.lead
+        상위 카테고리
+    .row
+      .span9.offset1
+        .row
+          .span3
+            - parent = @category.parent
+            .gray14lightbullet
+              = link_to parent.name, parent

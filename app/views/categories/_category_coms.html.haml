@@ -1,0 +1,15 @@
+- cache ["#{@category.cache_key}-#{@coms_max}", :page => params[:page]] do
+  .row
+    .span10
+      .row
+        .span10.category_title.lead
+          회사
+      .row.companies-list
+        .span9.offset1
+          .row
+            - @coms.each do |com|
+              .span3.paginated
+                .gray14lightbullet
+                  = link_to_unless com.homepage.present?, com.name, com do
+                    = link_to com.name, com.homepage, :target => "_new"
+            = will_paginate @coms, :renderer => BootstrapPagination::Rails, :class => "pagination pagination-centered clearboth"

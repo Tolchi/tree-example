@@ -5,48 +5,9 @@
   = render 'categories/catside'
   .span10.single-category
     %section#categories
-      .row
-        .span10.category_title.lead
-          카테고리:
-          = @category.name
-      - if @children
-        .row
-          .span10.category_title.lead
-            하위 카테고리
-        .row
-          .span9.offset1
-            .row
-              - @children.each do |c|
-                = render 'categories/descendants', :c => c
-      - if @category.child?
-        .row
-          .span10.category_title.lead
-            상위 카테고리
-        .row
-          .span9.offset1
-            .row
-              .span3
-                - parent = @category.parent
-                .gray14lightbullet
-                  = link_to parent.name, parent
+      = render ('categories/category_info')
     %p
     - unless @coms.blank?
       %section#companies
-        .row
-          .span10
-            .row
-              .span10.category_title.lead
-                회사
-            .row.companies-list
-              .span9.offset1
-                .row
-                  - @coms.each do |com|
-                    .span3.paginated
-                      .gray14lightbullet
-                        = link_to_unless com.homepage.present?, com.name, com.homepage , :target => "_new" do
-                          = link_to com.name, com
-                  = will_paginate @coms, :renderer => BootstrapPagination::Rails, :class => "pagination pagination-centered clearboth"
-            - unless @json == "[]"
-              .row
-                .span9.offset1
-                  = gmaps("map_options" => { "mapTypeControl" => false, "maxZoom" => 15, "zoom" => 12}, "markers" => {"data" => @json})
+        = render ('categories/category_coms')
+        = render ('categories/category_map')

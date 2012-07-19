@@ -1,0 +1,5 @@
+- cache("#{@category.cache_key}-#{@coms_max}-map") do
+  - unless @json == "[]"
+    .row
+      .span9.offset1
+        = gmaps("map_options" => { "mapTypeControl" => false, "maxZoom" => 15, "zoom" => 12}, "markers" => {"data" => @json})
