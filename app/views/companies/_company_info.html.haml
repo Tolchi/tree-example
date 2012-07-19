@@ -48,7 +48,6 @@
     = link_to cat.name, cat, :class => "btn btn-mini btn-info"
     - if user_signed_in? and current_user.has_role? :admin
       .form-actions
-        = link_to t('.back', :default => t("helpers.links.back")), companies_path, :class => 'btn'
         = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(@company), :class => 'btn'
         = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(@company), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
   = link_to 'Back', :back, :class => 'btn btn-primary btn-mini'
