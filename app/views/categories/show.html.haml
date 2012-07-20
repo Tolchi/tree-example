@@ -10,4 +10,5 @@
     - unless @coms.blank?
       %section#companies
         = render ('categories/category_coms')
-        = render ('categories/category_map')
+        - unless @json == "[]"
+          = render ('categories/category_map')
