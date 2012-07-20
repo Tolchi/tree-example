@@ -21,8 +21,10 @@
 #  depto         :string(255)
 #  ciudad        :string(255)
 #  provincia     :string(255)
+#  slug          :string(255)
 #
 
+# -*- encoding : utf-8 -*-
 class Company < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :tags
@@ -42,8 +44,8 @@ class Company < ActiveRecord::Base
   def direccion_completa
     unless self.direccion.blank?
       d = self.direccion
-      d = d + " " + self.piso + "층 "  unless self.piso.blank?
-      d = d + self.depto + "호" unless self.depto.blank?
+      d = d + " " + self.piso + "층"  unless self.piso.blank?
+      d = d + " " + self.depto + "호" unless self.depto.blank?
       d = d + ", " + self.ciudad + ", " + self.provincia unless self.ciudad.eql? "Capital Federal"
       d
     end

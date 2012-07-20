@@ -21,8 +21,10 @@
 #  depto         :string(255)
 #  ciudad        :string(255)
 #  provincia     :string(255)
+#  slug          :string(255)
 #
 
+# -*- encoding : utf-8 -*-
 require 'spec_helper'
 
 describe Company do
