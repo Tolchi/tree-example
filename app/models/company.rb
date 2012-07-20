@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # == Schema Information
 #
 # Table name: companies
@@ -31,6 +32,9 @@ class Company < ActiveRecord::Base
   resourcify
   validates_presence_of :name, :direccion, :category_id
   validates_uniqueness_of :name
+  extend FriendlyId
+  #friendly_id :name, use: [:globalize, :slugged, :history]
+  friendly_id :name
 
   def company_logger
     @company_logger ||= Logger.new("#{Rails.root}/log/com.log")
@@ -38,8 +42,8 @@ class Company < ActiveRecord::Base
   def direccion_completa
     unless self.direccion.blank?
       d = self.direccion
-      d = d + " Piso: " + self.piso unless self.piso.blank?
-      d = d + " Depto: " + self.depto unless self.depto.blank?
+      d = d + " " + self.piso + "층 "  unless self.piso.blank?
+      d = d + self.depto + "호" unless self.depto.blank?
       d = d + ", " + self.ciudad + ", " + self.provincia unless self.ciudad.eql? "Capital Federal"
       d
     end
@@ -61,5 +65,9 @@ class Company < ActiveRecord::Base
     info = info + ", #{self.homepage}" unless self.homepage.blank?
     company_logger.info("infowindow = #{info}")
     info
+  end
+
+  def should_generate_new_friendly_id?
+    new_record?
   end
 end

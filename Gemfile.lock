@@ -125,6 +125,7 @@ GEM
     font-awesome-sass-rails (2.0.0.0)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
+    friendly_id (4.0.7)
     fssm (0.2.9)
     g (1.6.0)
       ruby_gntp
@@ -333,6 +334,7 @@ DEPENDENCIES
   factory_girl_rails (>= 3.3.0)
   feedzirra (>= 0.2.0.rc2)
   font-awesome-sass-rails
+  friendly_id
   gmaps4rails
   gon (= 3.0.4)
   haml (>= 3.1.5)

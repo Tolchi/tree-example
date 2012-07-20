@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :fetch_categories, :set_ariane, :query
@@ -22,6 +23,6 @@ class ApplicationController < ActionController::Base
   end
 
   def set_ariane
-    ariane.add 'Home', root_path
+    ariane.add '홈', root_path
   end
 end

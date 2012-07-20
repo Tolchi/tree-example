@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class NotificationsMailer < ActionMailer::Base
   default from: "noreply@argentinahanin.com.ar"
   default to:   "sheep@argentinahanin.com.ar"

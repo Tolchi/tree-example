@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # == Schema Information
 #
 # Table name: categories
@@ -19,4 +20,11 @@ class Category < ActiveRecord::Base
   has_many :companies
   resourcify
   validates :name, presence: true, uniqueness: true
+  extend FriendlyId
+  #friendly_id :name, use: [:globalize, :slugged, :history]
+  friendly_id :name
+
+  def should_generate_new_friendly_id?
+    new_record?
+  end
 end

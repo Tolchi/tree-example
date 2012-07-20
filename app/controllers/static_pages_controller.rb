@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class StaticPagesController < ApplicationController
   before_filter :set_ariane
 

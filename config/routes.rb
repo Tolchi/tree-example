@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 TreeExample::Application.routes.draw do
   get 'categories/:id/page/:page', to: 'categories#show'
   get 'companies/page/:page', to: 'companies#index'

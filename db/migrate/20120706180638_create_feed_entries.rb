@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateFeedEntries < ActiveRecord::Migration
   def change
     create_table :feed_entries do |t|

@@ -1,8 +1,9 @@
+# -*- encoding : utf-8 -*-
 class CategoriesController < ApplicationController
   include TheSortableTreeController::Rebuild
   load_and_authorize_resource
   before_filter :set_ariane, :category_sort
-  caches_page :index, :show
+  caches_page :index
   cache_sweeper :category_sweeper
 
   # GET /categories
@@ -26,8 +27,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    expires_in 24.hours
-    fresh_when @category, public: true
+    if request.path != category_path(@category)
+      redirect_to @category, status: :moved_permanently
+    end
     if @category
       companies = Company.where('category_id = ?', @category.id).order("name ASC")
       @coms = companies.paginate(:page => params[:page], :per_page => 15)
@@ -113,7 +115,7 @@ class CategoriesController < ApplicationController
   protected
   def set_ariane
     super
-    ariane.add 'Categories', categories_path
+    ariane.add '카테고리', categories_path
   end
 
   def category_sort

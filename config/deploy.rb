@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require "bundler/capistrano"
 
 server "50.116.19.170", :web, :app, :db, primary: true

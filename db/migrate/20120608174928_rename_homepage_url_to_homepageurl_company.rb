@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RenameHomepageUrlToHomepageurlCompany < ActiveRecord::Migration
   def up
     rename_column :companies, :homepageURL, :homepage

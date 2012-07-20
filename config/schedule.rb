@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 set :output, {:error => 'log/cron_error.log', :standard => 'log/cron.log'}
 every 5.minutes do
   runner "FeedEntry.update_from_feed"

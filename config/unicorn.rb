@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 root = "/home/deployer/apps/tree-example/current"
 working_directory root
 pid "#{root}/tmp/pids/unicorn.pid"

@@ -1,8 +1,7 @@
+# -*- encoding : utf-8 -*-
 class CompaniesController < ApplicationController
   before_filter :set_ariane
   load_and_authorize_resource
-  caches_page :show
-  cache_sweeper :company_sweeper
 
   # GET /companies
   # GET /companies.json
@@ -16,10 +15,11 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @company = Company.find(params[:id])
+    if request.path != company_path(@company)
+      redirect_to @company, status: :moved_permanently
+    end
     @json = @company.to_gmaps4rails
     @tags = @company.tag_list
-    expires_in 24.hours
-    fresh_when @company, public: true
     ariane.add @company.name, @company
   end
 
@@ -85,6 +85,6 @@ class CompaniesController < ApplicationController
   protected
   def set_ariane
     super
-    ariane.add 'Companies', companies_path
+    ariane.add '업소록', companies_path
   end
 end

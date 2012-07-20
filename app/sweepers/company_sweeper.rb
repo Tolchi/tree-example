@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CompanySweeper < ActionController::Caching::Sweeper
   observe Company
 

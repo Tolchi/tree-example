@@ -5,6 +5,6 @@
   .span12
     .row
       = render 'companies/company_info'
-      - if @company.gmaps?
+      - unless @json == "[]"
         .span8
           = render ('companies/gmaps')
