@@ -15,8 +15,7 @@ $link_color: #ff7930;
   font-family: 'NanumGothic';
   src: url(asset-path('NanumGothic.eot?',font)) format('eot'), 
        url(asset-path('NanumGothic.woff',font)) format('woff'), 
-       url(asset-path('NanumGothic.ttf',font))  format('truetype'),
-       url(asset-path('NanumGothic.svg#NanumGothic',font)) format('svg');
+       url(asset-path('NanumGothic.ttf',font))  format('truetype');
 }
 @font-face {
   font-family: 'NanumGothicCoding';

@@ -16,10 +16,6 @@ class ApplicationController < ActionController::Base
   def query
     @q = Company.search(params[:q])
     @q.sorts = 'name asc' if @q.sorts.empty?
-    @companies = @q.result.paginate(:page => params[:page], :per_page => 20)
-    if @companies.count == 0 
-      flash.now[:error] = "Companies not found"
-    end
   end
 
   def set_ariane

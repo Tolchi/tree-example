@@ -31,7 +31,7 @@ class CategoriesController < ApplicationController
       redirect_to @category, status: :moved_permanently
     end
     if @category
-      companies = Company.where('category_id = ?', @category.id).order("name ASC")
+      companies = @category.companies.order('name ASC')
       @coms = companies.paginate(:page => params[:page], :per_page => 15)
       unless companies.blank?
         @json = companies.to_gmaps4rails do |company, marker|
