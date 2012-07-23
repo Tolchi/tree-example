@@ -38,9 +38,6 @@ class Company < ActiveRecord::Base
   #friendly_id :name, use: [:globalize, :slugged, :history]
   friendly_id :name
 
-  def company_logger
-    @company_logger ||= Logger.new("#{Rails.root}/log/com.log")
-  end
   def direccion_completa
     unless self.direccion.blank?
       d = self.direccion
@@ -65,7 +62,6 @@ class Company < ActiveRecord::Base
     info = info + ", #{self.cel}" unless self.cel.blank?
     info = info + ", #{self.otro_contacto}" unless self.otro_contacto.blank?
     info = info + ", #{self.homepage}" unless self.homepage.blank?
-    company_logger.info("infowindow = #{info}")
     info
   end
 

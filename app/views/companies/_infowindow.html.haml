@@ -1,4 +1,4 @@
-.span3
+.span5
   .page-header
     %h1 
       = link_to object.name, object
@@ -24,7 +24,7 @@
     %p
       %strong 홈페이지 주소
       %br
-      = link_to object.homepage, object.homepage
+      = link_to object.homepage, object.homepage, :target => "_new"
   - unless object.misc.blank?
     %p
       - if object.category_id == 44
