@@ -1,6 +1,6 @@
 - cache("cat-search") do
   .row
     .span4
-      = form_tag categories_path, :method => 'get', :class => 'form-search well well-small', :autocomplete => 'on'  do
-        = select_tag :id, options_from_collection_for_select(@categories, "id", "name"), :include_blank => true, :class => 'search-query', :id => "category_name"
+      = form_tag categories_path, :method => 'get', :class => 'form-horizontal form-search well well-small' do
+        = select_tag :id, options_for_select(sorted_nested_set_options(Category, lambda(&:name)) {|i, level| "#{'-' * level} #{i.name}" }), :include_blank => true, :class => 'search-query', :id => "category_name"
         = submit_tag "찾기", :name => nil, :class => 'btn btn-primary'
