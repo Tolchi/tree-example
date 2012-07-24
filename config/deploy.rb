@@ -18,15 +18,15 @@ require 'whenever/capistrano'
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-after "deploy", "deploy:cleanup" # keep only the last 5 releases
-
-namespace :rake do  
+namespace :cache do  
   desc "Run a task on a remote server."  
   # run like: cap staging rake:invoke task=a_certain_task  
-  task :cache do  
+  task :clean do  
     run("cd #{current_path}; /usr/bin/env rake cache:clean  RAILS_ENV=production")  
   end  
 end
+
+after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
 namespace :deploy do
   %w[start stop restart].each do |command|
