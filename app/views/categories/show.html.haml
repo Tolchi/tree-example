@@ -5,10 +5,10 @@
   = render 'categories/catside'
   .span10.single-category
     %section#categories
-      = render ('categories/category_info')
+      = render 'categories/category_info'
     %p
     - unless @coms.blank?
       %section#companies
-        = render ('categories/category_coms')
+        = render 'categories/category_coms'
         - unless @json == "[]"
-          = render ('categories/category_map')
+          = render 'categories/category_map'

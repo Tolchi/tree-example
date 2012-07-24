@@ -45,8 +45,7 @@
     %p
       %strong 카테고리
       %br
-      - cat = Category.find(@company.category_id)
-      = link_to cat.name, cat, :class => "btn btn-mini btn-info"
+      = link_to @company.category.name, @company.category, :class => "btn btn-mini btn-info"
       - if user_signed_in? and current_user.has_role? :admin
         .form-actions
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(@company), :class => 'btn'

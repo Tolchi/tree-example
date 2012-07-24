@@ -36,8 +36,7 @@
                   %td= company.tel
                   %td= company.cel
                   %td= company.otro_contacto
-                  - cat = Category.find_by_id(company.category_id)
-                  %td= link_to cat.name, cat
+                  %td= link_to company.category.name, company.category
                   - if is_admin
                     %td
                       = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(company), :class => 'btn btn-mini'

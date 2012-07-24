@@ -68,4 +68,8 @@ class Company < ActiveRecord::Base
   def should_generate_new_friendly_id?
     new_record?
   end
+
+  def as_json(option={})
+    super(:only => [:id, :name, :direccion, :piso, :depto, :ciudad, :provincia, :tel, :cel, :otro_contacto, :homepage, :category_id])
+  end
 end

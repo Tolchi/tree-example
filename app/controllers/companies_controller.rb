@@ -7,6 +7,10 @@ class CompaniesController < ApplicationController
   # GET /companies.json
   def index
     @companies = @q.result.paginate(:page => params[:page], :per_page => 12)
+    respond_to do |format|
+      format.html
+      format.json { render json: Company.order('name ASC') }
+    end
   end
 
   # GET /companies/1
