@@ -26,4 +26,5 @@
 //= require comments/base
 //= require jquery.nivo.slider.pack
 //= require jquery.zweatherfeed.min
+//= require select2
 //= require_tree .

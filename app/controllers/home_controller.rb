@@ -13,11 +13,6 @@ class HomeController < ApplicationController
       end
       @topcat_subcat[tc.name] = a.join(',')
     end
-    cats = @categories
-    gon.availableCategories = Array.new
-    cats.each do |c|
-      gon.availableCategories.push c.name
-    end
     @entries_yh = FeedEntry.yh.first(5)
     @entries_tl = FeedEntry.tl.first(4)
   end

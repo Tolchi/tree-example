@@ -2,4 +2,5 @@
   .row
     .span4
       = form_tag categories_path, :method => 'get', :class => 'form-search well well-small', :autocomplete => 'on'  do
-        = search_field_tag :name, params[:name], :placeholder => '찾고 싶은 카테고리', :class => 'search-query', :id => "category_name",  :rel => "popover",  "data-content" => "찾고 싶은 카테고리 이름을 써주세요. 자동완성 기능이 있기 때문에 Enter 키를 두번 누르셔야 합니다.", "data-original-title" => "카테고리 찾기" 
+        = select_tag :id, options_from_collection_for_select(@categories, "id", "name"), :include_blank => true, :class => 'search-query', :id => "category_name"
+        = submit_tag "찾기", :name => nil, :class => 'btn btn-primary'

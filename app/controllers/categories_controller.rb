@@ -3,17 +3,17 @@ class CategoriesController < ApplicationController
   include TheSortableTreeController::Rebuild
   load_and_authorize_resource
   before_filter :set_ariane, :category_sort
-  caches_page :index
-  cache_sweeper :category_sweeper
+  #caches_page :index
+  #cache_sweeper :category_sweeper
 
   # GET /categories
   # GET /categories.json
   def index
-    expires_in 24.hours
-    fresh_when last_modified: @max, public: true
+    #expires_in 24.hours
+    #fresh_when last_modified: @max, public: true
 
-    if params[:name]
-      if c = Category.find_by_name(params[:name])
+    if params[:id]
+      if c = Category.find(params[:id])
         redirect_to c 
         return
       else

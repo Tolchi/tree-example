@@ -37,7 +37,6 @@ gem 'pg'
 gem 'activerecord-postgresql-adapter'
 gem 'ariane'
 gem 'modernizr-rails'
-gem 'gon', '3.0.4'
 gem 'acts-as-taggable-on', '~> 2.3.1'
 gem 'will_paginate-bootstrap'
 gem 'irbtools', :require => false
@@ -46,3 +45,4 @@ gem 'feedzirra', '>= 0.2.0.rc2'
 gem 'whenever', :require => false
 gem 'dalli'
 gem 'friendly_id'
+gem 'select2-rails'
