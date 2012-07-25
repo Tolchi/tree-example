@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
+  helper_method :is_admin?
 
   protected
   
@@ -21,4 +22,10 @@ class ApplicationController < ActionController::Base
   def set_ariane
     ariane.add '홈', root_path
   end
+  
+  def is_admin?
+    adm = user_signed_in? and current_user.has_role? :admin
+    adm
+  end
+
 end

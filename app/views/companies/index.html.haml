@@ -11,35 +11,9 @@
         .page-header
           %h1 업소록
       .row
-        = render('companies/com-search')
-      - is_admin = (user_signed_in? and current_user.has_role? :admin)
-      - if is_admin
+        = render 'companies/com-search'
+      - if is_admin?
         = link_to t('.new', :default => t("helpers.links.new")), new_company_path, :class => 'btn btn-primary'
       .span12
         .row
-          %table.table.table-condensed
-            %thead
-              %tr
-                %th= sort_link @q,:name 
-                %th 주소
-                %th 전화
-                %th 핸드폰
-                %th 기타연락처
-                %th 카테고리
-                - if is_admin
-                  %th=t '.actions', :default => t("helpers.actions")
-            %tbody
-              - @companies.each do |company|
-                %tr
-                  %td= link_to company.name, company_path(company)
-                  %td= company.direccion
-                  %td= company.tel
-                  %td= company.cel
-                  %td= company.otro_contacto
-                  %td= link_to company.category.name, company.category
-                  - if is_admin
-                    %td
-                      = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(company), :class => 'btn btn-mini'
-                      = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(company), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
-
-          = will_paginate @companies, :renderer => BootstrapPagination::Rails, :class => "pagination pagination-centered"
+          = render 'companies/table'

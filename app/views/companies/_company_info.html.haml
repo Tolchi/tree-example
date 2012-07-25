@@ -46,7 +46,7 @@
       %strong 카테고리
       %br
       = link_to @company.category.name, @company.category, :class => "btn btn-mini btn-info"
-      - if user_signed_in? and current_user.has_role? :admin
+      - if is_admin?
         .form-actions
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(@company), :class => 'btn'
           = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(@company), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
