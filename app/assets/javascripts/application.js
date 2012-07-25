@@ -17,7 +17,6 @@
 //= require bootstrap-transition
 //= require bootstrap-tooltip
 //= require bootstrap-tab
-//= require bootstrap-typeahead
 //= require bootstrap-popover
 //= require bootstrap-collapse
 //= require bootstrap-dropdown
