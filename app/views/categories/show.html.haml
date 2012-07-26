@@ -4,11 +4,11 @@
   = render 'layouts/breadcrumbs'
   = render 'categories/catside'
   .span10.single-category
-    %section#categories
+    %section#categories.well.well-small
       = render 'categories/category_info'
     %p
     - unless @coms.blank?
-      %section#companies
+      %section#companies.well.well-small
         = render 'categories/category_coms'
         - unless @json == "[]"
           = render 'categories/category_map'

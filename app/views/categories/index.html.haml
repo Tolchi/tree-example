@@ -6,12 +6,11 @@
   .span10
     .row
       .span10
-        - cat_root = Category.roots
-        %section#categories
+        %section#categories.well.well-small
           .row
             .span10.category_title.lead 톱 카테고리
           .row
             .span9.offset1
               .row
-                - cat_root.each do |c|
+                - @roots.each do |c|
                   = render 'categories/descendants', :c => c

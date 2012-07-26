@@ -13,7 +13,7 @@ class HomeController < ApplicationController
       end
       @topcat_subcat[tc.name] = a.join(',')
     end
-    @entries_yh = FeedEntry.yh.first(5)
-    @entries_tl = FeedEntry.tl.first(4)
+    @entries_yh = FeedEntry.yh.first(7)
+    @entries_tl = FeedEntry.tl.first(5)
   end
 end

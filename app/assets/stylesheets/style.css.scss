@@ -72,7 +72,7 @@ ul.thumbnails {
   border-radius: 6px;
   li.span3 {
     display: inline;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     .thumbnail60px {
       float: left;
       width: 60px;
@@ -121,7 +121,7 @@ ul.thumbnails {
         -o-transition: font-size linear 0.3s;
         &:hover{
           font-size: 1.38em;
-          color: white;
+          color: black;
         }
       }
       .subcategories li {
@@ -157,10 +157,9 @@ ul.thumbnails {
 	width: 95%;
   margin-top:20px;
 	margin-bottom: 10px;
-	padding-left: 10px;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
-	border-bottom-color: #fff;
+	border-bottom-color: black;
 }
 a {
   color: #000;
@@ -390,9 +389,6 @@ form.well {
 .breadcrumb {
   font-size: .9em;
 }
-.single-category section a:hover {
-  color:white;
-}
 .breadcrumb {
   border:1px solid #dedede;
   height:1.8em;
@@ -427,6 +423,22 @@ form.well {
     &:hover, &:focus {
       color: $link_color;
       text-decoration: none;
+    }
+  }
+}
+#home-categories.well {
+  padding: 0;
+}
+#home-categories.well-small {
+  padding: 15px 10px;
+  border: none;
+}
+#company_info {
+  line-height: 18px;
+  p {
+    margin: 5px 0;
+    strong {
+    margin-bottom: 10px;
     }
   }
 }

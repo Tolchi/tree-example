@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
   def index
     #expires_in 24.hours
     #fresh_when last_modified: @max, public: true
+    @roots = Category.roots
 
     if params[:id]
       if c = Category.find(params[:id])

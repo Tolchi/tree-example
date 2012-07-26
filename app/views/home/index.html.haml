@@ -9,8 +9,9 @@
   .span12
     .row
       .span9
-        = render 'home/category_search'
-        = render 'home/topcat'
+        .row.well.well-small#home-categories
+          = render 'home/category_search'
+          = render 'home/topcat'
       .span3.news_side
         = render 'home/side'
 :javascript
