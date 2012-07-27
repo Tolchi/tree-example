@@ -1,4 +1,6 @@
 - cache("news_feed") do
+  - entries_yh = FeedEntry.yh.first(7)
+  - entries_tl = FeedEntry.tl.first(5)
   .well#news
     .page-header
       %h1 
@@ -17,11 +19,11 @@
     .pill-content.clearboth
       .pill-pane.fade.active.in#yonhap
         .accordion#accordion-yh
-          - @entries_yh.each do |e|
+          - entries_yh.each do |e|
             = render 'home/newsfeed', :e => e, :news => "yh"
       .pill-pane.fade#telam
         .accordion#accordion-tl
-          - @entries_tl.each do |e|
+          - entries_tl.each do |e|
             = render 'home/newsfeed', :e => e, :news => "tl"
       .pill-pane.fade#weather
         .accordion#pronostico

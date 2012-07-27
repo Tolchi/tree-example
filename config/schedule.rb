@@ -9,6 +9,6 @@ every 1.day, :at => '4:30 am' do
 end
 
 
-every :friday, :at => '6:00 am' do
+every 1.day, :at => '5:00 am' do
   rake "cache:clean"
 end

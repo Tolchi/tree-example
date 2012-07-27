@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   protected
   
   def fetch_categories
-    @categories = Category.scoped
+    @categories = Category.scoped.order("name ASC")
     @max = @categories.maximum(:updated_at)
   end
   

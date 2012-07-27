@@ -2,7 +2,7 @@
 class CategoriesController < ApplicationController
   include TheSortableTreeController::Rebuild
   load_and_authorize_resource
-  before_filter :set_ariane, :category_sort
+  before_filter :set_ariane
   #caches_page :index
   #cache_sweeper :category_sweeper
 
@@ -122,9 +122,5 @@ class CategoriesController < ApplicationController
   def set_ariane
     super
     ariane.add '카테고리', categories_path
-  end
-
-  def category_sort
-    @categories.sort! { |a, b| a.name <=> b.name }
   end
 end
