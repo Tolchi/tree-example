@@ -9,10 +9,10 @@ class HomeController < ApplicationController
       a = Array.new
       unless tc.leaf? 
         tc.children.each do |ch|
-          a.push ch.name
+          a.push ch
         end
       end
-      @topcat_subcat[tc.name] = a.join(',')
+      @topcat_subcat[tc.name] = a
     end
   end
 end
