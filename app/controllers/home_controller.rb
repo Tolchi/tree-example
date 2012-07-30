@@ -7,8 +7,10 @@ class HomeController < ApplicationController
     @top_categories = Category.select("id, name, parent_id, icon, lft, rgt").where("parent_id is ?", nil).order("name ASC") # equivalent above 2 lines
     @top_categories.each do |tc|
       a = Array.new
-      tc.children.each do |ch|
-        a.push ch.name
+      unless tc.leaf? 
+        tc.children.each do |ch|
+          a.push ch.name
+        end
       end
       @topcat_subcat[tc.name] = a.join(',')
     end

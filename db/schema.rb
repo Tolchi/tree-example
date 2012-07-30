@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120720141121) do
+ActiveRecord::Schema.define(:version => 20120730151318) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20120720141121) do
     t.string   "slug"
   end
 
+  add_index "categories", ["name"], :name => "index_categories_on_name"
   add_index "categories", ["slug"], :name => "index_categories_on_slug"
 
   create_table "companies", :force => true do |t|
@@ -47,7 +48,12 @@ ActiveRecord::Schema.define(:version => 20120720141121) do
     t.string   "slug"
   end
 
+  add_index "companies", ["category_id"], :name => "index_companies_on_category_id"
+  add_index "companies", ["cel"], :name => "index_companies_on_cel"
+  add_index "companies", ["homepage"], :name => "index_companies_on_homepage"
+  add_index "companies", ["name"], :name => "index_companies_on_name"
   add_index "companies", ["slug"], :name => "index_companies_on_slug"
+  add_index "companies", ["tel"], :name => "index_companies_on_tel"
 
   create_table "feed_entries", :force => true do |t|
     t.string   "name"
