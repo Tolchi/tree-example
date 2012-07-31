@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120731172446) do
+ActiveRecord::Schema.define(:version => 20120731184824) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(:version => 20120731172446) do
 
   add_index "companies", ["category_id"], :name => "index_companies_on_category_id"
   add_index "companies", ["cel"], :name => "index_companies_on_cel"
+  add_index "companies", ["direccion"], :name => "index_companies_on_direccion"
   add_index "companies", ["homepage"], :name => "index_companies_on_homepage"
   add_index "companies", ["name"], :name => "index_companies_on_name"
   add_index "companies", ["slug"], :name => "index_companies_on_slug"

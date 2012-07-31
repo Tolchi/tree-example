@@ -13,7 +13,7 @@
       - @companies.each do |company|
         %tr
           %td= link_to company.name, company_path(company)
-          %td= company.direccion
+          %td= company.direccion_completa
           %td= company.tel
           %td= company.cel
           %td= link_to company.category.name, company.category

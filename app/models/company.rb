@@ -41,10 +41,16 @@ class Company < ActiveRecord::Base
 
   def direccion_completa
     unless self.direccion.blank?
-      d = self.direccion
-      d = d + " " + self.piso + "층"  unless self.piso.blank?
-      d = d + " " + self.depto + "호" unless self.depto.blank?
-      d = d + ", " + self.ciudad + ", " + self.provincia unless self.ciudad.eql? "Capital Federal"
+      d = String.new << self.direccion
+      unless self.piso.blank?
+        d << " " << self.piso << "층" 
+      end
+      unless self.depto.blank?
+        d << " " << self.depto << "호"
+      end
+      unless self.ciudad.eql? "Capital Federal"
+        d << ", " << self.ciudad << ", " << self.provincia
+      end
       d
     end
   end
@@ -58,11 +64,19 @@ class Company < ActiveRecord::Base
   end
 
   def gmaps4rails_infowindow
-    info= "#{self.name}, #{self.direccion_completa}"
-    info = info + ", #{self.tel}" unless self.tel.blank?
-    info = info + ", #{self.cel}" unless self.cel.blank?
-    info = info + ", #{self.otro_contacto}" unless self.otro_contacto.blank?
-    info = info + ", #{self.homepage}" unless self.homepage.blank?
+    info = String.new << "#{self.name}"  << ", #{self.direccion_completa}"
+    unless self.tel.blank?
+      info << ", #{self.tel}"
+    end
+    unless self.cel.blank?
+      info << ", #{self.cel}"
+    end
+    unless self.otro_contacto.blank?
+      info << ", #{self.otro_contacto}"
+    end
+    unless self.homepage.blank?
+      info << ", #{self.homepage}"
+    end
     info
   end
 
