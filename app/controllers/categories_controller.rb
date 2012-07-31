@@ -1,8 +1,9 @@
 # -*- encoding : utf-8 -*-
 class CategoriesController < ApplicationController
   include TheSortableTreeController::Rebuild
+  include FetchCategories
   load_and_authorize_resource
-  before_filter :set_ariane
+  before_filter :set_ariane, :fetch_categories
   #caches_page :index
   #cache_sweeper :category_sweeper
 
@@ -32,20 +33,19 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])
+    @category = Category.includes(:companies).find(params[:id])
     if request.path != category_path(@category)
       redirect_to @category, status: :moved_permanently
     end
     if @category
-      companies = @category.companies.order('name ASC')
-      @coms = companies.paginate(:page => params[:page], :per_page => 15)
-      unless companies.blank?
-        @json = companies.to_gmaps4rails do |company, marker|
+      @coms = @category.companies.paginate(:page => params[:page], :per_page => 15)
+      unless @category.companies.blank?
+        @json = @category.companies.to_gmaps4rails do |company, marker|
           marker.infowindow render_to_string(:partial => "companies/infowindow", :locals => { :object => company})
           marker.title "#{company.name}"
           marker.json({:id => company.id})
         end
-        @coms_max = companies.maximum(:updated_at)
+        @coms_max = @category.companies.maximum(:updated_at)
       end
       @children = @category.children and @children.sort! { |a,b| a.name <=> b.name } unless @category.leaf?
       if @category.child?

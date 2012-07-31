@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 class HomeController < ApplicationController
+  include FetchCategories
+  before_filter :fetch_categories
   def index
     @topcat_subcat = Hash.new
     #@top_categories = Category.roots

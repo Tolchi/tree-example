@@ -19,7 +19,7 @@ class Category < ActiveRecord::Base
   attr_accessible :name, :parent_id, :icon
   acts_as_nested_set
   include TheSortableTree::Scopes
-  has_many :companies
+  has_many :companies, :order => 'name ASC'
   resourcify
   validates :name, presence: true, uniqueness: true
   extend FriendlyId

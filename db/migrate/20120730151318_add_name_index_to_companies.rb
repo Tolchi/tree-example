@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddNameIndexToCompanies < ActiveRecord::Migration
   def change
     add_index :companies, :name

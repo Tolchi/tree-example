@@ -16,7 +16,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
-    @company = Company.find(params[:id])
+    @company = Company.includes(:category).find(params[:id])
     if request.path != company_path(@company)
       redirect_to @company, status: :moved_permanently
     end

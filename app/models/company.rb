@@ -37,6 +37,7 @@ class Company < ActiveRecord::Base
   extend FriendlyId
   #friendly_id :name, use: [:globalize, :slugged, :history]
   friendly_id :name
+  default_scope :order => 'name ASC'
 
   def direccion_completa
     unless self.direccion.blank?
