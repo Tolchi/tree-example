@@ -11,7 +11,7 @@ $ ->
 $ ->
   $("#newstab a").click (e) ->
     e.preventDefault()
-    $(this).pill "show"
+    $(this).tab "show"
 
 $ ->
   $("#nav_search").popover placement: "bottom"
