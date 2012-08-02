@@ -2,4 +2,4 @@
   .gray14lightbullet
     = link_to c.name, c
     %span.descendants
-      = c.descendants_count + Company.find_all_by_category_id(c.id).count
+      = c.descendants_count + c.companies.count

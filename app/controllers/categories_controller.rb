@@ -12,10 +12,10 @@ class CategoriesController < ApplicationController
   def index
     #expires_in 24.hours
     #fresh_when last_modified: @max, public: true
-    @roots = Category.roots
+    @roots = Category.includes(:children).includes(:companies).roots
     @keyword = String.new
 
-    @root.each do |r|
+    @roots.each do |r|
       @keyword << r.name << " "
     end
 
@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @category = Category.includes(:companies).find(params[:id])
+    @category = Category.includes(:children).includes(:companies).find(params[:id])
     if request.path != category_path(@category)
       redirect_to @category, status: :moved_permanently
     end

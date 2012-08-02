@@ -4,9 +4,7 @@ class HomeController < ApplicationController
   before_filter :fetch_categories
   def index
     @topcat_subcat = Hash.new
-    #@top_categories = Category.roots
-    #@top_categories.sort! { |a, b| a.name <=> b.name}
-    @top_categories = Category.select("id, name, parent_id, icon, lft, rgt").where("parent_id is ?", nil).order("name ASC") # equivalent above 2 lines
+    @top_categories = Category.includes(:children).roots
     @keyword = String.new
     @top_categories.each do |tc|
       @keyword << tc.name << " "
