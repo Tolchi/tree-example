@@ -1,4 +1,6 @@
 - provide(:title, "#{@company.name} - 회사정보 | ")
+- provide(:keyword, @keyword)
+- provide(:description, "#{@company.name}에 대한 정보입니다. Informacion acerca de #{@company.name}.")
 .row
   = render 'layouts/messages'
   = render 'layouts/breadcrumbs'

@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 require "bundler/capistrano"
+require 'capistrano_colors'
 
 server "50.116.19.170", :web, :app, :db, primary: true
 

@@ -8,8 +8,8 @@
       #{yield(:title)} 아르헨티나 한인 네트워크
     %link{:href => "/favicon.ico", :rel => "shortcut icon"}
     %link{:href => "/favicon.ico", :rel => "icon", :type => "image/x-icon"}
-    %meta{:content => "아르헨티나 한인 네트워크는 아르헨티나에 사는 한인들을 위한 업소록 및 정보 사이트입니다.  Argentina Hanin (Coreano) Network es directorio de web para los coreanos y contiene informaciones utiles. ArgentinaHanin Network is web directory for koreans in Argentina. ", :name => "description"}
-    %meta{:content => "아르헨티나 한인 네트워크 업소록 Argentina Hanin Network argentina korean network, coreano directory, red social para coreanos en argentina, search, searchengine, submission review, internet web sites submissions 패션(옷가게) 봉제관련 법률 계리사 전자전기 IT 의료 미용 건강 레져 부동산 종교 음식 관공서 여행사 운송 자동차 집 주택 무역 금융 Arte 아동복 신발 잡화 신사복 파티복 숙녀복 병원 미용실 이발소 골프장 골프용품 노래방 낚시 디자인 인테리어 간판 그래픽 디자인 부속 마네킹 단추 쁠란차 볼사 식당 분식점 식품점 약국 변호사 공증 계리사 송금 환전 여행사 운송 레미스 한의원 침술 교육 언론 학교 학원 웹기획 디자인 개신교 가전제품 나염 당구장 떡집 라벨 사우나 기계 수리 번역 통역 방송 비디오 액세서리 사진 사찰 생수 서점 세차장 세탁소 수 중고차 정비소 수영복 수산 식품 신문 실 원사 엔#=> nil 쌀 안경점 양복 한복 여관 호텔 염색 영업허가 유리 유치원 원단 웨딩샵 인쇄소 정육점 제과점 주름 체육관 치과 까페 컴퓨터 통관 패스트푸드 패턴 맞춤 피아노 가구 가방 건강식품 건축 집수리 설비 경보기 천주교 귀국상품 금전 등록기 꽃 꽃집 꽃꽂이 꿀 단체 모자 기타 문방구 피부 바둑 보석 집 주택 열쇠 자물쇠 금고 선물 유아용품 웨딩플래너 자동차 장의사 수입품 전기 전자 주재 상사 중고상 철공소 청과물 통신 휴지 세제", :name => "keywords"}
+    %meta{:content => "아르헨티나 한인 네트워크는 아르헨티나에 사는 한인들을 위한 업소록 및 정보 사이트입니다.  Argentina Hanin (Coreano) Network es directorio de web para los coreanos y contiene informaciones utiles. ArgentinaHanin Network is web directory for koreans in Argentina. #{yield(:description)} ", :name => "description"}
+    %meta{:content => "아르헨티나 한인 네트워크 업소록 Argentina Hanin Network argentina korean network, coreano directory, red social para coreanos en argentina, search, searchengine, submission review, internet web sites submissions #{yield(:keywords)}", :name => "keywords"}
     %meta{:content => "Salus Argentina SRL", :name => "author"}
     = stylesheet_link_tag    "application", :media => "all"
     = javascript_include_tag "application"

@@ -23,6 +23,8 @@ class CompaniesController < ApplicationController
     @json = @company.to_gmaps4rails
     @tags = @company.tag_list
     ariane.add @company.name, @company
+    @keyword = String.new << @company.name << " " << @company.category.name << " " 
+    @keyword << @tags.to_s.gsub!(/,/, "") unless @tags.blank?
   end
 
   # GET /companies/new

@@ -13,6 +13,11 @@ class CategoriesController < ApplicationController
     #expires_in 24.hours
     #fresh_when last_modified: @max, public: true
     @roots = Category.roots
+    @keyword = String.new
+
+    @root.each do |r|
+      @keyword << r.name << " "
+    end
 
     if params[:id]
       if c = Category.find(params[:id])
@@ -38,20 +43,27 @@ class CategoriesController < ApplicationController
       redirect_to @category, status: :moved_permanently
     end
     if @category
+      @keyword = String.new << @category.name << " "
       @coms = @category.companies.paginate(:page => params[:page], :per_page => 15)
+      unless @category.leaf?
+        @children = @category.children
+        @children.each do |child|
+          @keyword << child.name << " "
+        end
+      end
+      if @category.child?
+        @category.ancestors.each do |ac|
+          ariane.add ac.name, category_path(ac)
+        end
+      end
       unless @category.companies.blank?
         @json = @category.companies.to_gmaps4rails do |company, marker|
           marker.infowindow render_to_string(:partial => "companies/infowindow", :locals => { :object => company})
           marker.title "#{company.name}"
           marker.json({:id => company.id})
+          @keyword << company.name << " "
         end
         @coms_max = @category.companies.maximum(:updated_at)
-      end
-      @children = @category.children and @children.sort! { |a,b| a.name <=> b.name } unless @category.leaf?
-      if @category.child?
-        @category.ancestors.each do |ac|
-          ariane.add ac.name, category_path(ac)
-        end
       end
       ariane.add @category.name, @category
     else

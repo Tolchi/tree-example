@@ -25,6 +25,7 @@ class Category < ActiveRecord::Base
   extend FriendlyId
   #friendly_id :name, use: [:globalize, :slugged, :history]
   friendly_id :name
+  default_scope :order => 'name ASC'
 
   def should_generate_new_friendly_id?
     new_record?
