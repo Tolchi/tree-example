@@ -1,5 +1,5 @@
 .well
-  %table.table.table-condensed
+  %table.table.table-condensed#companies_table
     %thead
       %tr
         %th= sort_link @q,:name 
@@ -22,4 +22,3 @@
               = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(company), :class => 'btn btn-mini'
               = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(company), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
 
-  = will_paginate @companies, :renderer => BootstrapPagination::Rails, :class => "pagination pagination-centered"

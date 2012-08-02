@@ -8,6 +8,7 @@ group :assets do
   gem 'font-awesome-sass-rails'
   gem "bootstrap-sass"
   gem "compass-rails"
+  gem 'jquery-datatables-rails'
 end
 gem 'jquery-rails'
 gem "haml", ">= 3.1.5"

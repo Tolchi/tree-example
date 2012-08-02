@@ -26,4 +26,6 @@
 //= require jquery.nivo.slider.pack
 //= require jquery.zweatherfeed.min
 //= require select2
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap
 //= require_tree .
