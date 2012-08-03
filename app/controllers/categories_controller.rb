@@ -43,7 +43,8 @@ class CategoriesController < ApplicationController
       redirect_to @category, status: :moved_permanently
     end
     if @category
-      @keyword = String.new << @category.name << " "
+      @keyword = String.new 
+      @keyword << @category.name << " "
       @coms = @category.companies.paginate(:page => params[:page], :per_page => 15)
       unless @category.leaf?
         @children = @category.children
@@ -57,12 +58,13 @@ class CategoriesController < ApplicationController
         end
       end
       unless @category.companies.blank?
-        @json = @category.companies.to_gmaps4rails do |company, marker|
-          marker.infowindow render_to_string(:partial => "companies/infowindow", :locals => { :object => company})
-          marker.title "#{company.name}"
-          marker.json({:id => company.id})
-          @keyword << company.name << " "
-        end
+        ###@json = @category.companies.to_gmaps4rails do |company, marker|
+        ###  marker.infowindow render_to_string(:partial => "companies/infowindow", :locals => { :object => company})
+        ###  marker.title "#{company.name}"
+        ###  marker.json({:id => company.id})
+        ###  @keyword << company.name << " "
+        ###end
+        @json = @category.companies.to_gmaps4rails
         @coms_max = @category.companies.maximum(:updated_at)
       end
       ariane.add @category.name, @category

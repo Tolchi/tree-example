@@ -6,11 +6,9 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    #@companies = @q.result.paginate(:page => params[:page], :per_page => 12)
-    @companies = @q.result
     respond_to do |format|
       format.html
-      format.json { render json: Company.all }
+      format.json { render json: CompaniesDatatable.new(view_context) }
     end
   end
 

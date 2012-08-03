@@ -14,7 +14,4 @@ $ ->
     $(this).tab "show"
 
 $ ->
-  $("#nav_search").popover placement: "bottom"
-
-$ ->
   $("#category_name").popover placement: "top"

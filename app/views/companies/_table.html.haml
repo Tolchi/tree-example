@@ -1,24 +1,10 @@
 .list-companies.well
-  %table.table.table-bordered.table-stripe#companies_table
+  %table.table.table-bordered.table-stripe#companies_table{"data-source" => companies_url(format: "json")}
     %thead
       %tr
-        %th= sort_link @q,:name 
+        %th 회사이름
         %th 주소
         %th 전화
         %th 핸드폰
         %th 카테고리
-        - if is_admin?
-          %th=t '.actions', :default => t("helpers.actions")
     %tbody
-      - @companies.each do |company|
-        %tr
-          %td= link_to company.name, company_path(company)
-          %td= company.direccion_completa
-          %td= company.tel
-          %td= company.cel
-          %td= link_to company.category.name, company.category
-          - if is_admin?
-            %td
-              = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(company), :class => 'btn btn-mini'
-              = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(company), :method => :delete, :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-mini btn-danger'
-
