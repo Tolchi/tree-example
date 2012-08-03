@@ -10,7 +10,7 @@ class CompaniesController < ApplicationController
     @companies = @q.result
     respond_to do |format|
       format.html
-      format.json { render json: Company.order('name ASC') }
+      format.json { render json: Company.all }
     end
   end
 
