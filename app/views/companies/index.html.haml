@@ -5,8 +5,9 @@
   = render 'layouts/messages'
   = render 'layouts/breadcrumbs'
   .span12
-    .page-header
-      %h1 업소록
+    .row
+      .page-header
+        %h1 업소록
   -if @companies.blank?
     .span3 
       = link_to "Back", :back, :class => "btn btn-small btn-info"
