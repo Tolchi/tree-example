@@ -32,7 +32,7 @@ class Company < ActiveRecord::Base
   attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contacto, :misc, :homepage, :tag_list, :piso, :depto, :ciudad, :provincia
   belongs_to :category, touch: true
   resourcify
-  validates_presence_of :name, :direccion, :category_id
+  validates_presence_of :name, :category_id
   validates_uniqueness_of :name
   extend FriendlyId
   #friendly_id :name, use: [:globalize, :slugged, :history]
