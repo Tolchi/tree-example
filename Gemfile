@@ -31,7 +31,7 @@ gem "ransack"
 gem "squeel"
 gem "cancan"
 gem "rolify"
-gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git', :group => :development
+gem 'annotate', ">=2.5.0", :group => :development
 gem 'unicorn'
 gem 'capistrano'
 gem 'pg'
@@ -46,5 +46,5 @@ gem 'feedzirra', '>= 0.2.0.rc2'
 gem 'whenever', :require => false
 gem 'dalli'
 gem 'friendly_id'
-gem 'select2-rails'
+gem 'select2-rails', '~> 2.1.0'
 #gem 'rack-mini-profiler'
