@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   def index
     #expires_in 24.hours
     #fresh_when last_modified: @max, public: true
-    @roots = Category.includes(:children).includes(:companies).roots
+    @roots = Category.includes(:children).roots
     @keyword = String.new
 
     @roots.each do |r|

@@ -17,5 +17,4 @@ class ApplicationController < ActionController::Base
     adm = user_signed_in? and current_user.has_role? :admin
     adm
   end
-
 end
