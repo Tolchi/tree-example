@@ -1,16 +1,17 @@
 - cache ("navigation") do
-  %a{:class => "btn btn-navbar", "data-toggle" => "collapse", "data-target" => ".nav-collapse"}
-    %span.icon-bar
-    %span.icon-bar
-    %span.icon-bar
+  .row
+    %a{:class => "btn btn-navbar", "data-toggle" => "collapse", "data-target" => ".nav-collapse"}
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
 
-  = link_to "Argentina 한인 네트워크", root_path, :class => 'brand'
-  .nav-collapse
-    %ul.nav.pull-right
-      %li{:class => "active"}
-        = link_to '홈', root_path
-      %li= link_to '업소록', companies_path
-      %li= link_to '자유게시판', forum_path
-      %li= link_to '벼룩시장', market_path
-      - if user_signed_in?
-        %li= link_to('Logout', destroy_user_session_path, :method=>'delete')
+    = link_to "Argentina 한인 네트워크", root_path, :class => 'brand'
+    .nav-collapse
+      %ul.nav.pull-right
+        %li{:class => "active"}
+          = link_to '홈', root_path
+        %li= link_to '업소록', companies_path
+        %li= link_to '자유게시판', forum_path
+        %li= link_to '벼룩시장', market_path
+        - if user_signed_in?
+          %li= link_to('Logout', destroy_user_session_path, :method=>'delete')

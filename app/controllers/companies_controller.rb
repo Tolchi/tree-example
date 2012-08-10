@@ -24,7 +24,13 @@ class CompaniesController < ApplicationController
     ariane.add @company.name, @company
     @keyword = String.new 
     @keyword << @company.name << " " << @company.category.name << " " 
-    @keyword << @tags.to_s.gsub!(/,/, "") unless @tags.blank?
+    unless @tags.to_s.nil? 
+      if @tags.size > 1
+        @keyword << @tags.to_s.gsub!(/,/, "") 
+      else
+        @keyword << @tags.to_s
+      end
+    end
   end
 
   # GET /companies/new
