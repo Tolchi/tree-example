@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120809183451) do
+ActiveRecord::Schema.define(:version => 20120810155453) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -25,12 +25,15 @@ ActiveRecord::Schema.define(:version => 20120809183451) do
     t.integer  "companies_count", :default => 0, :null => false
   end
 
-  add_index "categories", ["lft", "rgt"], :name => "index_categories_on_lft_and_rgt"
-  add_index "categories", ["lft"], :name => "index_categories_on_lft"
-  add_index "categories", ["name"], :name => "index_categories_on_name"
+  add_index "categories", ["id", "lft", "rgt"], :name => "index_categories_on_id_and_lft_and_rgt"
+  add_index "categories", ["lft", "id"], :name => "index_categories_on_lft_and_id"
+  add_index "categories", ["name", "lft"], :name => "index_categories_on_name_and_lft"
+  add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
+  add_index "categories", ["parent_id", "lft", "rgt"], :name => "index_categories_on_parent_id_and_lft_and_rgt"
+  add_index "categories", ["parent_id", "name", "lft"], :name => "index_categories_on_parent_id_and_name_and_lft"
   add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
-  add_index "categories", ["rgt"], :name => "index_categories_on_rgt"
   add_index "categories", ["slug"], :name => "index_categories_on_slug"
+  add_index "categories", ["updated_at"], :name => "index_categories_on_updated_at"
 
   create_table "companies", :force => true do |t|
     t.string   "name"
@@ -57,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20120809183451) do
   add_index "companies", ["cel"], :name => "index_companies_on_cel"
   add_index "companies", ["direccion"], :name => "index_companies_on_direccion"
   add_index "companies", ["homepage"], :name => "index_companies_on_homepage"
-  add_index "companies", ["name"], :name => "index_companies_on_name"
+  add_index "companies", ["name"], :name => "index_companies_on_name", :unique => true
   add_index "companies", ["slug"], :name => "index_companies_on_slug"
   add_index "companies", ["tel"], :name => "index_companies_on_tel"
 
@@ -72,6 +75,10 @@ ActiveRecord::Schema.define(:version => 20120809183451) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end
+
+  add_index "feed_entries", ["guid"], :name => "index_feed_entries_on_guid"
+  add_index "feed_entries", ["source", "guid"], :name => "index_feed_entries_on_source_and_guid"
+  add_index "feed_entries", ["source"], :name => "index_feed_entries_on_source"
 
   create_table "friendly_id_slugs", :force => true do |t|
     t.string   "slug",                         :null => false

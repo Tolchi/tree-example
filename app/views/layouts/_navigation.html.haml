@@ -12,7 +12,5 @@
       %li= link_to '업소록', companies_path
       %li= link_to '자유게시판', forum_path
       %li= link_to '벼룩시장', market_path
-      - if is_admin?
-        %li= link_to '카테고리', categories_path
       - if user_signed_in?
         %li= link_to('Logout', destroy_user_session_path, :method=>'delete')

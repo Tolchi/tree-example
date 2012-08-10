@@ -1,5 +1,3 @@
 .span2
   %h3.lead 카테고리 
-  - if is_admin?
-    = link_to t('.new', :default => t("helpers.links.new")), new_category_path, :class => 'btn btn-primary'
   = sortable_tree @categories, :path => 'categories/tree/base', :title => :name, :js => true, :max_levels => 1

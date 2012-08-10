@@ -14,7 +14,4 @@
   -else
     .span12
       .row
-      - if is_admin?
-        = link_to t('.new', :default => t("helpers.links.new")), new_company_path, :class => 'btn btn-primary'
-      .row
         = render 'companies/table'

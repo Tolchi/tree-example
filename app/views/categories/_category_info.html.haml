@@ -3,10 +3,6 @@
     .span10.category_title.lead
       카테고리:
       = @category.name
-      - if is_admin?
-        .form-actions
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_category_path(@category), :class => 'btn'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), category_path(@category), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
   - if @children
     .row
       .span10.category_title.lead

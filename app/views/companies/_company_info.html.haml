@@ -47,10 +47,6 @@
         %strong 카테고리
         %br
         = link_to @company.category.name, @company.category, :class => "btn btn-mini btn-info"
-        - if is_admin?
-          .form-actions
-            = link_to t('.edit', :default => t("helpers.links.edit")), edit_company_path(@company), :class => 'btn'
-            = link_to t('.destroy', :default => t("helpers.links.destroy")), company_path(@company), :method => "delete", :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')), :class => 'btn btn-danger'
       - if @company.category.name.eql?("식당-분식점") && FileTest.exists?("app/views/companies/#{@company.id}.html.haml")
         %strong 메뉴
         = render :template => "companies/#{@company.id}"
