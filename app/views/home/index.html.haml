@@ -3,12 +3,8 @@
   = render 'layouts/messages'
   .span12
     .row
-      .span7
-        %h1#logo.hidden-phone
-          = link_to "아르헨티나 한인네트워크", root_path
-      .span5
-        %a{:href => "http://mytimon.com", :target => "_new"}
-          =image_tag "olympic-banner.png", :alt => "8월 12일까지 한국 올림픽 방송"
+      %h1#logo.hidden-phone
+        = link_to "아르헨티나 한인네트워크", root_path
   .span12
     .row
       = render 'home/nivo'
