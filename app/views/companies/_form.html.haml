@@ -1,16 +1,16 @@
 = simple_form_for @company, :html => { :class => 'form-horizontal' } do |f|
   = f.input :name, :label => "회사이름"
-  = f.input :direccion, :label => "주소"
+  = f.input :direccion, :label => "주소", :required => false
   = f.input :piso, :required => false
   = f.input :depto, :required => false
   = f.input :ciudad, :input_html => { :value => "Capital Federal" }
-  = f.input :provincia, :input_hmlt => { :value => "Buenos Aires" }
+  = f.input :provincia, :input_html => { :value => "Buenos Aires" }
   = f.input :tel, :required => false
   = f.input :cel, :required => false
   = f.input :otro_contacto, :label => "기타 연락처", :required => false
-  = f.input :homepage, :label => "홈페이지 주소", :required => false
+  = f.input :homepage, :label => "홈페이지 주소", :hint => "http:// 를 맨 앞에 써주세요", :required => false
   = f.input :misc, :label => "비고", :required => false
-  = f.input :tag_list, :label => "Tags", :hint => "separated by comma", :required => false
+  = f.input :tag_list, :label => "Tags", :hint => "쉼표로 띄워주세요", :required => false
   = f.association :category, :collection => Category.all(:order => 'name'), :prompt => "카테고리 선택하세요"
   .form-actions
     = f.button :submit, :class => 'btn btn-primary'

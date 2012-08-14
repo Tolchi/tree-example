@@ -2,7 +2,8 @@
   = f.input :name
   = f.input :icon
   = f.input :parent_id do
-    = f.select :parent_id, sorted_nested_set_options(Category, lambda(&:name)) {|i, level| "#{'-' * level} #{i.name}" }, :include_blank => true
+    - sort_method = lambda{|x| x.name.mb_chars.downcase}
+    = f.select :parent_id, sorted_nested_set_options(Category, sort_method) {|i, level| "#{'-' * level} #{i.name}" }, :include_blank => true
   .form-actions
     = f.button :submit, :class => 'btn-primary'
     = link_to t('.cancel', :default => t("helpers.links.cancel")), categories_path, :class => 'btn'

@@ -16,6 +16,7 @@
 
 # -*- encoding : utf-8 -*-
 class Category < ActiveRecord::Base
+  scope :name_ordered, order("name ASC")
   attr_accessible :name, :parent_id, :icon
   acts_as_nested_set
   include TheSortableTree::Scopes
@@ -25,7 +26,7 @@ class Category < ActiveRecord::Base
   extend FriendlyId
   #friendly_id :name, use: [:globalize, :slugged, :history]
   friendly_id :name
-  default_scope :order => 'name ASC'
+  #default_scope :order => 'name ASC'
 
   def should_generate_new_friendly_id?
     new_record?

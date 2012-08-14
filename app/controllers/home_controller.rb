@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   before_filter :fetch_categories
   def index
     @topcat_subcat = Hash.new
-    @top_categories = Category.includes(:children).roots
+    @top_categories = @categories.roots
     @keyword = String.new
     @top_categories.each do |tc|
       @keyword << tc.name << " "

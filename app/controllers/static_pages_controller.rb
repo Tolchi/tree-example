@@ -30,6 +30,6 @@ class StaticPagesController < ApplicationController
   protected
 
   def set_ariane
-    super
+    ariane.add '홈', root_path
   end
 end

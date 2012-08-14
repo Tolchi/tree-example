@@ -24,7 +24,7 @@ gem "devise", ">= 2.1.0.rc2"
 gem "therubyracer", :group => :assets, :platform => :ruby
 gem "simple_form"
 gem "will_paginate", ">= 3.0.3"
-gem "nested_set"
+gem "nested_set" 
 gem "the_sortable_tree"
 gem "yaml_db"
 gem "ransack"
@@ -46,5 +46,6 @@ gem 'feedzirra', '>= 0.2.0.rc2'
 gem 'whenever', :require => false
 gem 'dalli'
 gem 'friendly_id'
-gem 'select2-rails', '~> 2.1.0'
-gem 'rack-mini-profiler'
+gem 'select2-rails', "~> 2.1.0"
+#gem 'rack-mini-profiler'
+gem 'rails_admin'

@@ -16,9 +16,9 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @company = Company.includes(:category).find(params[:id])
-    if request.path != company_path(@company)
-      redirect_to @company, status: :moved_permanently
-    end
+    #if request.path != company_path(@company)
+    #  redirect_to @company, status: :moved_permanently
+    #end
     @json = @company.to_gmaps4rails
     @tags = @company.tag_list
     ariane.add @company.name, @company
@@ -94,7 +94,7 @@ class CompaniesController < ApplicationController
   end
   protected
   def set_ariane
-    super
+    ariane.add '홈', root_path
     ariane.add '업소록', companies_path
   end
 end

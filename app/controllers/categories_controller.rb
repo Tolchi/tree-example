@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   def index
     #expires_in 24.hours
     #fresh_when last_modified: @max, public: true
-    @roots = Category.includes(:children).roots
+    @roots = @categories.roots
     @keyword = String.new
 
     @roots.each do |r|
@@ -39,15 +39,15 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.includes(:children).includes(:companies).find(params[:id])
-    if request.path != category_path(@category)
-      redirect_to @category, status: :moved_permanently
-    end
+    #if request.path != category_path(@category)
+    #  redirect_to @category, status: :moved_permanently
+    #end
     if @category
       @keyword = String.new 
       @keyword << @category.name << " "
       @coms = @category.companies.paginate(:page => params[:page], :per_page => 15)
       unless @category.leaf?
-        @children = @category.children
+        @children = @category.children.sort! {|a,b| a.name<=>b.name}
         @children.each do |child|
           @keyword << child.name << " "
         end
@@ -134,7 +134,7 @@ class CategoriesController < ApplicationController
   
   protected
   def set_ariane
-    super
+    ariane.add '홈', root_path
     ariane.add '카테고리', categories_path
   end
 end
