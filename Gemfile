@@ -47,5 +47,6 @@ gem 'whenever', :require => false
 gem 'dalli'
 gem 'friendly_id'
 gem 'select2-rails', "~> 2.1.0"
-#gem 'rack-mini-profiler'
+gem 'rack-mini-profiler'
 gem 'rails_admin'
+gem 'rails_admin_tag_list'

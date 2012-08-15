@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 TreeExample::Application.routes.draw do
-  mount RailsAdmin::Engine => '/rails_admin', :as => 'rails_admin'
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   get 'companies/page/:page', to: 'companies#index'
   get "static_pages/help"

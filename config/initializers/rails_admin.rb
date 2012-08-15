@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # RailsAdmin config file. Generated on August 14, 2012 12:24
 # See github.com/sferik/rails_admin for more informations
 
@@ -16,7 +17,7 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, User
 
   # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
-  config.main_app_name = ['Tree Example', 'Admin']
+  config.main_app_name = ['아르헨티나 한인 네트워크', '관리자 모드']
   # or for a dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 

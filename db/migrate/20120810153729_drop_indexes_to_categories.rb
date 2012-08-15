@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DropIndexesToCategories < ActiveRecord::Migration
   def change
     remove_index :categories, [:lft, :rgt]
