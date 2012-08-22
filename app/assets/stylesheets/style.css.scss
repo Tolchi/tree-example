@@ -445,3 +445,10 @@ form.well {
 .list-companies.well {
   padding: 9px;
 }
+.select2-drop {
+  overflow-y: scroll;
+  height: 200px;
+}
+.select2-search input {
+  margin: 4px 0 0 0;
+}
