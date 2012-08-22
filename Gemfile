@@ -46,7 +46,7 @@ gem 'feedzirra', '>= 0.2.0.rc2'
 gem 'whenever', :require => false
 gem 'dalli'
 gem 'friendly_id'
-gem 'select2-rails', "~> 2.1.0"
+gem 'select2-rails'
 gem 'rack-mini-profiler'
 gem 'rails_admin'
 gem 'rails_admin_tag_list'
