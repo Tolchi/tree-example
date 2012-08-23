@@ -1,4 +1,6 @@
 # -*- encoding : utf-8 -*-
+# Companies controller
+# not much to say.
 class CompaniesController < ApplicationController
   before_filter :set_ariane
   load_and_authorize_resource
@@ -16,17 +18,14 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
   def show
     @company = Company.includes(:category).find(params[:id])
-    #if request.path != company_path(@company)
-    #  redirect_to @company, status: :moved_permanently
-    #end
     @json = @company.to_gmaps4rails
     @tags = @company.tag_list
     ariane.add @company.name, @company
-    @keyword = String.new 
-    @keyword << @company.name << " " << @company.category.name << " " 
-    unless @tags.to_s.nil? 
+    @keyword = String.new
+    @keyword << @company.name << " " << @company.category.name << " "
+    unless @tags.to_s.nil?
       if @tags.size > 1
-        @keyword << @tags.to_s.gsub!(/,/, "") 
+        @keyword << @tags.to_s.gsub!(/,/, "")
       else
         @keyword << @tags.to_s
       end
@@ -56,11 +55,17 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.save
-        format.html { redirect_to @company, notice: 'Company was successfully created.' }
-        format.json { render json: @company, status: :created, location: @company }
+        format.html {
+          redirect_to @company, notice: 'Company was successfully created.'
+        }
+        format.json {
+          render json: @company, status: :created, location: @company
+        }
       else
         format.html { render action: "new" }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
+        format.json {
+          render json: @company.errors, status: :unprocessable_entity
+        }
       end
     end
   end
@@ -72,11 +77,15 @@ class CompaniesController < ApplicationController
 
     respond_to do |format|
       if @company.update_attributes(params[:company])
-        format.html { redirect_to @company, notice: 'Company was successfully updated.' }
+        format.html {
+          redirect_to @company, notice: 'Company was successfully updated.'
+        }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @company.errors, status: :unprocessable_entity }
+        format.json {
+          render json: @company.errors, status: :unprocessable_entity
+        }
       end
     end
   end

@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+# To send mail to admin
 class ContactController < ApplicationController
   def new
     @message = Message.new

@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+# Home controller.(root_path)
 class HomeController < ApplicationController
   include FetchCategories
   before_filter :fetch_categories
@@ -9,7 +10,7 @@ class HomeController < ApplicationController
     @top_categories.each do |tc|
       @keyword << tc.name << " "
       a = Array.new
-      unless tc.leaf? 
+      unless tc.leaf?
         tc.children.each do |ch|
           a.push ch
         end

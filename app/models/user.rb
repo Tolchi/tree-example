@@ -19,6 +19,8 @@
 #  name                   :string(255)
 #
 
+# User model.
+# for now, exists 2 users 1 admin for CRUD and 1 normal user for test.
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -31,5 +33,5 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true
   validates_uniqueness_of :name, :email, :case_sensitive => false
-	rolify
+  rolify
 end

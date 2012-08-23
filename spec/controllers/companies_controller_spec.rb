@@ -27,7 +27,7 @@ describe CompaniesController do
   def valid_attributes
     {}
   end
-  
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # CompaniesController. Be sure to keep this updated too.
@@ -111,19 +111,23 @@ describe CompaniesController do
         # specifies that the Company created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Company.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => company.to_param, :company => {'these' => 'params'}}, valid_session
+        Company.any_instance.should_receive
+          (:update_attributes).with({'these' => 'params'})
+        put :update, {:id => company.to_param,
+                      :company => {'these' => 'params'}}, valid_session
       end
 
       it "assigns the requested company as @company" do
         company = Company.create! valid_attributes
-        put :update, {:id => company.to_param, :company => valid_attributes}, valid_session
+        put :update, {:id => company.to_param,
+                      :company => valid_attributes}, valid_session
         assigns(:company).should eq(company)
       end
 
       it "redirects to the company" do
         company = Company.create! valid_attributes
-        put :update, {:id => company.to_param, :company => valid_attributes}, valid_session
+        put :update, {:id => company.to_param,
+                      :company => valid_attributes}, valid_session
         response.should redirect_to(company)
       end
     end

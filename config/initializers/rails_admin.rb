@@ -82,19 +82,19 @@ RailsAdmin.config do |config|
 
   # config.model Category do
   #   # Found associations:
-  #     configure :parent, :belongs_to_association 
-  #     configure :children, :has_many_association 
-  #     configure :companies, :has_many_association 
+  #     configure :parent, :belongs_to_association
+  #     configure :children, :has_many_association
+  #     configure :companies, :has_many_association
   #     configure :roles, :has_many_association   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :name, :string 
-  #     configure :parent_id, :integer         # Hidden 
-  #     configure :lft, :integer 
-  #     configure :rgt, :integer 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :icon, :string 
-  #     configure :slug, :string 
+  #     configure :id, :integer
+  #     configure :name, :string
+  #     configure :parent_id, :integer         # Hidden
+  #     configure :lft, :integer
+  #     configure :rgt, :integer
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
+  #     configure :icon, :string
+  #     configure :slug, :string
   #     configure :companies_count, :integer   #   # Sections:
   #   list do; end
   #   export do; end
@@ -105,30 +105,30 @@ RailsAdmin.config do |config|
   # end
   # config.model Company do
   #   # Found associations:
-  #     configure :category, :belongs_to_association 
-  #     configure :taggings, :has_many_association         # Hidden 
-  #     configure :base_tags, :has_many_association         # Hidden 
-  #     configure :tag_taggings, :has_many_association         # Hidden 
-  #     configure :tags, :has_many_association         # Hidden 
+  #     configure :category, :belongs_to_association
+  #     configure :taggings, :has_many_association         # Hidden
+  #     configure :base_tags, :has_many_association         # Hidden
+  #     configure :tag_taggings, :has_many_association         # Hidden
+  #     configure :tags, :has_many_association         # Hidden
   #     configure :roles, :has_many_association   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :name, :string 
-  #     configure :direccion, :string 
-  #     configure :tel, :string 
-  #     configure :category_id, :integer         # Hidden 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :cel, :string 
-  #     configure :otro_contacto, :string 
-  #     configure :misc, :string 
-  #     configure :homepage, :string 
-  #     configure :latitude, :float 
-  #     configure :longitude, :float 
-  #     configure :gmaps, :boolean 
-  #     configure :piso, :string 
-  #     configure :depto, :string 
-  #     configure :ciudad, :string 
-  #     configure :provincia, :string 
+  #     configure :id, :integer
+  #     configure :name, :string
+  #     configure :direccion, :string
+  #     configure :tel, :string
+  #     configure :category_id, :integer         # Hidden
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
+  #     configure :cel, :string
+  #     configure :otro_contacto, :string
+  #     configure :misc, :string
+  #     configure :homepage, :string
+  #     configure :latitude, :float
+  #     configure :longitude, :float
+  #     configure :gmaps, :boolean
+  #     configure :piso, :string
+  #     configure :depto, :string
+  #     configure :ciudad, :string
+  #     configure :provincia, :string
   #     configure :slug, :string   #   # Sections:
   #   list do; end
   #   export do; end
@@ -140,15 +140,15 @@ RailsAdmin.config do |config|
   # config.model FeedEntry do
   #   # Found associations:
   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :name, :string 
-  #     configure :summary, :text 
-  #     configure :url, :string 
-  #     configure :published_at, :datetime 
-  #     configure :guid, :string 
-  #     configure :hashe, :string 
-  #     configure :source, :string 
-  #     configure :created_at, :datetime 
+  #     configure :id, :integer
+  #     configure :name, :string
+  #     configure :summary, :text
+  #     configure :url, :string
+  #     configure :published_at, :datetime
+  #     configure :guid, :string
+  #     configure :hashe, :string
+  #     configure :source, :string
+  #     configure :created_at, :datetime
   #     configure :updated_at, :datetime   #   # Sections:
   #   list do; end
   #   export do; end
@@ -159,13 +159,13 @@ RailsAdmin.config do |config|
   # end
   # config.model Role do
   #   # Found associations:
-  #     configure :resource, :polymorphic_association 
+  #     configure :resource, :polymorphic_association
   #     configure :users, :has_and_belongs_to_many_association   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :name, :string 
-  #     configure :resource_id, :integer         # Hidden 
-  #     configure :resource_type, :string         # Hidden 
-  #     configure :created_at, :datetime 
+  #     configure :id, :integer
+  #     configure :name, :string
+  #     configure :resource_id, :integer         # Hidden
+  #     configure :resource_type, :string         # Hidden
+  #     configure :created_at, :datetime
   #     configure :updated_at, :datetime   #   # Sections:
   #   list do; end
   #   export do; end
@@ -177,20 +177,20 @@ RailsAdmin.config do |config|
   # config.model User do
   #   # Found associations:
   #     configure :roles, :has_and_belongs_to_many_association   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :email, :string 
-  #     configure :password, :password         # Hidden 
-  #     configure :password_confirmation, :password         # Hidden 
-  #     configure :reset_password_token, :string         # Hidden 
-  #     configure :reset_password_sent_at, :datetime 
-  #     configure :remember_created_at, :datetime 
-  #     configure :sign_in_count, :integer 
-  #     configure :current_sign_in_at, :datetime 
-  #     configure :last_sign_in_at, :datetime 
-  #     configure :current_sign_in_ip, :string 
-  #     configure :last_sign_in_ip, :string 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
+  #     configure :id, :integer
+  #     configure :email, :string
+  #     configure :password, :password         # Hidden
+  #     configure :password_confirmation, :password         # Hidden
+  #     configure :reset_password_token, :string         # Hidden
+  #     configure :reset_password_sent_at, :datetime
+  #     configure :remember_created_at, :datetime
+  #     configure :sign_in_count, :integer
+  #     configure :current_sign_in_at, :datetime
+  #     configure :last_sign_in_at, :datetime
+  #     configure :current_sign_in_ip, :string
+  #     configure :last_sign_in_ip, :string
+  #     configure :created_at, :datetime
+  #     configure :updated_at, :datetime
   #     configure :name, :string   #   # Sections:
   #   list do; end
   #   export do; end

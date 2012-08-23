@@ -27,7 +27,7 @@ describe CategoriesController do
   def valid_attributes
     {}
   end
-  
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # CategoriesController. Be sure to keep this updated too.
@@ -111,19 +111,23 @@ describe CategoriesController do
         # specifies that the Category created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Category.any_instance.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, {:id => category.to_param, :category => {'these' => 'params'}}, valid_session
+        Category.any_instance.should_receive
+                            (:update_attributes).with({'these' => 'params'})
+        put :update, {:id => category.to_param,
+                      :category => {'these' => 'params'}}, valid_session
       end
 
       it "assigns the requested category as @category" do
         category = Category.create! valid_attributes
-        put :update, {:id => category.to_param, :category => valid_attributes}, valid_session
+        put :update, {:id => category.to_param,
+                      :category => valid_attributes}, valid_session
         assigns(:category).should eq(category)
       end
 
       it "redirects to the category" do
         category = Category.create! valid_attributes
-        put :update, {:id => category.to_param, :category => valid_attributes}, valid_session
+        put :update, {:id => category.to_param,
+                      :category => valid_attributes}, valid_session
         response.should redirect_to(category)
       end
     end

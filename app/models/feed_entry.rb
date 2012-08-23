@@ -15,6 +15,8 @@
 #  updated_at   :datetime         not null
 #
 
+# News feed model.
+# need a database model for background updates.
 class FeedEntry < ActiveRecord::Base
   attr_accessible :guid, :hashe, :name, :published_at, :source, :summary, :url
   scope :yh , where("source = ?", 'yh').order("guid DESC")
@@ -22,7 +24,8 @@ class FeedEntry < ActiveRecord::Base
 
   def self.update_from_feed
     # Need to optimize this
-    feed = Feedzirra::Feed.fetch_and_parse("http://www.yonhapnews.co.kr/RSS/sokbo.xml")
+    feed = Feedzirra::Feed.fetch_and_parse
+                ("http://www.yonhapnews.co.kr/RSS/sokbo.xml")
     yh = add_entries(feed.entries, 'yh')
     feed = Feedzirra::Feed.fetch_and_parse("http://www.telam.com.ar/xml/rss/")
     tl = add_entries(feed.entries, 'tl')
@@ -35,7 +38,7 @@ class FeedEntry < ActiveRecord::Base
 
   def self.add_entries(entries, source)
     modificado = false
-    entries.each do |entry| # Here(maybe) produce app error: undefined method `each' for nil:NilClass (NoMethodError) unicorn error
+    entries.each do |entry|
       upd = false
       unless exists? :guid => entry.id
         create!(

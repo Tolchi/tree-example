@@ -25,12 +25,15 @@
 #
 
 # -*- encoding : utf-8 -*-
+# Company model
 class Company < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :tags
   acts_as_gmappable
-  attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contacto, :misc, :homepage, :tag_list, :piso, :depto, :ciudad, :provincia
-  belongs_to :category, touch: true, counter_cache: true, :inverse_of => :companies
+  attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contacto,
+    :misc, :homepage, :tag_list, :piso, :depto, :ciudad, :provincia
+  belongs_to :category, touch: true, counter_cache: true,
+             :inverse_of => :companies
   resourcify
   validates_presence_of :name, :category_id
   validates_uniqueness_of :name
@@ -43,7 +46,7 @@ class Company < ActiveRecord::Base
     unless self.direccion.blank?
       d = String.new << self.direccion
       unless self.piso.blank?
-        d << " " << self.piso << "층" 
+        d << " " << self.piso << "층"
       end
       unless self.depto.blank?
         d << " " << self.depto << "호"
@@ -85,6 +88,8 @@ class Company < ActiveRecord::Base
   end
 
   def as_json(option={})
-    super(:only => [:id, :name, :direccion, :piso, :depto, :ciudad, :provincia, :tel, :cel, :otro_contacto, :homepage, :category_id])
+    super(:only => [:id, :name, :direccion, :piso, :depto,
+                    :ciudad, :provincia, :tel, :cel,
+                    :otro_contacto, :homepage, :category_id])
   end
 end

@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+# Default controller
 class ApplicationController < ActionController::Base
   protect_from_forgery
   rescue_from CanCan::AccessDenied do |exception|
