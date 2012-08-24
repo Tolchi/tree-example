@@ -30,8 +30,10 @@ class Company < ActiveRecord::Base
   acts_as_taggable
   acts_as_taggable_on :tags
   acts_as_gmappable
-  attr_accessible :category_id, :direccion, :name, :tel, :cel, :otro_contacto,
-    :misc, :homepage, :tag_list, :piso, :depto, :ciudad, :provincia
+  attr_accessible :category_id, :direccion, :name,
+                  :tel, :cel, :otro_contacto,
+                  :misc, :homepage, :tag_list,
+                  :piso, :depto, :ciudad, :provincia
   belongs_to :category, touch: true, counter_cache: true,
              :inverse_of => :companies
   resourcify

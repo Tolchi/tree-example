@@ -50,3 +50,4 @@ gem 'select2-rails'
 gem 'rack-mini-profiler'
 gem 'rails_admin'
 gem 'rails_admin_tag_list'
+gem "rails-erd", :group => :development
