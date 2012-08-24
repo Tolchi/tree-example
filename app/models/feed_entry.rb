@@ -24,8 +24,8 @@ class FeedEntry < ActiveRecord::Base
 
   def self.update_from_feed
     # Need to optimize this
-    feed = Feedzirra::Feed.fetch_and_parse
-                ("http://www.yonhapnews.co.kr/RSS/sokbo.xml")
+    feed = 
+      Feedzirra::Feed.fetch_and_parse("http://www.yonhapnews.co.kr/RSS/sokbo.xml")
     yh = add_entries(feed.entries, 'yh')
     feed = Feedzirra::Feed.fetch_and_parse("http://www.telam.com.ar/xml/rss/")
     tl = add_entries(feed.entries, 'tl')
