@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 gem 'sqlite3'
 group :assets do
   gem 'sass-rails',   '>= 3.2.3'
@@ -51,3 +51,4 @@ gem 'rack-mini-profiler'
 gem 'rails_admin'
 gem 'rails_admin_tag_list'
 gem "rails-erd", :group => :development
+gem 'turbolinks'
