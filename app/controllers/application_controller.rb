@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
   helper_method :is_admin?
+  helper :all
 
   protected
 

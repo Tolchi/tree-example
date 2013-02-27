@@ -1,5 +1,10 @@
-﻿/* mixins, variables, etc. */
+﻿@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+
+/* mixins, variables, etc. */
 $link_color: #ff7930;
+$icon-radius: 30px;
 
 @mixin text {
   margin-top:20px;
@@ -9,27 +14,6 @@ $link_color: #ff7930;
   font-family: Arial, Helvetica, Sans-serif;
   color: black;
   text-align: justify;
-}
-
-@font-face {
-  font-family: 'NanumGothic';
-  src: url(asset-path('NanumGothic.eot?',font)) format('eot'), 
-       url(asset-path('NanumGothic.woff',font)) format('woff'), 
-       url(asset-path('NanumGothic.ttf',font))  format('truetype');
-}
-@font-face {
-  font-family: 'NanumGothicCoding';
-  src: url(asset-path('NanumGothic_Coding.eot?',font)) format('eot'), 
-       url(asset-path('NanumGothic_Coding.woff',font)) format('woff'), 
-       url(asset-path('NanumGothic_Coding.ttf',font))  format('truetype'),
-       url(asset-path('NanumGothic_Coding.svg#NanumGothic_Coding',font)) format('svg');
-}
-@font-face {
-  font-family: 'NanumMyeongjo';
-  src: url(asset-path('NanumMyeongjo.eot?',font)) format('eot'), 
-       url(asset-path('NanumMyeongjo.woff',font)) format('woff'), 
-       url(asset-path('NanumMyeongjo.ttf',font))  format('truetype'),
-       url(asset-path('NanumMyeongjo.svg#NanumMyeongjo',font)) format('svg');
 }
 
 .category_separator {
@@ -76,19 +60,21 @@ ul.thumbnails {
     .thumbnail60px {
       float: left;
       width: 60px;
+      height: 60px;
       a {
         &:hover {
           text-decoration: none;
         }
         i.icon60 {
           opacity: .6;
-          font-size: 50px;
+          font-size: 45px;
           color: #fff;
           background-color: #282828;
-          border-radius: 33px;
-          -moz-border-radius: 33px;
-          -webkit-border-radius: 33px;
-          padding-top: 6px;
+          border-radius: $icon-radius;
+          -moz-border-radius: $icon-radius;
+          -webkit-border-radius: $icon-radius;
+          -o-border-radius: $icon-radius;
+          padding-top: 2px;
           position: relative;
           transition: background-color 0.3s ease-in-out 0.12s, transform 0.3s;
           -webkit-transition: background-color 0.3s ease-in-out 0.12s, -webkit-transform 0.3s;

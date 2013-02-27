@@ -22,8 +22,8 @@
 //= require bootstrap-collapse
 //= require bootstrap-dropdown
 //= require modernizr
-//= require sortable/base
-//= require comments/base
+//= require jquery.ui.nestedSortable
+//= require sortable_tree/initializer
 //= require jquery.nivo.slider.pack
 //= require jquery.zweatherfeed.min
 //= require select2
