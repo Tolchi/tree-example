@@ -132,7 +132,7 @@ class CategoriesController < ApplicationController
   end
 
   def manage
-    @categories = Category.nested_set.all
+    @categories = Category.nested_set.select('id, name, parent_id, icon').all
   end
 
   protected

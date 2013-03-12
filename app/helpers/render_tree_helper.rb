@@ -15,14 +15,41 @@ module RenderTreeHelper
         @h, @options = h, options
 
         node = options[:node]
-        "
-          <li>
-            <div class='item'>
+        if !(node.level >= 1)
+          result = "
+            <li>
+              <div class='btn-group'>
+                <div class='item btn'>
+                  #{ show_link }
+                </div>
+          "
+          if !node.children.blank? 
+            result = result + "
+                <button class='btn dropdown-toggle' data-toggle='dropdown'>
+                  <span class='caret'>
+                  </span>
+                </button>
+                #{ children }
+              </div>
+            </li>
+            "
+          else 
+            result = result +"
+                <button class='btn dropdown-toggle' data-toggle='dropdown' disabled='disabled'>
+                  <span class='caret'></span>
+                </button>
+              </div>
+            </li>
+            "
+          end
+          return result
+        else 
+          "
+            <li>
               #{ show_link }
-            </div>
-            #{ children }
-          </li>
-        "
+            </li>
+         "
+        end
       end
 
       def show_link
@@ -31,12 +58,12 @@ module RenderTreeHelper
         url  = h.url_for(ns + [node])
         title_field = options[:title]
 
-        "<h4>#{ h.link_to(node.send(title_field), url) }</h4>"
+        "#{ h.link_to(node.send(title_field), url) }"
       end
 
       def children
         unless options[:children].blank?
-          "<ol>#{ options[:children] }</ol>"
+          "<ul class='dropdown-menu'>#{ options[:children] }</ul>"
         end
       end
 

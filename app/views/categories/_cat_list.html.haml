@@ -1,3 +1,5 @@
 .span2
   %h3.lead 카테고리 
-  = sortable_tree @categories, :path => 'categories/tree/base', :title => :name, :js => true, :max_levels => 1
+  .arbol.btn-group
+    %ol.nested_set{ data: { max_levels: 1 } }
+      = just_tree @categories, :title => :name
