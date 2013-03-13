@@ -15,6 +15,7 @@ module RenderTreeHelper
         @h, @options = h, options
 
         node = options[:node]
+        child = !node.children.blank?
         if !(node.level >= 1)
           result = "
             <li>
@@ -23,25 +24,28 @@ module RenderTreeHelper
                   #{ show_link }
                 </div>
           "
-          if !node.children.blank? 
+          if child 
             result = result + "
                 <button class='btn dropdown-toggle' data-toggle='dropdown'>
-                  <span class='caret'>
-                  </span>
-                </button>
-                #{ children }
-              </div>
-            </li>
             "
-          else 
-            result = result +"
+          else
+            result = result + "
                 <button class='btn dropdown-toggle' data-toggle='dropdown' disabled='disabled'>
-                  <span class='caret'></span>
-                </button>
-              </div>
-            </li>
             "
           end
+          result = result + "
+                <span class='caret'></span>
+              </button>
+          "
+          if child
+            result = result + "
+                #{ children }
+            "
+          end
+          result = result + "
+              </div>
+            </li>
+            "
           return result
         else 
           "
