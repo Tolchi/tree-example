@@ -5,7 +5,7 @@
   = render 'layouts/messages'
   = render 'layouts/breadcrumbs'
   = render 'categories/catside'
-  .span10.single-category
+  .span10.single-category{:'data-no-turbolink' => true}
     %section#categories.well.well-small
       = render 'categories/category_info'
     %p

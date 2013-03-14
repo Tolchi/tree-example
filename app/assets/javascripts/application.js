@@ -11,6 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery-ui
 //= require jquery.ui.nestedSortable
 //= require jquery_ujs
@@ -29,4 +30,5 @@
 //= require select2
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
+//= require turbolinks
 //= require_tree .

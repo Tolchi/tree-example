@@ -1,4 +1,4 @@
 - cache("#{@max}-catside") do
   .span2
-    .row.cat_list
+    .row.cat_list{:'data-no-turbolink' => true}
       = render 'categories/cat_list'

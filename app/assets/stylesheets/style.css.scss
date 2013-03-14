@@ -5,6 +5,11 @@
 /* mixins, variables, etc. */
 $link_color: #ff7930;
 $icon-radius: 50%;
+$grey_color: #7F7F7F;
+$default_background_color: #282828;
+$thumbnail-radius: 6px;
+$breadcrumb_color: #777;
+$row_border_color: #333;
 
 @mixin text {
   margin-top:20px;
@@ -34,26 +39,26 @@ $icon-radius: 50%;
 	margin-right: 5px;
 }
 .gray14light {
-	color: #7F7F7F;
+	color: $grey_color;
 }
 .gray10light {
 	font-size: 0.70em;
-	color: #7F7F7F;
+	color: $grey_color;
 }
 
 .gray14bold {
 	font-weight: bold;
-	color: #7F7F7F;
+	color: $grey_color;
 }
 .gray11bold {
 	font-size: 0.82em;
 	font-weight: bold;
-	color: #7F7F7F;
+	color: $grey_color;
 }
 ul.thumbnails {
-  -webkit-border-radius: 6px;  
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  -webkit-border-radius: $thumbnail-radius;  
+  -moz-border-radius:  $thumbnail-radius;
+  border-radius:  $thumbnail-radius;
   li.span3 {
     display: inline;
     margin-bottom: 10px;
@@ -69,7 +74,7 @@ ul.thumbnails {
           opacity: .6;
           font-size: 45px;
           color: #fff;
-          background-color: #282828;
+          background-color: $default_background_color;
           border-radius: $icon-radius;
           -moz-border-radius: $icon-radius;
           -webkit-border-radius: $icon-radius;
@@ -183,7 +188,7 @@ footer {
   color: white;
   height: 28px;
   padding-top: 8px;
-  background-color: #282828;
+  background-color: $default_background_color;
   font-size: 0.85em;
   #footer-logos {
     float: left;
@@ -210,7 +215,7 @@ footer {
     }
   }
   small {
-    color: #fff;
+    color: white;
     float: left;
   }
   ul {
@@ -278,7 +283,7 @@ footer {
   height: 250px;
   margin-right: 20px;
   text-align: center;
-  text-shadow: 2px 2px 3px #333;
+  text-shadow: 2px 2px 3px $row_border_color;
 }
 #slide {
   float: right;
@@ -317,8 +322,8 @@ footer {
   }
 }
 .row.border {
-  border-left: 1px dotted #333;   
-  border-right: 1px dotted #333;  
+  border-left: 1px dotted $row_border_color;   
+  border-right: 1px dotted $row_border_color;  
   padding-right: 25px;   
 }
 
@@ -328,17 +333,15 @@ footer {
 
 
 .text2 {
+  margin-left: 25px;
   p {
-    margin-left: 25px;
     @include text;
   }
   h2 {
-    margin-left: 25px;
     text-align: right;
   }
   h3 {
     text-align: right;
-    margin-left: 25px;
   }
 }
 #about_logo {
@@ -382,7 +385,7 @@ form.well {
     li {
       float:left;
       line-height:1.8em;
-      color:#777;       
+      color: $breadcrumb_color;       
       list-style-type:none;
       padding:0 0 0 .73em;
       margin:0;
@@ -392,7 +395,7 @@ form.well {
         background:image-url('crumbs.png') no-repeat right center;   
         &:link, &:visited {
             text-decoration:none;
-            color:#777;
+            color: $breadcrumb_color;
         } 
         &:hover, &:focus {
           color: $link_color;            

@@ -12,6 +12,6 @@
     .span3 
       = link_to "Back", :back, :class => "btn btn-small btn-info"
   -else
-    .span12
+    .span12{:'data-no-turbolink' => true}
       .row
         = render 'companies/table'
