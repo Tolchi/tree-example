@@ -1,3 +1,2 @@
-
-head.ready 'bootstrap-dropdown', ->
+head.ready 'application', ->
   $('.dropdown-toggle').dropdown()

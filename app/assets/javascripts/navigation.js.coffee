@@ -1,4 +1,4 @@
-head.ready 'modernizr', ->
+head.ready 'application', ->
   unless Modernizr.input.placeholder
     $("input").each ->
       if $(this).val() is "" and $(this).attr("placeholder") isnt ""
