@@ -24,8 +24,7 @@
       .container
         = yield
     = render 'layouts/footer'
-    %script{:src => "http://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.load.min.js"}
-    = javascript_include_tag('public/javascripts/head.load.min')
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/headjs/0.99/head.load.min.js"}
     = headjs_include_tag "application"
     = debug(params) if Rails.env.development? 
     = yield :scripts
