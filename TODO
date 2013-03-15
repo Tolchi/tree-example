@@ -1,1 +1,3 @@
 Polish scss using variable & mixin.
+Make fancier top_cat list in Home using transform-3d
+Delete all dependency of dalli(memcache) cache.

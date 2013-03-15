@@ -73,7 +73,7 @@ ul.thumbnails {
         i.icon60 {
           opacity: .6;
           font-size: 45px;
-          color: #fff;
+          color: white;
           background-color: $default_background_color;
           border-radius: $icon-radius;
           -moz-border-radius: $icon-radius;
@@ -153,7 +153,7 @@ ul.thumbnails {
 	border-bottom-color: black;
 }
 a {
-  color: #000;
+  color: black;
 }
 a:hover {
   color: $link_color;
@@ -333,7 +333,7 @@ footer {
 
 
 .text2 {
-  margin-left: 25px;
+  margin: 0 0 0 25px;
   p {
     @include text;
   }
