@@ -19,7 +19,7 @@
         = render 'home/side'
 - content_for :scripts do
   <script type='text/javascript'>
-  head.ready(function() {
+  head.ready('jquery.nivo.slider.pack', function() {
   $(window).load(function() { 
   $('#slider').nivoSlider({ 
   effect:'random', 

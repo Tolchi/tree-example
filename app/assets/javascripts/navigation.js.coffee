@@ -1,4 +1,4 @@
-$(document).ready ->
+head.ready 'modernizr', ->
   unless Modernizr.input.placeholder
     $("input").each ->
       if $(this).val() is "" and $(this).attr("placeholder") isnt ""
@@ -8,4 +8,3 @@ $(document).ready ->
 
         $(this).blur ->
           $(this).val $(this).attr("placeholder")  if $(this).val() is ""
-
