@@ -17,18 +17,24 @@
           = render 'home/topcat'
       .span3.news_side
         = render 'home/side'
-:javascript
-  $(window).load(function() {
-      $('#slider').nivoSlider({
-                            effect:'random',
-                            slices:15,
-                            animSpeed:800,
-                            pauseTime:3000,
-                            directionNav:true, //Next & Prev
-                            controlNav:true, //1,2,3...
-                            pauseOnHover:false, //Stop animation while hovering
-                            captionOpacity:.7 //Universal caption opacity
-
-      });
-      $("a[rel=tooltip]").tooltip();
+- content_for :scripts do
+  <script type='text/javascript'>
+  head.ready(function() {
+  $(window).load(function() { 
+  $('#slider').nivoSlider({ 
+  effect:'random', 
+  slices:15, 
+  boxCols: 8,
+  boxRows: 4,
+  animSpeed:400, 
+  pauseTime:2200, 
+  startSlide: 0,
+  directionNav:true, 
+  controlNav:true, 
+  pauseOnHover:false, 
+  randomStart: false,
+  captionOpacity:.7 }); 
+  $("a[rel=tooltip]").tooltip();
   });
+  })
+  </script>

@@ -135,6 +135,8 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
+    headjs-rails (0.4.1)
+      rails (>= 3.0.0)
     highline (1.6.15)
     hike (1.2.1)
     hirb (0.7.1)
@@ -374,6 +376,7 @@ DEPENDENCIES
   gmaps4rails (>= 1.5.6)
   haml (>= 4.0.0)
   haml-rails (>= 0.4.0)
+  headjs-rails (>= 0.4.1)
   irbtools
   jquery-datatables-rails
   jquery-rails (>= 2.2.1)
