@@ -7,14 +7,9 @@ name space :scheduler do
   end
 
   desc "This task is deleting all feed entries."
-  task :delete_all_feed
+  task :delete_all_feed => :environment do
     puts "Deleting all feed entries"
     FeedEntry.delete_all
     puts "Done."
-  end
-
-
-  task :send_reminders => :environment do
-      User.send_reminders
   end
 end
