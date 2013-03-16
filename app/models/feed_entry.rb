@@ -27,7 +27,7 @@ class FeedEntry < ActiveRecord::Base
     feed = 
       Feedzirra::Feed.fetch_and_parse("http://www.yonhapnews.co.kr/RSS/sokbo.xml")
     yh = add_entries(feed.entries, 'yh')
-    feed = Feedzirra::Feed.fetch_and_parse("http://www.telam.com.ar/xml/rss/")
+    feed = Feedzirra::Feed.fetch_and_parse("http://www.telam.com.ar/rss2/ultimasnoticas.xml")
     tl = add_entries(feed.entries, 'tl')
     if yh || tl # 두개중 하나라도 업데이트가 되었으면 캐시를 지운다.
       ActionController::Base.new.expire_fragment("news_feed")
