@@ -16,6 +16,7 @@ group :development do
   gem 'haml-rails', '>= 0.4.0'
   gem 'annotate', '>=2.5.0'
   gem 'rails-erd', '>= 1.1.0'
+  gem 'bullet', '>= 2.0.0.rc1'
 end
 
 group :development, :test do 

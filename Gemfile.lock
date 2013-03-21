@@ -43,6 +43,8 @@ GEM
       sass (~> 3.2)
     boson (1.2.4)
     builder (3.0.4)
+    bullet (4.4.0)
+      uniform_notifier
     cancan (1.6.9)
     capistrano (2.14.2)
       highline
@@ -305,6 +307,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uniform_notifier (1.2.0)
     warden (1.2.1)
       rack (>= 1.0)
     websocket (1.0.7)
@@ -329,6 +332,7 @@ DEPENDENCIES
   annotate (>= 2.5.0)
   ariane (>= 0.0.3)
   bootstrap-sass (>= 2.3.0.1)
+  bullet (>= 2.0.0.rc1)
   cancan (>= 1.6.9)
   capistrano (>= 2.14.2)
   capybara (>= 2.0.2)

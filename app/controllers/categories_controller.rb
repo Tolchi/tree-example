@@ -39,7 +39,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category =
-      Category.includes(:children).includes(:companies).find(params[:id])
+      Category.includes(:companies).find(params[:id])
     if @category
       @keyword = String.new
       @keyword << @category.name << " "
