@@ -187,7 +187,7 @@ GEM
     methodfinder (1.2.5)
     mime-types (1.21)
     modernizr-rails (2.6.2)
-    multi_json (1.7.1)
+    multi_json (1.7.2)
     nested_set (1.7.1)
       activerecord (>= 3.0.0)
       railties (>= 3.0.0)

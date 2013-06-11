@@ -2,7 +2,7 @@
 require "bundler/capistrano"
 require 'capistrano_colors'
 
-server "50.116.19.170", :web, :app, :db, primary: true
+server "server", :web, :app, :db, primary: true
 
 set :application, "tree-example"
 set :user, "deployer"
@@ -11,7 +11,7 @@ set :deploy_via, :remote_cache
 set :use_sudo, false
 
 set :scm, "git"
-set :repository, "git@50.116.19.170:#{application}.git"
+set :repository, "git@github.com:Tolch/i#{application}.git"
 set :branch, "master"
 set :whenever_command, "bundle exec whenever"
 require 'whenever/capistrano'
