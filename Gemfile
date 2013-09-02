@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 gem 'rails', '3.2.14'
-ruby '1.9.3'
+ruby '2.0.0'
 
 group :assets do
   gem 'sass-rails',   '>= 3.2.6'

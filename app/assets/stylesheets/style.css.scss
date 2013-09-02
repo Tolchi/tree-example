@@ -21,6 +21,10 @@ $row_border_color: #333;
   text-align: justify;
 }
 
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+}
+
 .category_separator {
 	background-image: image-url("category%20space.png");
 	background-repeat: no-repeat;
@@ -376,11 +380,9 @@ form.well {
   }
 }
 .breadcrumb {
-  font-size: .9em;
-}
-.breadcrumb {
   border:1px solid #dedede;
-  height:1.8em;
+  height:2.9em;
+  font-size: .9em;
   ul {
     li {
       float:left;
